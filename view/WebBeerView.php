@@ -13,11 +13,10 @@ private $smarty;
 
   }
 
-  // function mostrarTareas($tareas)
-  // {
-  //   $this->smarty->assign('tareas', $tareas);
-  //   $this->smarty->display('templates/index.tpl');
-  // }
+  function mostrarHome()
+  {
+    $this->smarty->display('templates/index.tpl');
+  }
   //
   // function mostrarCrearTareas()
   // {

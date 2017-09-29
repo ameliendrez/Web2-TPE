@@ -20,7 +20,10 @@ class WebBeerController
     $this->model = new WebBeerModel();
   }
 
-
+  public function index()
+  {
+    $this->view->mostrarHome();
+  }
 
 
 }
