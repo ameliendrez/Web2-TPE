@@ -1,7 +1,7 @@
 <?php
 
 include_once 'view/WebBeerView.php';
-include_once 'model/WebBeerModel.php';
+include_once 'model/BeerModel.php';
 
 define('HOME', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/');
 define('LOGIN', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/login');
@@ -17,7 +17,7 @@ class WebBeerController
   {
 
     $this->view = new WebBeerView();
-    $this->model = new WebBeerModel();
+    $this->model = new BeerModel();
   }
 
   public function index()
