@@ -7,12 +7,11 @@ class ConfigApp{
 
       '' =>  'WebBeerController#index',
       'home' =>  'WebBeerController#index', //home es la accion... index es el método que se va a ejecutar
-      'tareas' =>  'WebBeerController#index'
+      'variedadCerveza' => 'WebBeerController#mostrarEstilo',
+      'proceso' => 'WebBeerController#mostrarProceso',
+      'pedidos' => 'WebBeerController#mostrarPedido'
 
-      // 'agregarTarea' =>  'TareasController#create',
-      // 'guardarTarea' =>  'TareasController#store',
-      // 'borrarTarea' =>  'TareasController#destroy',
-      // 'finalizarTarea' =>  'TareasController#finish',
+
       // 'login' =>  'LoginController#index',
       // 'verificarUsuario' =>  'LoginController#verify'
 

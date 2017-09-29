@@ -25,6 +25,21 @@ class WebBeerController
     $this->view->mostrarHome();
   }
 
+  public function mostrarEstilo()
+  {
+    $this->view->mostrarEstilos();
+  }
+  public function mostrarProceso()
+  {
+    $this->view->mostrarProcesos();
+  }
+  public function mostrarPedido()
+  {
+    $this->view->mostrarPedidos();
+  }
+
+
+
 
 }
 

@@ -17,13 +17,19 @@ private $smarty;
   {
     $this->smarty->display('templates/index.tpl');
   }
-  //
-  // function mostrarCrearTareas()
-  // {
-  //   $this->asignarTareasForm();
-  //   $this->smarty->display('templates/formCrear.tpl');
-  // }
-
+  function mostrarEstilos()
+  {
+    $this->smarty->display('templates/estilos.tpl');
+  }
+  function mostrarProcesos()
+  {
+    $this->smarty->display('templates/proceso.tpl');
+  }
+  function mostrarPedidos()
+  {
+    $this->smarty->display('templates/pedidos.tpl');
+  }
+  
 
 }
 
