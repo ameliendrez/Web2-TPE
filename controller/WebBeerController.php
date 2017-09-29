@@ -1,8 +1,7 @@
 <?php
 
-include_once 'view/CerveceriaView.php';
-include_once 'model/CerveceriaModel.php';
-include_once 'model/PalabrasProhibidasModel.php';
+include_once 'view/WebBeerView.php';
+include_once 'model/WebBeerModel.php';
 
 define('HOME', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/');
 define('LOGIN', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/login');
@@ -17,8 +16,8 @@ class WebBeerController
   function __construct()
   {
 
-    $this->view = new CerveceriaView();
-    $this->model = new CerveceriaModel();
+    $this->view = new WebBeerView();
+    $this->model = new WebBeerModel();
   }
 
 
