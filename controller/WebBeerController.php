@@ -22,6 +22,10 @@ class WebBeerController
 
   public function index()
   {
+    $this->view->mostrarIndex();
+  }
+  public function home()
+  {
     $this->view->mostrarHome();
   }
 

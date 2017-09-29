@@ -13,23 +13,27 @@ private $smarty;
 
   }
 
+  function mostrarIndex()
+  {
+    return $this->smarty->display('templates/index.tpl');
+  }
   function mostrarHome()
   {
-    $this->smarty->display('templates/index.tpl');
+    return $this->smarty->display('templates/home.tpl');
   }
   function mostrarEstilos()
   {
-    $this->smarty->display('templates/estilos.tpl');
+    return $this->smarty->display('templates/estilos.tpl');
   }
   function mostrarProcesos()
   {
-    $this->smarty->display('templates/proceso.tpl');
+    return $this->smarty->display('templates/proceso.tpl');
   }
   function mostrarPedidos()
   {
-    $this->smarty->display('templates/pedidos.tpl');
+    return $this->smarty->display('templates/pedidos.tpl');
   }
-  
+
 
 }
 
