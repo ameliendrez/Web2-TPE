@@ -8,6 +8,5 @@
   </head>
 
   <body>
-
-    <a href="logout">Logout</a>;
+    <h1>Aca van links o el nav</h1>
     <div class="container">

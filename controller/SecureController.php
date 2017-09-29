@@ -22,24 +22,26 @@ class SecureController
     $this->view->mostrarLogin();
   }
 
-  public function verify()
-  {
-    $userName = $_POST['usuario'];
-    $password = $_POST['password'];
+  // Corregir cuando suban el video
 
-    if(!empty($userName) && !empty($password)) {
-      $user = $this->model->getUser($userName);
-      if(!empty($user) && password_verify($password, $user[0]['password'])){
-        session_start();
-        $_SESSION['usuario'=$userName];
-        header('Location: '. HOME);
-      }
-      else{
-        $this->view->mostrarError('Usuario o Passwords incorrectos');
-      }
-
-    }
-  }
+  // public function verify()
+  // {
+  //   $userName = $_POST['usuario'];
+  //   $password = $_POST['password'];
+  //
+  //   if(!empty($userName) && !empty($password)) {
+  //     $user = $this->model->getUser($userName);
+  //     if(!empty($user) && password_verify($password, $user[0]['password'])){
+  //       session_start();
+  //       $_SESSION['usuario'=$userName];
+  //       header('Location: '. HOME);
+  //     }
+  //     else{
+  //       $this->view->mostrarError('Usuario o Passwords incorrectos');
+  //     }
+  //
+  //   }
+  // }
 
 
 

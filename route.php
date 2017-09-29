@@ -2,8 +2,7 @@
 define('ACTION', 0);
 define('PARAMS', 1);
 
-include_once 'controller/TareasController.php';
-include_once 'controller/PalabrasProhibidasController.php';
+include_once 'controller/WebBeerController.php';
 include_once 'controller/LoginController.php';
 include_once 'controller/SecureController.php';
 include_once 'config/ConfigApp.php';
