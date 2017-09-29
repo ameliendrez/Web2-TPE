@@ -1,8 +1,4 @@
-{include file="header.tpl"}
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
 
-        <h1>Estamos en el estilo</h1>
-      </div>
-    </div>
-  {include file="footer.tpl"}
+
+
+<h1>Estamos en el ESTILO</h1>
