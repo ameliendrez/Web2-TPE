@@ -1,6 +1,7 @@
 $(document).ready(function() {
   "use strict"
 
+  EjecutarInicio();
 
   function mostrarContenido(data, textStatus, jqXHR) {
 
@@ -30,5 +31,18 @@ $(document).ready(function() {
 
 
   });
+
+  function EjecutarInicio() {
+    $.ajax({
+
+      "url" : "http://localhost/proyectos/Web2-TPE/home",
+      "method" : "GET",
+      "data-type" : "HTML",
+      "success" : mostrarContenido,
+      "error": handleError
+
+
+    });
+  }
 
 });
