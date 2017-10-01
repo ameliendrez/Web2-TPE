@@ -2,6 +2,9 @@
 define('ACTION', 0);
 define('PARAMS', 1);
 
+include_once 'model/Model.php';
+include_once 'view/View.php';
+include_once 'controller/Controller.php';
 include_once 'controller/WebBeerController.php';
 include_once 'controller/LoginController.php';
 include_once 'controller/SecureController.php';
