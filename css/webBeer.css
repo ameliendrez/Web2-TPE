@@ -2,3 +2,12 @@ body{
   background-color: black;
   color: white;
 }
+
+.panel-body {
+  text-align: justify;
+  color: brown;
+}
+
+.carousel {
+  margin-bottom: 10px;
+}
