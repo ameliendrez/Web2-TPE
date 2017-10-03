@@ -14,14 +14,8 @@
       <div class="col-md-12">
         <h1>WEEB BEER - <small>LA MEJOR CERVEZA ARTEZANAL DE TANDIL</small></h1>
       </div>
-      <div class="col-md-1">
-        <a class="navegador" href="home" role="tab" data-toggle="tab">
-          <img class="logo " alt="logo" src="images/logo.png" width="45" height="45">
-        </a>
-      </div>
-      <div class="col-md-11">
+
         {include file="nav.tpl"}
-      </div>
     </div>
   </div>
   <div class="container">

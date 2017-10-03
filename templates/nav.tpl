@@ -1,3 +1,11 @@
+<div class="col-md-1">
+  <a class="navegador" href="home" role="tab" data-toggle="tab">
+    <img class="logo " alt="logo" src="images/logo.png" width="45" height="45">
+  </a>
+</div>
+<div class="col-md-11">
+
+
 <nav class="navbar navbar navbar-inverse header">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -19,3 +27,5 @@
   </div>
 
 </nav>
+
+</div>
