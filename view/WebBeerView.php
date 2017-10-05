@@ -9,8 +9,9 @@
     {
       return $this->smarty->display('templates/home.tpl');
     }
-    function mostrarEstilos()
+    function mostrarEstilos($estilos)
     {
+      $this->smarty->assign($estilos);
       return $this->smarty->display('templates/estilos.tpl');
     }
     function mostrarProcesos()

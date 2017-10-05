@@ -12,5 +12,12 @@
       $sentencia = $this->db->prepare("INSERT INTO cerveza(nombre, ibu, alc, descripcion) VALUES (?, ?, ?, ?)");
       $sentencia->execute(array($nombre, $ibu, $alc, $descripcion));
     }
+
+    function getCervezasPorEstilo($id) {
+      $sentencia = $this->db->prepare( "select * from <cerveza><estilocerveza> where <estilocerveza.id_estilo> = <cerveza.id_estilo> and <estilocerveza.id_estilo == $id>");
+      $sentencia->execute();
+      $cervezasEstilo = $sentencia->fetchAll();
+      return $cervezasEstilo;
+    }
   }
 ?>

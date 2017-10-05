@@ -1,18 +1,46 @@
 <?php
+
+
+ function buildDDBBfromFile($dbname, $dbfile) {
+  try {
+    $connection = new PDO('mysql:host=localhost', "root", "");
+    $connection->exec('CREATE DATABASE IF NOT EXISTS '.$dbname);
+    $connection->exec('USE '.$dbname);
+    $queries = $this->loadSQLSchema($dbfile);
+    $i = 0;
+    while ($i < count($queries) && strlen($_connection->errorInfo() [2] ) == 0) {
+      $_connection->exec($queries[$i]);
+      echo $queries[$i];
+      $i++;
+    }
+
+  } catch (PDOException $e) {
+    echo $e;
+  }
+
+}
+
   class Model
   {
+
+
+
     protected $db;
 
     function __construct()
     {
-    //   $this->db = new PDO('mysql:host=localhost;'
-    // .'dbname=db_tpe;charset=utf8' // Guarda con esto... por que en mi maquina no existe la BBDD db_tpe... habria que ver como crear una auttomaticamente
-    // , 'root', '');
+      try {
 
-    $this->db = new PDO('mysql:host=localhost;'
-  .'dbname=db_tareas;charset=utf8'
-  , 'root', '');
+        $this->db = new PDO('mysql:host=localhost;'
+        .'dbname=db_tpePRUEBA;charset=utf8'
+        , 'root', '');
+      } catch (PDOException $e) {
+        buildDDBBfromFile('db_tpePRUEBA', 'database/db_tpe.sql');
+      }
+
     }
+
+
   }
 
 ?>
