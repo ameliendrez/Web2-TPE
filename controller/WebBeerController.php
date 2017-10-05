@@ -1,6 +1,7 @@
 <?php
   include_once 'view/WebBeerView.php';
   include_once 'model/BeerModel.php';
+  include_once 'model/BeerStyleModel.php';
 
   class WebBeerController extends controller
   {
@@ -8,13 +9,14 @@
     {
       $this->view = new WebBeerView();
       $this->model = new BeerModel();
+      $this->styleModel = new BeerStyleModel();
     }
 
     public function index()
     {
       $this->view->mostrarIndex();
     }
-    
+
     public function home()
     {
       $this->view->mostrarHome();
@@ -22,7 +24,9 @@
 
     public function mostrarEstilo()
     {
-      $this->view->mostrarEstilos();
+      $estilos = $this->styleModel->getEstilos();
+
+      $this->view->mostrarEstilos($estilos);
     }
 
     public function mostrarProceso()
