@@ -11,7 +11,7 @@
     }
     function mostrarEstilos($estilos)
     {
-      $this->smarty->assign($estilos);
+      $this->smarty->assign('estilos', $estilos);
       return $this->smarty->display('templates/estilos.tpl');
     }
     function mostrarProcesos()

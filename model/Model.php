@@ -3,12 +3,14 @@
 
  function buildDDBBfromFile($dbname, $dbfile) {
   try {
+    echo "entra";
     $connection = new PDO('mysql:host=localhost', "root", "");
     $connection->exec('CREATE DATABASE IF NOT EXISTS '.$dbname);
     $connection->exec('USE '.$dbname);
-    $queries = $this->loadSQLSchema($dbfile);
+    $queries = loadSQLSchema($dbfile);
     $i = 0;
-    while ($i < count($queries) && strlen($_connection->errorInfo() [2] ) == 0) {
+    echo "entra" . count($queries);
+    while ($i < count($queries)) {
       $_connection->exec($queries[$i]);
       echo $queries[$i];
       $i++;
@@ -20,10 +22,10 @@
 
 }
 
+//  function loadSQLSchema($) {}
+
   class Model
   {
-
-
 
     protected $db;
 
@@ -32,10 +34,10 @@
       try {
 
         $this->db = new PDO('mysql:host=localhost;'
-        .'dbname=db_tpePRUEBA;charset=utf8'
+        .'dbname=db_tpe33;charset=utf8'
         , 'root', '');
       } catch (PDOException $e) {
-        buildDDBBfromFile('db_tpePRUEBA', 'database/db_tpe.sql');
+        buildDDBBfromFile('db_tpe33', 'database/db_tpe.sql');
       }
 
     }
