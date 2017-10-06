@@ -2,7 +2,7 @@
   class BeerStyleModel extends Model
   {
     function getEstilos() {
-      $sentencia = $this->db->prepare( "select * from estilocerveza");
+      $sentencia = $this->db->prepare( "select * from cerveza");
       $sentencia->execute();
       $estilos = $sentencia->fetchAll();
       return $estilos;

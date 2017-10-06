@@ -11,3 +11,9 @@ body{
 .carousel {
   margin-bottom: 10px;
 }
+
+td{
+  background-color: black;
+  color: brown;
+  text-align: center;
+}
