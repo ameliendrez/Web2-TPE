@@ -24,7 +24,7 @@
 
     public function mostrarEstilo()
     {
-      $estilos = $this->styleModel->getEstilos();
+      $estilos = $this->model->getCervezas();
 
       $this->view->mostrarEstilos($estilos);
     }
@@ -37,6 +37,13 @@
     public function mostrarPedido()
     {
       $this->view->mostrarPedidos();
+    }
+
+    public function eliminarCerveza($paramas)
+    {
+      $id_tarea=$paramas[0];
+      $this->model->borrarCerveza($id_tarea);
+      header('Location: '. HOME .'variedadCerveza');
     }
   }
 ?>

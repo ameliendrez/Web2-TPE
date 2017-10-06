@@ -7,6 +7,8 @@
         <td>Nombre de la cerveza</td>
         <td>%alc</td>
         <td>Descripción</td>
+        <td></td>
+
       </tr>
 
         {foreach from=$estilos item=estilo}
@@ -15,6 +17,11 @@
           <td>{$estilo['nombre']}</td>
           <td>{$estilo['%alc']}</td>
           <td>{$estilo['descripcion']}</td>
+          <td>
+            <a href="eliminarCerveza/{$estilo['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span>
+          </td>
+
+
         </tr>
 
       {/foreach}

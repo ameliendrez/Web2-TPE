@@ -19,5 +19,11 @@
       $cervezasEstilo = $sentencia->fetchAll();
       return $cervezasEstilo;
     }
+
+    function borrarCerveza($id_cerveza)
+    {
+      $sentencia = $this->db->prepare("delete from cerveza where id_cerveza=?");
+      $sentencia->execute([$id_cerveza]);
+    }
   }
 ?>
