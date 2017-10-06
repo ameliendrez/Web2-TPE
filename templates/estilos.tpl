@@ -18,7 +18,7 @@
           <td>{$estilo['%alc']}</td>
           <td>{$estilo['descripcion']}</td>
           <td>
-            <a href="eliminarCerveza/{$estilo['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span>
+            <a class ="borrarCerveza" href="eliminarCerveza/{$estilo['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span>
           </td>
 
 
