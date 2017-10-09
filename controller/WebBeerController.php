@@ -39,9 +39,9 @@
       $this->view->mostrarPedidos();
     }
 
-    public function eliminarCerveza($paramas)
+    public function eliminarCerveza($params)
     {
-      $id_tarea=$paramas[0];
+      $id_tarea = $params[0];
       $this->model->borrarCerveza($id_tarea);
       header('Location: '. HOME .'variedadCerveza');
     }

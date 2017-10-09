@@ -51,8 +51,7 @@
     <a href="finalizarTarea/{$tarea['IDTarea']}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></a></span>
   {/if}
 </tr>
-
-  div class="row">
+  <div class="row">
     <div class="tabla col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
 
       <h1>Tipos y caracteristicas de las cervezas disponibles en nuestro local</h1>
@@ -168,6 +167,4 @@
 
     </div>
   </div>
-
-
- *}
+  *}

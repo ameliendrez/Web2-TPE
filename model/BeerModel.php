@@ -23,7 +23,7 @@
     function borrarCerveza($id_cerveza)
     {
       $sentencia = $this->db->prepare("delete from cerveza where id_cerveza=?");
-      $sentencia->execute([$id_cerveza]);
+      return $sentencia->execute([$id_cerveza]);
     }
   }
 ?>

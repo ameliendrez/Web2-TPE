@@ -34,7 +34,7 @@
       try {
 
         $this->db = new PDO('mysql:host=localhost;'
-        .'dbname=db;charset=utf8'
+        .'dbname=db_tpe;charset=utf8'
         , 'root', '');
       } catch (PDOException $e) {
         buildDDBBfromFile('db', 'database/db_tpe.sql');

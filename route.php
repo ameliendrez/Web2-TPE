@@ -14,7 +14,7 @@ function ParseURL($url)
 {
     $urlExploded = explode('/',  $url);
     $arrayReturn[ConfigApp::$ACTION] = $urlExploded[ACTION];
-    $arrayReturn[ConfigApp::$PARAMS] = isset($urlExploded[PARAMS]) ? array_slice($urlExploded,1) : null;
+    $arrayReturn[ConfigApp::$PARAMS] = isset($urlExploded[PARAMS]) ? array_slice($urlExploded, 1) : null;
 
     return $arrayReturn;
 }
@@ -24,7 +24,7 @@ if(isset($_GET['action'])) {
   $actions = $urlData[ConfigApp::$ACTION];
   if (array_key_exists($actions,ConfigApp::$ACTIONS)) {
     $params = $urlData[ConfigApp::$PARAMS];
-    $action = explode('#', ConfigApp::$ACTIONS[$actions]); //array -> poicion 0: tareasControler // posicion 1:index (método)
+    $action = explode('#', ConfigApp::$ACTIONS[$actions]);
     $controller = new $action[0]();
     $metodo = $action[1];
     if (isset($params) && $params != null) {

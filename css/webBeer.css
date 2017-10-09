@@ -1,4 +1,4 @@
-body{
+body {
   background-color: black;
   color: white;
 }
@@ -12,7 +12,7 @@ body{
   margin-bottom: 10px;
 }
 
-td{
+td {
   background-color: black;
   color: brown;
   text-align: center;
