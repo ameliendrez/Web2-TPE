@@ -24,7 +24,7 @@
 
     public function mostrarEstilo()
     {
-      $id = 1;
+      $id = 2;
       $algo = $this->model->getCervezasPorEstilo($id);
       $estilos = $this->model->getCervezas();
 

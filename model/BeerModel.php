@@ -14,12 +14,11 @@
     }
 
     function getCervezasPorEstilo($id) {
-      $sentencia = $this->db->prepare( "select * from <cerveza><estilocerveza> where <estilocerveza.id_estilo> = <cerveza.id_estilo> and <estilocerveza.id_estilo = $id>");
-      //$sentencia = $this->db->prepare( "select estilocerveza.* from cerveza, estilocerveza where cerveza.id_estilo = estilocerveza.id_estilo and cerveza.id_cerveza = $id");
+      //$sentencia = $this->db->prepare( "select * from <cerveza><estilocerveza> where <estilocerveza.id_estilo> = <cerveza.id_estilo> and <estilocerveza.id_estilo = $id>");
+      $sentencia = $this->db->prepare( "select estilocerveza.* from cerveza, estilocerveza where cerveza.id_estilo = estilocerveza.id_estilo and cerveza.id_estilo = ?");
       //$sentencia = $this->db->prepare("SELECT <estilocerveza> FROM <cerveza> <estilocerveza> WHERE <cerveza.id_estilo> = <estilocerveza.id_estilo> And <cerveza.id_cerveza = $id>");
-      $sentencia->execute();
+      $sentencia->execute([$id]);
       $cervezasEstilo = $sentencia->fetchAll();
-      print_r($cervezasEstilo);
       return $cervezasEstilo;
     }
 
