@@ -24,6 +24,8 @@
 
     public function mostrarEstilo()
     {
+      $id = 1;
+      $algo = $this->model->getCervezasPorEstilo($id);
       $estilos = $this->model->getCervezas();
 
       $this->view->mostrarEstilos($estilos);
@@ -41,8 +43,8 @@
 
     public function eliminarCerveza($params)
     {
-      $id_tarea = $params[0];
-      $this->model->borrarCerveza($id_tarea);
+      $id_cerveza = $params[0];
+      $this->model->borrarCerveza($id_cerveza);
       header('Location: '. HOME .'variedadCerveza');
     }
   }
