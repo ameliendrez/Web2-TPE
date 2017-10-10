@@ -2,16 +2,18 @@
   class BeerModel extends Model
   {
     function getCervezas() {
-      $sentencia = $this->db->prepare( "select * from cerveza");
+      $sentencia = $this->db->prepare( "SELECT * FROM cerveza");
       $sentencia->execute();
       $cervezas = $sentencia->fetchAll();
       return $cervezas;
     }
 
-    function guardarCerveza($nombre, $ibu, $alc,  $descripcion) {
-      $sentencia = $this->db->prepare("INSERT INTO cerveza(nombre, ibu, alc, descripcion) VALUES (?, ?, ?, ?)");
-      $sentencia->execute(array($nombre, $ibu, $alc, $descripcion));
+    function guardarCerveza( $estilo, $nombre, $alc, $descripcion) {
+      $sentencia = $this->db->prepare("INSERT INTO cerveza(estilo, nombre, alc, descripcion) VALUES (?, ?, ?, ?)");
+      $sentencia->execute([$estilo, $nombre, $alc, $descripcion]);
+      echo "lo guardo??";
     }
+
 
     function getCervezasPorEstilo($id) {
       $sentencia = $this->db->prepare( "select estilocerveza.* from cerveza, estilocerveza where cerveza.id_estilo = estilocerveza.id_estilo and cerveza.id_estilo = ?");

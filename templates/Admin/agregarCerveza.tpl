@@ -15,12 +15,12 @@
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza">
           </div>
           <div class="form-group">
-            <label for="ibu">Ibu</label>
-            <input type="text" class="form-control" id="ibu" name="ibu" placeholder="Ibu">
+            <label for="estilo">Estilo</label>
+            <input type="number" class="form-control" id="estilo" name="estilo" placeholder="estilo">
           </div>
           <div class="form-group">
             <label for="alc">% alcohol</label>
-            <input type="text" class="form-control" id="alc" name="alc" placeholder="Porcentaje de alcohol">
+            <input type="number" class="form-control" id="alc" name="alc" placeholder="Porcentaje de alcohol">
           </div>
           <div class="form-group">
             <label for="descripcion">Descripcion</label>

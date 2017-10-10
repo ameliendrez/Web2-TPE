@@ -11,7 +11,7 @@
 
         if (time() - $_SESSION['LAST_ACTIVITY'] > 5000) {
         //logout(); // destruye la sesión, y vuelve al login
-        header('Location: '. LOGOUT); // aca utilizamos la redireccion
+        header('Location: '. HOME); // aca utilizamos la redireccion
         die();
         }
 

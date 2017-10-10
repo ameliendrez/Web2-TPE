@@ -9,14 +9,19 @@ class ConfigApp {
       'home' =>  'WebBeerController#home',
       'variedadCerveza' => 'WebBeerController#mostrarCervezas',
       'proceso' => 'WebBeerController#mostrarProceso',
-      'eliminarCerveza' => 'AdminController#eliminarCerveza',
       'login' =>  'LoginController#index',
       'logout' =>  'LoginController#destroy',
       'verificarUsuario' =>  'LoginController#verify',
       'adminList'=>  'AdminController#mostrarCervezas',
       'nuevaCerveza' =>  'AdminController#addCerveza',
+      'guardarCerveza' =>  'AdminController#createCerveza',
+      'eliminarCerveza' => 'AdminController#eliminarCerveza',
+
       'mostrarEstilo' =>  'AdminController#mostrarEstilos',
       'nuevoEstilo'  =>  'AdminController#addEstilo',
+      'guardarEstilo' =>  'AdminController#createEstilo',
+      'eliminarEstilo' => 'AdminController#destroyEstilo'
+
 
   ];
 }

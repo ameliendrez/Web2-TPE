@@ -25,7 +25,7 @@
           <td>{$cerveza['%alc']}</td>
           <td>{$cerveza['descripcion']|truncate:15}</td>
           <td>
-            <a class ="borrarCerveza" href="eliminarCerveza/{$cerveza['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="eliminarCerveza/{$cerveza['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
           </td>
 
 
