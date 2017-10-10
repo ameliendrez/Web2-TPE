@@ -3,10 +3,11 @@
   include_once 'model/BeerModel.php';
   include_once 'model/BeerStyleModel.php';
 
-  class WebBeerController extends controller
+  class WebBeerController extends SecuredController
   {
     function __construct()
     {
+      parent::__construct();
       $this->view = new WebBeerView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
@@ -25,7 +26,7 @@
     public function mostrarEstilo()
     {
       $estilos = $this->model->getCervezas();
-      
+
       $this->view->mostrarEstilos($estilos);
     }
 

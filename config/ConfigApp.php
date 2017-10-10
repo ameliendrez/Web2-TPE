@@ -9,12 +9,10 @@ class ConfigApp {
       'home' =>  'WebBeerController#home',
       'variedadCerveza' => 'WebBeerController#mostrarEstilo',
       'proceso' => 'WebBeerController#mostrarProceso',
-      'pedidos' => 'WebBeerController#mostrarPedido',
-      'eliminarCerveza' => 'WebBeerController#eliminarCerveza'
-
-      // 'login' =>  'LoginController#index',
-      // 'verificarUsuario' =>  'LoginController#verify'
-
+      'eliminarCerveza' => 'WebBeerController#eliminarCerveza',
+      'login' =>  'LoginController#index',
+      'logout' =>  'LoginController#destroy',
+      'verificarUsuario' =>  'LoginController#verify'
 
   ];
 }
