@@ -1,17 +1,17 @@
 <?php
   class WebBeerView extends View
   {
+    function __construct()
+    {
+      parent::__construct();
+      $this->smarty->assign('session', 'in');
+    }
+
     function mostrarIndex()
     {
       // $password = password_hash('admin1605', PASSWORD_DEFAULT); // Esto sirve para guardar el hash de la contraseña
       // echo ($password);
 
-      if (isset($_SESSION['usuario'])){
-        $this->smarty->assign('session', 'out');
-      }
-      else{
-        $this->smarty->assign('session', 'in');
-      }
       return $this->smarty->display('templates/index.tpl');
     }
     function mostrarHome()

@@ -27,7 +27,7 @@ include_once 'model/LoginModel.php';
           session_start();
           $_SESSION['usuario']=$userName;
           $_SESSION['LAST_ACTIVITY'] = time(); // Comienza el contador
-          header('Location: '. HOME);
+          header('Location: '. HOME .'adminList');
         }
         else{
           $this->view->mostrarError('Usuario o Passwords incorrectos');

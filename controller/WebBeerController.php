@@ -3,11 +3,10 @@
   include_once 'model/BeerModel.php';
   include_once 'model/BeerStyleModel.php';
 
-  class WebBeerController extends SecuredController
+  class WebBeerController extends Controller
   {
     function __construct()
     {
-      parent::__construct();
       $this->view = new WebBeerView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
@@ -23,7 +22,7 @@
       $this->view->mostrarHome();
     }
 
-    public function mostrarEstilo()
+    public function mostrarCervezas()
     {
       $estilos = $this->model->getCervezas();
 
@@ -40,11 +39,6 @@
       $this->view->mostrarPedidos();
     }
 
-    public function eliminarCerveza($params)
-    {
-      $id_cerveza = $params[0];
-      $this->model->borrarCerveza($id_cerveza);
-      header('Location: '. HOME .'variedadCerveza');
-    }
+
   }
 ?>

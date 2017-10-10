@@ -1,6 +1,11 @@
+
 {include file="header.tpl"}
 
-          <div class="contenedor">
-          </div>
+{include file="nav.tpl"}
+</div>
+  </div>
+    <div class="container">
+        <div class="contenedor">
+        </div>
 
 {include file="footer.tpl"}

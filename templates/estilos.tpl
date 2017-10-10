@@ -4,7 +4,7 @@
   {include file="filtro.tpl"}
 
   <div class="table-responsive">
-    <table class="table" id="agregaralatabla">
+    <table class="table">
       <tr  class="">
         <td>Estilo de la cerveza</td>
         <td>Nombre de la cerveza</td>
@@ -20,10 +20,6 @@
           <td>{$estilo['nombre']}</td>
           <td>{$estilo['%alc']}</td>
           <td>{$estilo['descripcion']|truncate:15}</td>
-          <td>
-            <a class ="borrarCerveza" href="eliminarCerveza/{$estilo['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-          </td>
-
 
         </tr>
 

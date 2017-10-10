@@ -8,6 +8,7 @@ include_once 'controller/Controller.php';
 include_once 'controller/SecuredController.php';
 include_once 'controller/LoginController.php';
 include_once 'controller/WebBeerController.php';
+include_once 'controller/AdminController.php';
 include_once 'config/ConfigApp.php';
 
 function ParseURL($url)

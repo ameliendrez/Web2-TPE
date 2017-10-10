@@ -17,12 +17,8 @@
         <h1>WEEB BEER -
           <small>LA MEJOR CERVEZA ARTEZANAL DE TANDIL
 
-              <a href="log{{$session}}"><span class="glyphicon glyphicon-log-{{$session}}" aria-hidden="true"></span></a>
+              <a href="log{{$session}}"><span href="log{{$session}}" class="navegador glyphicon glyphicon-log-{{$session}}" aria-hidden="true"></span></a>
 
           </small>
         </h1>
       </div>
-        {include file="nav.tpl"}
-    </div>
-  </div>
-  <div class="container">

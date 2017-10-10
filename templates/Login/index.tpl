@@ -1,4 +1,3 @@
-{include file="../header.tpl"}
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -15,11 +14,9 @@
 
       {if isset($error)}
       <div class="alert alert-danger" role="alert">{$error}</div>
-
       {/if}
 
       <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
     </form>
   </div>
 </div>
-{include file="../footer.tpl"}
