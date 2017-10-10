@@ -1,5 +1,8 @@
 
   <h1>Tipos y caracteristicas de las cervezas disponibles en nuestro local</h1>
+
+  {include file="filtro.tpl"}
+
   <div class="table-responsive">
     <table class="table" id="agregaralatabla">
       <tr  class="">
@@ -13,12 +16,12 @@
 
         {foreach from=$estilos item=estilo}
         <tr class="">
-          <td>{$estilo['estilo']}</td>
-          <td>{$estilo['nombreCerveza']}</td>
-          <td>{$estilo['porcentajeALC']}</td> 
-          <td>{$estilo['descripcion']}</td>
+          <td>{$estilo['id_estilo']}</td>
+          <td>{$estilo['nombre']}</td>
+          <td>{$estilo['%alc']}</td>
+          <td>{$estilo['descripcion']|truncate:15}</td>
           <td>
-            <a class ="borrarCerveza" href="eliminarCerveza/{$estilo['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span>
+            <a class ="borrarCerveza" href="eliminarCerveza/{$estilo['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
           </td>
 
 

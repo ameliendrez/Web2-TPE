@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-      "url" : "http://localhost/proyectos/Web2-TPE/"+dirNueva,
+      "url" : document.location.href+"/"+dirNueva,
       "method" : "GET",
       "data-type" : "HTML",
       "success" : mostrarContenido,
@@ -35,7 +35,7 @@ $(document).ready(function() {
   function EjecutarInicio() {
     $.ajax({
 
-      "url" : "http://localhost/proyectos/Web2-TPE/home",
+      "url" : document.location.href+"/home",
       "method" : "GET",
       "data-type" : "HTML",
       "success" : mostrarContenido,

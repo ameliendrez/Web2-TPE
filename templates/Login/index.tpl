@@ -18,7 +18,7 @@
 
       {/if}
 
-      <button type="submit" class="btn btn-primary">Crear</button>
+      <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
     </form>
   </div>
 </div>
