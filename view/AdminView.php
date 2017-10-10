@@ -26,6 +26,12 @@
 
     }
 
+    public function mostrarUpdateCerveza($id)
+    {
+      $this->smarty->assign('id', $id);
+      $this->smarty->display('templates/admin/updateCerveza.tpl');
+    }
+
     public function mostrarAddEstilo()
     {
       $this->smarty->display('templates/admin/agregarEstilo.tpl');

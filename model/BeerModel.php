@@ -8,7 +8,7 @@
       return $cervezas;
     }
 
-    function guardarCerveza( $estilo, $nombre, $alc, $descripcion) {
+    function guardarCerveza( $estilo, $nombre, $alc, $descripcion) { // no guarda la cerveza... problema en asignar estilo
       $sentencia = $this->db->prepare("INSERT INTO cerveza(estilo, nombre, alc, descripcion) VALUES (?, ?, ?, ?)");
       $sentencia->execute([$estilo, $nombre, $alc, $descripcion]);
       echo "lo guardo??";
@@ -25,6 +25,13 @@
     function borrarCerveza($id_cerveza)
     {
       $sentencia = $this->db->prepare("delete from cerveza where id_cerveza=?");
+      return $sentencia->execute([$id_cerveza]);
+    }
+
+    function Update($id_cerveza)
+    {
+      //`id_estilo`=[value-2],
+      $sentencia = $this->db->prepare("UPDATE `cerveza` SET `nombre`=[value-3],`%alc`=[value-4],`descripcion`=[value-5] WHERE id_cerveza=?");
       return $sentencia->execute([$id_cerveza]);
     }
   }

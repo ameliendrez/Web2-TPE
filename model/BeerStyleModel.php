@@ -8,7 +8,7 @@
       return $estilos;
     }
 
-    function guardarEstilo($nombre, $descripcion) {
+    function guardarEstilo($nombre, $descripcion) { // no deja borrar estilos en uso...
       $sentencia = $this->db->prepare("INSERT INTO estilocerveza(nombre, descripcion) VALUES (?, ?)");
       $sentencia->execute([$nombre, $descripcion]);
     }

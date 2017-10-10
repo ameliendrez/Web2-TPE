@@ -82,6 +82,7 @@
       header('Location: '. HOME .'adminList');
     }
 
+
     public function addEstilo()
     {
       $this->view->mostrarAddEstilo();
@@ -90,6 +91,15 @@
     public function addCerveza()
     {
       $this->view->mostrarAddCerveza();
+    }
+
+    public function updateCerveza()
+    {
+
+      //$id= PARAMS[];
+
+
+      $this->view->mostrarUpdateCerveza($id);
     }
 
     public function guardarCerveza()

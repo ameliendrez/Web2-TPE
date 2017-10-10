@@ -26,7 +26,10 @@
           <td>{$cerveza['descripcion']|truncate:15}</td>
           <td>
             <a href="eliminarCerveza/{$cerveza['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="updateCerveza/{$cerveza['id_cerveza']}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
           </td>
+
+
 
 
         </tr>
