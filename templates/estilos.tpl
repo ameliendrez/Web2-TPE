@@ -13,9 +13,9 @@
 
         {foreach from=$estilos item=estilo}
         <tr class="">
-          <td>{$estilo['id_estilo']}</td>
-          <td>{$estilo['nombre']}</td>
-          <td>{$estilo['%alc']}</td>
+          <td>{$estilo['estilo']}</td>
+          <td>{$estilo['nombreCerveza']}</td>
+          <td>{$estilo['porcentajeALC']}</td> 
           <td>{$estilo['descripcion']}</td>
           <td>
             <a class ="borrarCerveza" href="eliminarCerveza/{$estilo['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span>

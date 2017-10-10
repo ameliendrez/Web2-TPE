@@ -7,7 +7,6 @@ include_once 'model/db-config.php';
     $connection->exec('CREATE DATABASE IF NOT EXISTS '.$dbname);
     $connection->exec('USE '. $dbname);
     $queries = loadSQLSchema($dbfile);
-    //foreach ($queries as $query) {}
     $connection->exec($queries);
 
 
@@ -19,12 +18,10 @@ include_once 'model/db-config.php';
 
   function loadSQLSchema($dbfile) {
     $file = fopen($dbfile, "r");
-    $line = fgets($file);
     $getTablas = "";
     while(! feof($file))
     {
-      $line = fgets($file);
-      $getTablas .= $line;
+      $getTablas .= fgets($file);
     }
 
     fclose($file);
