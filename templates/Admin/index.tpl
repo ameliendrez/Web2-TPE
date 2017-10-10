@@ -20,9 +20,9 @@
 
         {foreach from=$cervezas item=cerveza}
         <tr class="">
-          <td>{$cerveza['id_estilo']}</td>
-          <td>{$cerveza['nombre']}</td>
-          <td>{$cerveza['%alc']}</td>
+          <td>{$cerveza['estilo']}</td>
+          <td>{$cerveza['nombreCerveza']}</td>
+          <td>{$cerveza['porcentajeALC']}</td>
           <td>{$cerveza['descripcion']|truncate:15}</td>
           <td>
             <a href="eliminarCerveza/{$cerveza['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>

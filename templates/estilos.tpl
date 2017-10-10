@@ -5,7 +5,7 @@
 
   <div class="table-responsive">
     <table class="table">
-      <tr  class="">
+      <tr>
         <td>Estilo de la cerveza</td>
         <td>Nombre de la cerveza</td>
         <td>%alc</td>
@@ -15,10 +15,10 @@
       </tr>
 
         {foreach from=$estilos item=estilo}
-        <tr class="">
-          <td>{$estilo['id_estilo']}</td>
-          <td>{$estilo['nombre']}</td>
-          <td>{$estilo['%alc']}</td>
+        <tr>
+          <td>{$estilo['estilo']}</td>
+          <td>{$estilo['nombreCerveza']}</td>
+          <td>{$estilo['porcentajeALC']}</td>
           <td>{$estilo['descripcion']|truncate:15}</td>
 
         </tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2017 a las 06:31:53
+-- Tiempo de generación: 10-10-2017 a las 23:24:37
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_tpe`
+-- Base de datos: `webbeer`
 --
 
 -- --------------------------------------------------------
@@ -43,6 +43,20 @@ INSERT INTO `cerveza` (`id_cerveza`, `id_estilo`, `nombre`, `%alc`, `descripcion
 (2, 1, 'cerv1', 21, 'algo1'),
 (3, 1, 'cerv2', 22, 'algo2'),
 (4, 2, 'cerv3', 23, 'algo3');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `cervezavw`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `cervezavw` (
+`id_cerveza` int(11)
+,`nombreCerveza` varchar(25)
+,`estilo` varchar(25)
+,`porcentajeALC` int(11)
+,`descripcion` varchar(200)
+);
 
 -- --------------------------------------------------------
 
@@ -83,7 +97,17 @@ CREATE TABLE `loginusuario` (
 --
 
 INSERT INTO `loginusuario` (`id_usuario`, `usuario`, `contraseña`, `nombre`, `apellido`) VALUES
-(1, 'ameliendrez', '$2y$10$khMVNrxI/4hXw/6SotjuUeMI9z6fhectVye2djPIWfEGQpw.nNPO2', 'Agustin', 'Meliendrez');
+(1, 'ameliendrez', '$2y$10$khMVNrxI/4hXw/6SotjuUeMI9z6fhectVye2djPIWfEGQpw.nNPO2', 'Agustin', 'Meliendrez'),
+(3, 'santirampoldi', '$2y$10$t7LOzSkfb.hvUPvaVZYRruClD0m4xufe/rb2VNt56A1vd6TlI1/o2', 'santiago', 'rampoldi');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `cervezavw`
+--
+DROP TABLE IF EXISTS `cervezavw`;
+
+CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY INVOKER VIEW `cervezavw`  AS  select `db_tpe`.`cerveza`.`id_cerveza` AS `id_cerveza`,`db_tpe`.`cerveza`.`nombre` AS `nombreCerveza`,`db_tpe`.`estilocerveza`.`nombre` AS `estilo`,`db_tpe`.`cerveza`.`%alc` AS `porcentajeALC`,`db_tpe`.`cerveza`.`descripcion` AS `descripcion` from (`db_tpe`.`cerveza` join `db_tpe`.`estilocerveza`) where (`db_tpe`.`cerveza`.`id_estilo` = `db_tpe`.`estilocerveza`.`id_estilo`) WITH CASCADED CHECK OPTION ;
 
 --
 -- Índices para tablas volcadas
@@ -126,7 +150,7 @@ ALTER TABLE `estilocerveza`
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --
 ALTER TABLE `loginusuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
