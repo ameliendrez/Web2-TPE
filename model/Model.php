@@ -1,12 +1,12 @@
 <?php
-include_once 'model/db-config.php';
+include_once 'config/db-config.php';
 
- function buildDDBBfromFile($dbname, $dbfile) {
+ function buildDDBBfromFile() {
   try {
     $connection = new PDO('mysql:host='.DB_HOST, DB_USER, DB_PASSWORD);
-    $connection->exec('CREATE DATABASE IF NOT EXISTS '.$dbname);
-    $connection->exec('USE '. $dbname);
-    $queries = loadSQLSchema($dbfile);
+    $connection->exec('CREATE DATABASE IF NOT EXISTS '.DB_NAME);
+    $connection->exec('USE '. DB_NAME);
+    $queries = loadSQLSchema();
     $connection->exec($queries);
 
 
@@ -16,16 +16,16 @@ include_once 'model/db-config.php';
 
 }
 
-  function loadSQLSchema($dbfile) {
-    $file = fopen($dbfile, "r");
-    $getTablas = "";
+  function loadSQLSchema() {
+    $file = fopen(DB_FILE, "r");
+    $getSentencias = "";
     while(! feof($file))
     {
-      $getTablas .= fgets($file);
+      $getSentencias .= fgets($file);
     }
 
     fclose($file);
-    return $getTablas;
+    return $getSentencias;
   }
 
   class Model
@@ -41,7 +41,7 @@ include_once 'model/db-config.php';
         .'dbname='.DB_NAME.';charset=utf8'
         , DB_USER, DB_PASSWORD);
       } catch (PDOException $e) {
-        buildDDBBfromFile(DB_NAME, 'database/db_tpe.sql');
+        buildDDBBfromFile(DB_NAME, DB_FILE);
       }
 
     }
