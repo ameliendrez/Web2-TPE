@@ -14,12 +14,12 @@
 
       </tr>
 
-        {foreach from=$estilos item=estilo}
+        {foreach from=$cervezas item=cerveza}
         <tr>
-          <td>{$estilo['estilo']}</td>
-          <td>{$estilo['nombreCerveza']}</td>
-          <td>{$estilo['porcentajeALC']}</td>
-          <td>{$estilo['descripcion']|truncate:15}</td>
+          <td>{$cerveza['estilo']}</td>
+          <td>{$cerveza['nombreCerveza']}</td>
+          <td>{$cerveza['porcentajeALC']}</td>
+          <td>{$cerveza['descripcion']|truncate:15}</td>
 
         </tr>
 

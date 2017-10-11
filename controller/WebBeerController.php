@@ -24,9 +24,10 @@
 
     public function mostrarCervezas()
     {
-      $estilos = $this->model->getCervezas();
+      $estilos = $this->styleModel->getEstilos();
+      $cervezas = $this->model->getCervezas();
 
-      $this->view->mostrarEstilos($estilos);
+      $this->view->mostrarVariedadCervezas($estilos, $cervezas);
     }
 
     public function mostrarProceso()
