@@ -8,7 +8,8 @@ $(document).ready(function() {
     $(".filtrar").on("click", function (event) {
       let dirNueva ;
       if($(".seleccionEstilo").val() != "") {
-        dirNueva = $(".seleccionEstilo").val();
+        dirNueva = "obtenerCervezasPorEstilo/";
+        //dirNueva += $(".seleccionEstilo").val();
       }
 
       else if ($(".seleccionCerveza").val() != ""){
@@ -37,8 +38,8 @@ $(document).ready(function() {
 
     let valor ;
     if($(".seleccionEstilo").val() != "") {
-      valor = $(".seleccionEstilo").val();
-      $(".table-responsive").html(valor);
+      $(".table-responsive").html(data);
+
     }
 
     else if ($(".seleccionCerveza").val() != ""){

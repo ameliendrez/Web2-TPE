@@ -12,7 +12,7 @@ class ConfigApp {
 
       'obtenerCervezas' => 'WebBeerController#obtenerCervezas',
       //'obtenerCerveza' => 'WebBeerController#mostrarProceso',
-      //'obtenerCervezaPorEstilo' => 'WebBeerController#mostrarProceso',
+      'obtenerCervezaPorEstilo' => 'WebBeerController#obtenerCervezaPorEstilo',
 
       'login' =>  'LoginController#index',
       'logout' =>  'LoginController#destroy',
@@ -23,7 +23,7 @@ class ConfigApp {
       'eliminarCerveza' => 'AdminController#eliminarCerveza',
       'updateCerveza' => 'AdminController#mostrarUpdateCerveza',
       'modificarCerveza'=> 'AdminController#modificarCerveza',
-      
+
       'mostrarEstilo' =>  'AdminController#mostrarEstilos',
       'nuevoEstilo'  =>  'AdminController#addEstilo',
       'guardarEstilo' =>  'AdminController#createEstilo',

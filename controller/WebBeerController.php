@@ -34,7 +34,15 @@
       $this->view->obtenerCervezas();
     }
 
+    public function obtenerCervezaPorEstilo()
+    {
+      $estilo = $_POST['estilos'];
+      $cervezas = $this->model->getCervezasBEstilo($estilo);
+      $this->view->obtenerCervezaPorEstilo($cervezas);
+    }
+
     public function mostrarProceso()
+    
     {
       $this->view->mostrarProcesos();
     }

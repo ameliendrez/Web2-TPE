@@ -7,6 +7,12 @@
       $cervezas = $sentencia->fetchAll();
       return $cervezas;
     }
+    function getCervezasByEstilo($estilo) {
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW WHERE `estilo`=?");
+      $sentencia->execute($estilo);
+      $cervezas = $sentencia->fetchAll();
+      return $cervezas;
+    }
 
     function getIdEstilo() {
       $sentencia = $this->db->prepare( "SELECT `id_estilo` FROM `estilocerveza` WHERE 'nombre' = $estilo");

@@ -24,8 +24,14 @@
       $this->smarty->assign('cervezas', $cervezas);
       return $this->smarty->display('templates/estilos.tpl');
     }
-    function obtenerCervezas()
+    function obtenerCervezas($cervezas)
     {
+      $this->smarty->assign('cervezas', $cervezas);
+      return $this->smarty->display('templates/tablaCerveza.tpl');
+    }
+    function obtenerCervezasPorEstilo($cervezas)
+    {
+      $this->smarty->assign('cervezas', $cervezas);
       return $this->smarty->display('templates/tablaCerveza.tpl');
     }
     function mostrarProcesos()
