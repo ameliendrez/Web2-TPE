@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2017 a las 14:05:39
+-- Tiempo de generación: 11-10-2017 a las 17:20:07
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -45,7 +45,8 @@ INSERT INTO `cerveza` (`id_cerveza`, `id_estilo`, `nombre`, `%alc`, `descripcion
 (4, 4, 'Imperial Stout', 9, 'Es una variante del estilo Stout que se caracteriza por tener una mayor cantidad de alcohol por volumen y una mayor concentración de lúpulo y/o malta.'),
 (5, 2, 'American Lite', 9, 'Es una cerveza muy refrescante y con una caracteristicas diferenciadora de saciadora de la sed, careciendo de sabores fuertes.'),
 (6, 1, 'Scotch Ale', 8, 'Sabrosa, maltosa y usualmente dulce, lo cual puede sugerir un postre. Los sabores complejos secundarios previenen una impresion unidimensional. La fuerza y la maltosidad pueden variar.'),
-(7, 3, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
+(7, 3, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. '),
+(8, 1, 'aslgo', 7, 'odro,');
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,7 @@ INSERT INTO `loginusuario` (`id_usuario`, `usuario`, `contraseña`, `nombre`, `a
 --
 DROP TABLE IF EXISTS `cervezavw`;
 
-CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY INVOKER VIEW `cervezavw`  AS  select `db_tpe`.`cerveza`.`id_cerveza` AS `id_cerveza`,`db_tpe`.`cerveza`.`nombre` AS `nombreCerveza`,`db_tpe`.`estilocerveza`.`nombre` AS `estilo`,`db_tpe`.`cerveza`.`%alc` AS `porcentajeALC`,`db_tpe`.`cerveza`.`descripcion` AS `descripcion` from (`db_tpe`.`cerveza` join `db_tpe`.`estilocerveza`) where (`db_tpe`.`cerveza`.`id_estilo` = `db_tpe`.`estilocerveza`.`id_estilo`) WITH CASCADED CHECK OPTION ;
+CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY INVOKER VIEW `cervezavw`  AS  select `cerveza`.`id_cerveza` AS `id_cerveza`,`cerveza`.`nombre` AS `nombreCerveza`,`estilocerveza`.`nombre` AS `estilo`,`cerveza`.`%alc` AS `porcentajeALC`,`cerveza`.`descripcion` AS `descripcion` from (`cerveza` join `estilocerveza`) where (`cerveza`.`id_estilo` = `estilocerveza`.`id_estilo`) WITH CASCADED CHECK OPTION ;
 
 --
 -- Índices para tablas volcadas
@@ -146,7 +147,7 @@ ALTER TABLE `loginusuario`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `estilocerveza`
 --
