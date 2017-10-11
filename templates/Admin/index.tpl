@@ -10,13 +10,12 @@
   <div class="table-responsive">
     <table class="table">
 
-        {include file="../tablaCervezasHeader.tpl"}
+      {include file="../tablaCervezasHeader.tpl"}
 
 
         {foreach from=$cervezas item=cerveza}
         <tr>
-          {include file="../tablaCervezas.tpl"}
-
+          {include file="../obtenerCervezas.tpl"}
           <td>
             <a href="eliminarCerveza/{$cerveza['id_cerveza']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             <a href="updateCerveza" name="{$cerveza['id_cerveza']}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>

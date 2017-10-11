@@ -63,12 +63,9 @@
 
       if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
 
-  
           $this->model->guardarCerveza($nombre, $estilo, $alc, $descripcion);
 
-
           header('Location: '. HOME . 'adminList');
-
 
       }
       // else {

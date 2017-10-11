@@ -8,13 +8,12 @@
       return $estilos;
     }
 
-    function guardarEstilo($nombre, $descripcion) { // no deja borrar estilos en uso...
+    function guardarEstilo($nombre, $descripcion) {
       $sentencia = $this->db->prepare("INSERT INTO estilocerveza(nombre, descripcion) VALUES (?, ?)");
       $sentencia->execute([$nombre, $descripcion]);
     }
 
-    function borrarEstilo($id_estilo)
-    {
+    function borrarEstilo($id_estilo) {   // no deja borrar estilos en uso...
       $sentencia = $this->db->prepare("DELETE FROM estilocerveza WHERE id_estilo=?");
       return $sentencia->execute([$id_estilo]);
     }
