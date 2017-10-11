@@ -2,7 +2,7 @@
   class BeerModel extends Model
   {
     function getCervezas() {
-      $sentencia = $this->db->prepare( "select * from cervezaVW");
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW");
       $sentencia->execute();
       $cervezas = $sentencia->fetchAll();
       return $cervezas;
@@ -22,7 +22,7 @@
       $idestilo = $arrayEstilo[0];
       $estilo = $idestilo['id_estilo'];
       $sentencia = $this->db->prepare("INSERT INTO `cerveza` (`id_estilo`, `nombre`, `%alc`, `descripcion`) VALUES (?, ?, ?, ?)");
-      $sentencia->execute(array($estilo, $nombre, $alc, $descripcion));
+      $sentencia->execute([$estilo, $nombre, $alc, $descripcion]);
     }
 
     function getCervezasPorEstilo($id) {
@@ -34,16 +34,22 @@
 
     function borrarCerveza($id_cerveza)
     {
-      $sentencia = $this->db->prepare("delete from cerveza where id_cerveza=?");
+      $sentencia = $this->db->prepare("DELETE FROM cerveza WHERE id_cerveza=?");
       return $sentencia->execute([$id_cerveza]);
     }
 
 
-    function Update($id_cerveza)
+    function Update($id_cerveza, $nombre, $estilo, $alc, $descripcion)
     {
-      //`id_estilo`=[value-2],
-      $sentencia = $this->db->prepare("UPDATE `cerveza` SET `nombre`=[value-3],`%alc`=[value-4],`descripcion`=[value-5] WHERE id_cerveza=?");
-      return $sentencia->execute([$id_cerveza]);
+      $getID = $this->db->prepare( "SELECT * FROM `estilocerveza` WHERE nombre = ?");
+      $getID->execute([$estilo]);
+      $arrayEstilo = $getID->fetchAll();
+      $idestilo = $arrayEstilo[0];
+      $estilo = $idestilo['id_estilo'];
+
+
+      $sentencia = $this->db->prepare("UPDATE `cervezavw` SET (`nombreCerveza`, `estilo`, `porcentajeALC`, `descripcion`) VALUES (?, ?, ?, ?)  WHERE `cervezavw`.id_cerveza=?");
+      return $sentencia->execute([$nombre, $estilo, $alc, $descripcion, $id_cerveza]);
     }
   }
 

@@ -92,16 +92,34 @@
       $this->view->mostrarAddCerveza($estilos);
     }
 
-    public function mostrarUpdateCerveza()
+    public function mostrarUpdateCerveza($id_cerveza)
     {
 
-      $id= PARAMS[0];
-      print_r($id);
 
+      $id = $id_cerveza[0];
+      $estilos = $this->styleModel->getEstilos();
 
-      $this->view->mostrarUpdateCerveza($id);
+      $this->view->mostrarUpdateCerveza($id, $estilos);
     }
 
+
+    public function modificarCerveza()
+    {
+      $id = $_POST['nombre'];
+
+      $nombre = $_POST['nombre'];
+      $estilo = isset($_POST['estilo']) ? $_POST['estilo']: "";
+      $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
+      $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
+      $id = isset($_POST['id']) ? $_POST['id']: -1;
+
+      if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+
+          $this->model->Update($id, $nombre, $estilo, $alc, $descripcion);
+
+          header('Location: '. HOME . 'adminList');
+        }
+    }
 
   }
 ?>
