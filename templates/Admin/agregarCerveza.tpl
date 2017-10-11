@@ -15,8 +15,16 @@
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza">
           </div>
           <div class="form-group">
+
             <label for="estilo">Estilo</label>
-            <input type="number" class="form-control" id="estilo" name="estilo" placeholder="estilo">
+
+            <select class="btn btn-default btn-md" name="estilo" id="estilo">
+              <option></option>
+              {foreach from=$estilos item=estilo}
+                <option>{$estilo['nombre']}</option>
+              {/foreach}
+            </select>
+
           </div>
           <div class="form-group">
             <label for="alc">% alcohol</label>

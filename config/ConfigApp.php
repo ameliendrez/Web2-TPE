@@ -16,7 +16,7 @@ class ConfigApp {
       'nuevaCerveza' =>  'AdminController#addCerveza',
       'guardarCerveza' =>  'AdminController#createCerveza',
       'eliminarCerveza' => 'AdminController#eliminarCerveza',
-      'updateCerveza' => 'AdminController#updateCerveza',
+      'updateCerveza' => 'AdminController#mostrarUpdateCerveza',
 
       'mostrarEstilo' =>  'AdminController#mostrarEstilos',
       'nuevoEstilo'  =>  'AdminController#addEstilo',

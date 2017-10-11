@@ -20,10 +20,10 @@
     }
 
 
-    public function mostrarAddCerveza()
+    public function mostrarAddCerveza($estilos)
     {
+      $this->smarty->assign('estilos', $estilos);
       $this->smarty->display('templates/admin/agregarCerveza.tpl');
-
     }
 
     public function mostrarUpdateCerveza($id)
@@ -35,7 +35,6 @@
     public function mostrarAddEstilo()
     {
       $this->smarty->display('templates/admin/agregarEstilo.tpl');
-
     }
   }
 

@@ -1,22 +1,23 @@
+
 {include file="header.tpl"}
 </div>
   </div>
-    <a href="../adminList">Volver a lista de Cervezas</a> |
-    <a href="../mostrarEstilo">Ver Lista de Estilos</a>
+    <a href="adminList">Volver a lista de Cervezas</a> |
+    <a href="mostrarEstilo">Ver Lista de Estilos</a>
 
-    <h1>El id es:  {{$id}} </h1>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         {if isset($error)}
           <div class="alert alert-danger" role="alert">{$error}</div>
         {/if}
-
-
-
-        <form action="updateCerveza" method="post">
+        <form action="guardarCerveza" method="post">
           <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza">
+          </div>
+          <div class="form-group">
+            <label for="estilo">Estilo</label>
+            <input type="number" class="form-control" id="estilo" name="estilo" placeholder="estilo">
           </div>
           <div class="form-group">
             <label for="alc">% alcohol</label>

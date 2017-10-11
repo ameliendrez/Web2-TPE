@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2017 a las 23:24:37
+-- Tiempo de generación: 11-10-2017 a las 14:05:39
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -39,10 +39,13 @@ CREATE TABLE `cerveza` (
 --
 
 INSERT INTO `cerveza` (`id_cerveza`, `id_estilo`, `nombre`, `%alc`, `descripcion`) VALUES
-(1, 1, 'cerv1', 21, 'algo1'),
-(2, 1, 'cerv1', 21, 'algo1'),
-(3, 1, 'cerv2', 22, 'algo2'),
-(4, 2, 'cerv3', 23, 'algo3');
+(1, 4, 'Sweet Stout', 5, 'Una cerveza muy rica, suave, cremosa y dulce. perfecta para tomar de postre si quieres algo oscuro, con sabor y cuerpo. A menudo tiene gusto tipo café express.'),
+(2, 5, 'Brown Porter', 4, 'Estamos ante una cerveza de color marrón con un carácter moderadamente tostado y amargo. '),
+(3, 1, 'India Pale Ale', 4, 'Cerveza de tradición inglesa que se caracteriza como una ale pálida y espumosa con un alto nivel del alcohol y de lúpulo.'),
+(4, 4, 'Imperial Stout', 9, 'Es una variante del estilo Stout que se caracteriza por tener una mayor cantidad de alcohol por volumen y una mayor concentración de lúpulo y/o malta.'),
+(5, 2, 'American Lite', 9, 'Es una cerveza muy refrescante y con una caracteristicas diferenciadora de saciadora de la sed, careciendo de sabores fuertes.'),
+(6, 1, 'Scotch Ale', 8, 'Sabrosa, maltosa y usualmente dulce, lo cual puede sugerir un postre. Los sabores complejos secundarios previenen una impresion unidimensional. La fuerza y la maltosidad pueden variar.'),
+(7, 3, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
 
 -- --------------------------------------------------------
 
@@ -75,8 +78,11 @@ CREATE TABLE `estilocerveza` (
 --
 
 INSERT INTO `estilocerveza` (`id_estilo`, `nombre`, `descripcion`) VALUES
-(1, 'stout', 'muy stout'),
-(2, 'stout', 'muy stout');
+(1, 'Ale', 'cervezas de fermentación alta, y por ello el proceso de fermentación ocurre en la superficie del líquido. Las cervezas Ales tienen mayor graduación alcohólica y un sabor más complejo que otras. '),
+(2, 'Lager', 'Es un tipo de cerveza con sabor acentuado que se sirve fría, caracterizada por fermentar en condiciones lentas, empleando levaduras especiales, conocidas como levaduras de fermentación baja.'),
+(3, 'Trigo', 'Las cervezas de trigo también se conocen como cervezas blancas por su aspecto, cuando no están filtradas. La mayor parte del tiempo son de alta fermentación.'),
+(4, 'Stout', 'Stout es el nombre de un estilo de cerveza, tipo ale, muy oscura, originario de las islas británicas. Era el nombre utilizado para la cerveza más fuerte(7 u 8 %alc) producido por cada cervecería.'),
+(5, 'Porter', 'La porter es un tipo de ale (cerveza). Tiene el aroma del malteado y el amargor del lúpulo. Es generalmente fuerte y oscura. Se elabora preferentemente con aguas de bajo contenido en calcio (blandas).');
 
 -- --------------------------------------------------------
 
@@ -140,12 +146,12 @@ ALTER TABLE `loginusuario`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `estilocerveza`
 --
 ALTER TABLE `estilocerveza`
-  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --

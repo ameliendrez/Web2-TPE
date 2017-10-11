@@ -8,9 +8,9 @@
       return $cervezas;
     }
 
-    function guardarCerveza($nombre, $ibu, $alc,  $descripcion) {
-      $sentencia = $this->db->prepare("INSERT INTO cerveza(nombre, ibu, alc, descripcion) VALUES (?, ?, ?, ?)");
-      $sentencia->execute(array($nombre, $ibu, $alc, $descripcion));
+    function guardarCerveza($nombre, $estilo, $alc, $descripcion) {
+      $sentencia = $this->db->prepare("INSERT INTO cervezaVW(nombreCerveza, estilo, porcentajeALC, descripcion) VALUES (?, ?, ?, ?)");
+      $sentencia->execute([$nombre, $estilo, $alc, $descripcion]);
     }
 
     function getCervezasPorEstilo($id) {

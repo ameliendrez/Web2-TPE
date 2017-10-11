@@ -56,14 +56,15 @@
 
     public function createCerveza()
     {
-      $estilo = isset($_POST['estilo']) ? $_POST['estilo']: 1;
       $nombre = $_POST['nombre'];
+      $estilo = isset($_POST['estilo']) ? $_POST['estilo']: "";
       $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
       $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
 
       if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
 
-          $this->model->guardarCerveza($estilo, $nombre, $alc, $descripcion);
+  
+          $this->model->guardarCerveza($nombre, $estilo, $alc, $descripcion);
 
 
           header('Location: '. HOME . 'adminList');
@@ -90,37 +91,20 @@
 
     public function addCerveza()
     {
-      $this->view->mostrarAddCerveza();
+      $estilos = $this->styleModel->getEstilos();
+      $this->view->mostrarAddCerveza($estilos);
     }
 
-    public function updateCerveza()
+    public function mostrarUpdateCerveza()
     {
 
-      //$id= PARAMS[];
+      $id= PARAMS[0];
+      print_r($id);
 
 
       $this->view->mostrarUpdateCerveza($id);
     }
 
-    public function guardarCerveza()
-    {
-      $titulo=$_POST['titulo'];
-      $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
-      $completada =isset($_POST['completada'])  ? 1:0;
 
-      if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
-        if ($this->tienePalabrasProhibidas($titulo)) {
-          $this->view->errorCrear("El titulo tiene Palabras Prohibidas", $titulo, $descripcion, $completada);
-          die();
-        }
-        else {
-          $this->model->guardarTarea($titulo, $descripcion, $completada);
-          header('Location: '. HOME);
-        }
-      }
-      else {
-        $this->view->errorCrear("El campo titulo es requerido", $titulo, $descripcion, $completada);
-      }
-    }
   }
 ?>
