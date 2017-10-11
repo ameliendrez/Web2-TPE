@@ -36,14 +36,23 @@ include_once 'config/db-config.php';
     function __construct()
     {
       try {
-
         $this->db = new PDO('mysql:host='.DB_HOST.';'
         .'dbname='.DB_NAME.';charset=utf8'
         , DB_USER, DB_PASSWORD);
-      } catch (PDOException $e) {
+      }
+      catch (PDOException $e) {
         buildDDBBfromFile(DB_NAME, DB_FILE);
       }
+    }
 
+
+
+    function getID($estilo) {
+      $getID = $this->db->prepare( "SELECT * FROM `estilocerveza` WHERE nombre = ?");
+      $getID->execute([$estilo]);
+      $arrayEstilo = $getID->fetchAll();
+      $idestilo = $arrayEstilo[0];
+      return $idestilo['id_estilo'];
     }
 
 

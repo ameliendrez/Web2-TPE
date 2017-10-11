@@ -5,14 +5,13 @@
     <a href="adminList">Volver a lista de Cervezas</a> |
     <a href="mostrarEstilo">Ver Lista de Estilos</a>
 
-    <h1>{{$id}}</h1>
-
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         {if isset($error)}
           <div class="alert alert-danger" role="alert">{$error}</div>
         {/if}
         <form action="../modificarCerveza" method="post">
+
           <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza">
@@ -20,14 +19,14 @@
 
           <div class="form-group">
 
-                        <label for="estilo">Estilo</label>
+            <label for="estilo">Estilo</label>
 
-                        <select class="btn btn-default btn-md" name="estilo" id="estilo">
-                          <option></option>
-                          {foreach from=$estilos item=estilo}
-                            <option>{$estilo['nombre']}</option>
-                          {/foreach}
-                        </select>
+            <select class="btn btn-default btn-md" name="estilo" id="estilo">
+              <option></option>
+              {foreach from=$estilos item=estilo}
+                <option>{$estilo['nombre']}</option>
+              {/foreach}
+            </select>
           </div>
 
           <div class="form-group">

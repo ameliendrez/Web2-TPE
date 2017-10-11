@@ -36,13 +36,13 @@
 
     public function obtenerCervezaPorEstilo()
     {
+      print_r($_POST['estilos']);
       $estilo = $_POST['estilos'];
-      $cervezas = $this->model->getCervezasBEstilo($estilo);
-      $this->view->obtenerCervezaPorEstilo($cervezas);
+      $cervezas = $this->model->getCervezasByEstilo($estilo);
+      $this->view->obtenerCervezas($cervezas);
     }
 
     public function mostrarProceso()
-    
     {
       $this->view->mostrarProcesos();
     }

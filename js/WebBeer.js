@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   function mostrarContenido(data, textStatus, jqXHR) {
     $(".contenedor").html(data);
-    $(".filtrar").on("click", function (event) {
+    $(".filtrar").on("click", function () {
       let dirNueva ;
       if($(".seleccionEstilo").val() != "") {
         dirNueva = "obtenerCervezasPorEstilo/";
@@ -36,10 +36,11 @@ $(document).ready(function() {
 
   function filtrar(data, textStatus, jqXHR) {
 
-    let valor ;
-    if($(".seleccionEstilo").val() != "") {
-      $(".table-responsive").html(data);
+    let valor;
 
+    if($(".seleccionEstilo").value != "") {
+    console.log($(".seleccionEstilo").value);  
+      $(".table-responsive").html(data);
     }
 
     else if ($(".seleccionCerveza").val() != ""){

@@ -4,5 +4,4 @@
   <td>%alc</td>
   <td>Descripción</td>
   <td></td>
-
 </tr>

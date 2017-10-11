@@ -1,6 +1,4 @@
 
-
-
     <div class="alert alert-info" role="alert">
       <form  method="post">
 
@@ -11,7 +9,6 @@
           <option>{$estilo['nombre']}</option>
         {/foreach}
 
-
       </select>
 
       <label for="cervezas">¿Que cerveza te interesa conocer mas?</label>
@@ -20,8 +17,6 @@
         {foreach from=$cervezas item=cerveza}
           <option>{$cerveza['nombreCerveza']}</option>
         {/foreach}
-
-
 
       </select>
 

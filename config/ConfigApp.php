@@ -18,16 +18,19 @@ class ConfigApp {
       'logout' =>  'LoginController#destroy',
       'verificarUsuario' =>  'LoginController#verify',
       'adminList'=>  'AdminController#mostrarCervezas',
+
       'nuevaCerveza' =>  'AdminController#addCerveza',
       'guardarCerveza' =>  'AdminController#createCerveza',
       'eliminarCerveza' => 'AdminController#eliminarCerveza',
       'updateCerveza' => 'AdminController#mostrarUpdateCerveza',
       'modificarCerveza'=> 'AdminController#modificarCerveza',
 
-      'mostrarEstilo' =>  'AdminController#mostrarEstilos',
       'nuevoEstilo'  =>  'AdminController#addEstilo',
       'guardarEstilo' =>  'AdminController#createEstilo',
-      'eliminarEstilo' => 'AdminController#destroyEstilo'
+      'eliminarEstilo' => 'AdminController#destroyEstilo',
+      'updateEstilo' => 'AdminController#mostrarUpdateEstilo',
+      'modificarEstilo'=> 'AdminController#modificarEstilo',
+      'mostrarEstilo' =>  'AdminController#mostrarEstilos'
 
 
   ];

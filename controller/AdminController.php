@@ -92,10 +92,7 @@
       $this->view->mostrarAddCerveza($estilos);
     }
 
-    public function mostrarUpdateCerveza($id_cerveza)
-    {
-
-
+    public function mostrarUpdateCerveza($id_cerveza) {
       $id = $id_cerveza[0];
       $estilos = $this->styleModel->getEstilos();
 
@@ -103,14 +100,21 @@
     }
 
 
-    public function modificarCerveza()
-    {
+    public function mostrarUpdateEstilo($id_estilo) {
+      $id = $id_estilo[0];
+      $estilos = $this->styleModel->getEstilos();
+
+      $this->view->mostrarUpdateEstilos($id, $estilos);
+    }
+
+
+    public function modificarCerveza() {
       $id = $_POST['nombre'];
 
       $nombre = $_POST['nombre'];
       $estilo = isset($_POST['estilo']) ? $_POST['estilo']: "";
       $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
-      $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
+      $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
       $id = isset($_POST['id']) ? $_POST['id']: -1;
 
       if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
@@ -120,6 +124,20 @@
           header('Location: '. HOME . 'adminList');
         }
     }
+
+
+        public function modificarEstilo() {
+          $nombre = $_POST['nombre'];
+          $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
+          $id = isset($_POST['id']) ? $_POST['id']: -1;
+
+          if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+
+              $this->styleModel->Update($id, $nombre, $descripcion);
+
+              header('Location: '. HOME . 'mostrarEstilo');
+            }
+        }
 
   }
 ?>

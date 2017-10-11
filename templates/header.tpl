@@ -10,15 +10,12 @@
 
 <body>
 
-
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="col-md-12">
         <h1>WEEB BEER -
           <small>LA MEJOR CERVEZA ARTEZANAL DE TANDIL
-
-              <a href="log{{$session}}"><span class="glyphicon glyphicon-log-{{$session}}" aria-hidden="true"></span></a>
-
+            <a href="log{{$session}}"><span class="glyphicon glyphicon-log-{{$session}}" aria-hidden="true"></span></a>
           </small>
         </h1>
       </div>
