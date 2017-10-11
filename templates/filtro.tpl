@@ -4,7 +4,7 @@
     <div class="alert alert-info" role="alert">
 
       <label for="estilos">¿Que estilo preferis?</label>
-      <select class="seleccionCerveza btn btn-default btn-md" name="estilos" id="estilos">
+      <select class="seleccionEstilo btn btn-default btn-md" name="estilos" id="estilos">
         <option></option>
         {foreach from=$estilos item=estilo}
           <option>{$estilo['nombre']}</option>

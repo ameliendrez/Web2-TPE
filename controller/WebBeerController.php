@@ -29,6 +29,10 @@
 
       $this->view->mostrarVariedadCervezas($estilos, $cervezas);
     }
+    public function obtenerCervezas()
+    {
+      $this->view->obtenerCervezas();
+    }
 
     public function mostrarProceso()
     {

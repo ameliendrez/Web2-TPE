@@ -3,30 +3,11 @@
 
   {include file="filtro.tpl"}
 
-  <div class="table-responsive">
-    <table class="table">
-      <tr>
-        <td>Estilo de la cerveza</td>
-        <td>Nombre de la cerveza</td>
-        <td>%alc</td>
-        <td>Descripción</td>
-        <td></td>
+    <div class="table-responsive">
+      {include file="tablaCerveza.tpl"}
 
-      </tr>
+    </div>
 
-        {foreach from=$cervezas item=cerveza}
-        <tr>
-          <td>{$cerveza['estilo']}</td>
-          <td>{$cerveza['nombreCerveza']}</td>
-          <td>{$cerveza['porcentajeALC']}</td>
-          <td>{$cerveza['descripcion']|truncate:15}</td>
-
-        </tr>
-
-      {/foreach}
-
-    </table>
-  </div>
 
 
 
