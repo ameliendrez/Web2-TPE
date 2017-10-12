@@ -26,6 +26,14 @@
       return $cervezas;
     }
 
+    function getCervezasOrdenadas()
+    {
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW ORDER BY `estilo` ASC");
+      $sentencia->execute();
+      $cervezasOrdenadas = $sentencia->fetchAll();
+      return $cervezasOrdenadas;
+    }
+
     function guardarCerveza($nombre, $estilo, $alc, $descripcion)
     {
       $nroestilo = $this->getID($estilo);

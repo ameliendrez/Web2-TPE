@@ -40,6 +40,11 @@
       $cervezas = $this->model->getCervezas();
       $this->view->obtenerCervezas($cervezas);
     }
+    public function obtenerCervezasOrdenadas()
+    {
+      $cervezasOrdenadas = $this->model->getCervezasOrdenadas();
+      $this->view->obtenerCervezas($cervezasOrdenadas);
+    }
 
     public function obtenerCervezasPorEstilo($estilo)
     {

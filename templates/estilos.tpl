@@ -1,13 +1,17 @@
 
   <h1>Tipos y caracteristicas de las cervezas disponibles en nuestro local</h1>
 
+  <a class="navegador" href="getCervezasOrdenadas">Mostrar las cervezas ordenadas por categoria</a>
+  
   {include file="filtro.tpl"}
 
     <div class="table-responsive">
-      
+
       {include file="tablaCerveza.tpl"}
 
     </div>
+
+
 
 {*
   upper -> Lo que hace es poner todo en mayuscula

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2017 a las 17:20:07
+-- Tiempo de generación: 12-10-2017 a las 16:10:52
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -45,8 +45,7 @@ INSERT INTO `cerveza` (`id_cerveza`, `id_estilo`, `nombre`, `%alc`, `descripcion
 (4, 4, 'Imperial Stout', 9, 'Es una variante del estilo Stout que se caracteriza por tener una mayor cantidad de alcohol por volumen y una mayor concentración de lúpulo y/o malta.'),
 (5, 2, 'American Lite', 9, 'Es una cerveza muy refrescante y con una caracteristicas diferenciadora de saciadora de la sed, careciendo de sabores fuertes.'),
 (6, 1, 'Scotch Ale', 8, 'Sabrosa, maltosa y usualmente dulce, lo cual puede sugerir un postre. Los sabores complejos secundarios previenen una impresion unidimensional. La fuerza y la maltosidad pueden variar.'),
-(7, 3, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. '),
-(8, 1, 'aslgo', 7, 'odro,');
+(7, 3, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
 
 -- --------------------------------------------------------
 
@@ -147,12 +146,12 @@ ALTER TABLE `loginusuario`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `estilocerveza`
 --
 ALTER TABLE `estilocerveza`
-  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --

@@ -8,6 +8,7 @@ class ConfigApp {
       '' =>  'WebBeerController#index',
       'home' =>  'WebBeerController#home',
       'variedadCerveza' => 'WebBeerController#mostrarCervezas',
+      'getCervezasOrdenadas' => 'WebBeerController#obtenerCervezasOrdenadas',
       'proceso' => 'WebBeerController#mostrarProceso',
 
       'obtenerCervezas' => 'WebBeerController#obtenerCervezas',
