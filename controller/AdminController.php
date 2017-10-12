@@ -102,9 +102,7 @@
 
     public function mostrarUpdateEstilo($id_estilo) {
       $id = $id_estilo[0];
-      $estilos = $this->styleModel->getEstilos();
-
-      $this->view->mostrarUpdateEstilos($id, $estilos);
+      $this->view->mostrarUpdateEstilos($id);
     }
 
 

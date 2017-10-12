@@ -8,5 +8,6 @@
     <div class="container">
         <div class="contenedor">
         </div>
+        {include file="contacto.tpl"}
 
 {include file="footer.tpl"}

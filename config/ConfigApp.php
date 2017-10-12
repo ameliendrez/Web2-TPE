@@ -11,14 +11,14 @@ class ConfigApp {
       'proceso' => 'WebBeerController#mostrarProceso',
 
       'obtenerCervezas' => 'WebBeerController#obtenerCervezas',
-      //'obtenerCerveza' => 'WebBeerController#mostrarProceso',
-      'obtenerCervezaPorEstilo' => 'WebBeerController#obtenerCervezaPorEstilo',
+      'obtenerCerveza' => 'WebBeerController#obtenerCerveza',
+      'obtenerCervezasPorEstilo' => 'WebBeerController#obtenerCervezasPorEstilo',
 
       'login' =>  'LoginController#index',
       'logout' =>  'LoginController#destroy',
       'verificarUsuario' =>  'LoginController#verify',
-      'adminList'=>  'AdminController#mostrarCervezas',
 
+      'adminList'=>  'AdminController#mostrarCervezas',
       'nuevaCerveza' =>  'AdminController#addCerveza',
       'guardarCerveza' =>  'AdminController#createCerveza',
       'eliminarCerveza' => 'AdminController#eliminarCerveza',

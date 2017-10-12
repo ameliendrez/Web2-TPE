@@ -13,15 +13,8 @@
         <form action="../modificarEstilo" method="post">
 
           <div class="form-group">
-
-            <label for="nombre">Elija el estilo de la cerveza</label>
-
-            <select class="btn btn-default btn-md" name="nombre" id="nombre">
-              <option></option>
-              {foreach from=$estilos item=estilo}
-                <option>{$estilo['nombre']}</option>
-              {/foreach}
-            </select>
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del estilo">
           </div>
 
           <div class="form-group">

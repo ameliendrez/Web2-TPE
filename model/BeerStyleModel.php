@@ -8,7 +8,8 @@
       return $estilos;
     }
 
-    function guardarEstilo($nombre, $descripcion) {
+    function guardarEstilo($nombre, $descripcion)
+    {
       $sentencia = $this->db->prepare("INSERT INTO estilocerveza(nombre, descripcion) VALUES (?, ?)");
       $sentencia->execute([$nombre, $descripcion]);
     }
@@ -18,7 +19,9 @@
       return $sentencia->execute([$id_estilo]);
     }
 
-    function Update($id_estilo, $nombre, $descripcion) {
+
+    function Update($id_estilo, $nombre, $descripcion)
+    {
       $estilo = $this->getID($estilo);
 
       $sentencia = $this->db->prepare("UPDATE `estilocerveza` SET `nombre` = ?, `descripcion` = ?  WHERE `estilocerveza`.id_estilo = ?");

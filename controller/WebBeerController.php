@@ -29,16 +29,22 @@
 
       $this->view->mostrarVariedadCervezas($estilos, $cervezas);
     }
+    public function obtenerCerveza($cerveza)
+    {
+      $getCerveza = $cerveza[0];
+      $cerveza = $this->model->getCerveza($getCerveza);
+      $this->view->obtenerCerveza($cerveza);
+    }
     public function obtenerCervezas()
     {
-      $this->view->obtenerCervezas();
+      $cervezas = $this->model->getCervezas();
+      $this->view->obtenerCervezas($cervezas);
     }
 
-    public function obtenerCervezaPorEstilo()
+    public function obtenerCervezasPorEstilo($estilo)
     {
-      print_r($_POST['estilos']);
-      $estilo = $_POST['estilos'];
-      $cervezas = $this->model->getCervezasByEstilo($estilo);
+      $getEstilo = $estilo[0];
+      $cervezas = $this->model->getCervezasByEstilo($getEstilo);
       $this->view->obtenerCervezas($cervezas);
     }
 

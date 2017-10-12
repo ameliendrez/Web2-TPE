@@ -8,12 +8,11 @@ $(document).ready(function() {
     $(".filtrar").on("click", function () {
       let dirNueva ;
       if($(".seleccionEstilo").val() != "") {
-        dirNueva = "obtenerCervezasPorEstilo/";
-        //dirNueva += $(".seleccionEstilo").val();
+        dirNueva = "obtenerCervezasPorEstilo/"+$(".seleccionEstilo").val();
       }
 
       else if ($(".seleccionCerveza").val() != ""){
-        dirNueva = $(".seleccionCerveza").val();
+          dirNueva = "obtenerCerveza/"+$(".seleccionCerveza").val();
       }
       else{
         dirNueva = 'obtenerCervezas';
@@ -38,14 +37,14 @@ $(document).ready(function() {
 
     let valor;
 
-    if($(".seleccionEstilo").value != "") {
-    console.log($(".seleccionEstilo").value);  
+    if($(".seleccionEstilo").val() != "") {
+    console.log($(".seleccionEstilo").val());
       $(".table-responsive").html(data);
     }
 
     else if ($(".seleccionCerveza").val() != ""){
-      valor = $(".seleccionCerveza").val();
-      $(".table-responsive").html(valor);
+      console.log($(".seleccionCerveza").val());
+        $(".table-responsive").html(data);
     }
     else{
       $(".table-responsive").html(data);
