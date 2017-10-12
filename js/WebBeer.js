@@ -39,7 +39,7 @@ $(document).ready(function() {
     let valor;
 
     if($(".seleccionEstilo").val() != "") {
-    console.log($(".seleccionEstilo").val());  
+    console.log($(".seleccionEstilo").val());
       $(".table-responsive").html(data);
     }
 

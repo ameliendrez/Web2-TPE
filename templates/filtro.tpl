@@ -2,8 +2,8 @@
     <div class="alert alert-info" role="alert">
       <form  method="post">
 
-      <label for="estilos">¿Que estilo preferis?</label>
-      <select class="seleccionEstilo btn btn-default btn-md" name="estilos" id="estilos">
+      <label for="estilo">¿Que estilo preferis?</label>
+      <select class="seleccionEstilo btn btn-default btn-md" name="estilo" id="estilo">
         <option></option>
         {foreach from=$estilos item=estilo}
           <option>{$estilo['nombre']}</option>
