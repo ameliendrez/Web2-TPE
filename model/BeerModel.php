@@ -4,13 +4,9 @@
     function getCerveza($getCerveza)
     {
 
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW WHERE `nombreCerveza=?`");
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW WHERE `nombreCerveza`=?");
       $sentencia->execute([$getCerveza]);
-
-
-      $cerveza = $sentencia->fetchAll();
-      print_r($cerveza[1]);
-      die();
+      $cerveza = $sentencia->fetch();
       return $cerveza;
     }
 
