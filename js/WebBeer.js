@@ -38,8 +38,8 @@ $(document).ready(function() {
 
     let valor;
 
-    if($(".seleccionEstilo").value != "") {
-    console.log($(".seleccionEstilo").value);  
+    if($(".seleccionEstilo").val() != "") {
+    console.log($(".seleccionEstilo").val());  
       $(".table-responsive").html(data);
     }
 

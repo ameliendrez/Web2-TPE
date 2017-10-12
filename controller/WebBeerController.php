@@ -36,8 +36,9 @@
 
     public function obtenerCervezaPorEstilo()
     {
-      print_r($_POST['estilos']);
       $estilo = $_POST['estilos'];
+      print_r("llego");
+      print_r($estilo);
       $cervezas = $this->model->getCervezasByEstilo($estilo);
       $this->view->obtenerCervezas($cervezas);
     }
