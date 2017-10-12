@@ -9,8 +9,7 @@
     <td>{$cerveza['nombreCerveza']}</td>
     <td>{$cerveza['porcentajeALC']}</td>
     <td>{$cerveza['descripcion']}</td>
-    <td><img class="img-responsive carrusel" src="images/{$cerveza['nombreCerveza']}.jpg" alt="{$cerveza['nombreCerveza']}"></td>
-
+    <td><img class="img-responsive " src="images/{$cerveza['nombreCerveza']}.jpg" alt="{$cerveza['nombreCerveza']}"></td>
 
   </tr>
 
