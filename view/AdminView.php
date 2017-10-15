@@ -22,25 +22,25 @@
     public function mostrarAddCerveza($estilos)
     {
       $this->smarty->assign('estilos', $estilos);
-      $this->smarty->display('templates/admin/agregarCerveza.tpl');
+      $this->smarty->display('templates/Admin/agregarCerveza.tpl');
     }
 
     public function mostrarUpdateCerveza($id, $estilos)
     {
       $this->smarty->assign('estilos', $estilos);
       $this->smarty->assign('id', $id);
-      $this->smarty->display('templates/admin/updateCerveza.tpl');
+      $this->smarty->display('templates/Admin/updateCerveza.tpl');
     }
 
     public function mostrarUpdateEstilos($id)
     {
       $this->smarty->assign('id', $id);
-      $this->smarty->display('templates/admin/updateEstilos.tpl');
+      $this->smarty->display('templates/Admin/updateEstilos.tpl');
     }
 
     public function mostrarAddEstilo()
     {
-      $this->smarty->display('templates/admin/agregarEstilo.tpl');
+      $this->smarty->display('templates/Admin/agregarEstilo.tpl');
     }
   }
 

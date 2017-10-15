@@ -1,5 +1,6 @@
 
     <div class="alert alert-info" role="alert">
+      
       <form  method="post">
 
       <label for="estilo">¿Que estilo preferis?</label>

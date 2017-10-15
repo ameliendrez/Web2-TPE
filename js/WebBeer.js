@@ -9,7 +9,7 @@ $(document).ready(function() {
       event.preventDefault();
       let dirNueva = $(this).attr("href")
       $.ajax({
-        "url" : document.location.href+"/"+dirNueva,
+        "url" : dirNueva,
         "method" : "GET",
         "data-type" : "HTML",
         "success" : mostrarContenido,
@@ -28,7 +28,7 @@ $(document).ready(function() {
         dirNueva = 'obtenerCervezas';
       }
       $.ajax({
-        "url" : document.location.href+"/"+dirNueva,
+        "url" : dirNueva,
         "method" : "GET",
         "data-type" : "HTML",
         "success" : filtrar,
@@ -51,7 +51,7 @@ $(document).ready(function() {
     event.preventDefault();
     let dirNueva = $(this).attr("href")
     $.ajax({
-      "url" : document.location.href+"/"+dirNueva,
+      "url" : dirNueva,
       "method" : "GET",
       "data-type" : "HTML",
       "success" : mostrarContenido,

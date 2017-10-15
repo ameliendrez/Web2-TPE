@@ -1,5 +1,5 @@
 <?php
-  define('DB_NAME', 'webBeer');
+  define('DB_NAME', 'webbeer');
   define('DB_USER', 'root');
   define('DB_PASSWORD', '');
   define('DB_HOST', 'localhost');

@@ -4,7 +4,7 @@
     function getCerveza($getCerveza)
     {
 
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW WHERE `nombreCerveza`=?");
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `nombreCerveza`=?");
       $sentencia->execute([$getCerveza]);
       $cerveza = $sentencia->fetch();
       return $cerveza;
@@ -12,7 +12,7 @@
 
     function getCervezas()
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW");
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw");
       $sentencia->execute();
       $cervezas = $sentencia->fetchAll();
       return $cervezas;
@@ -20,7 +20,7 @@
 
     function getCervezasByEstilo($estilo)
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW WHERE `estilo` = ?");
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `estilo` = ?");
       $sentencia->execute([$estilo]);
       $cervezas = $sentencia->fetchAll();
       return $cervezas;
@@ -28,7 +28,7 @@
 
     function getCervezasOrdenadas()
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezaVW ORDER BY `estilo` ASC");
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw ORDER BY `estilo` ASC");
       $sentencia->execute();
       $cervezasOrdenadas = $sentencia->fetchAll();
       return $cervezasOrdenadas;
