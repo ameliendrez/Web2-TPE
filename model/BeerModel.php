@@ -3,9 +3,9 @@
   {
     function getCerveza($getCerveza)
     {
-
+      $nombreCerveza = $this->getNombreCerveza($getCerveza);
       $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `nombreCerveza`=?");
-      $sentencia->execute([$getCerveza]);
+      $sentencia->execute([$nombreCerveza]);
       $cerveza = $sentencia->fetch();
       return $cerveza;
     }

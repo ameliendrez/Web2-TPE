@@ -25,16 +25,18 @@
       $this->smarty->display('templates/Admin/agregarCerveza.tpl');
     }
 
-    public function mostrarUpdateCerveza($id, $estilos)
+    public function mostrarUpdateCerveza($id, $estilos, $cerveza)
     {
       $this->smarty->assign('estilos', $estilos);
       $this->smarty->assign('id', $id);
+      $this->smarty->assign('cerveza', $cerveza);
       $this->smarty->display('templates/Admin/updateCerveza.tpl');
     }
 
-    public function mostrarUpdateEstilos($id)
+    public function mostrarUpdateEstilos($id, $estilo)
     {
       $this->smarty->assign('id', $id);
+      $this->smarty->assign('estilo', $estilo);
       $this->smarty->display('templates/Admin/updateEstilos.tpl');
     }
 

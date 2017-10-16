@@ -1,6 +1,14 @@
 <?php
   class BeerStyleModel extends Model
   {
+    function getEstilo($id_estilo)
+    {
+      $sentencia = $this->db->prepare( "SELECT * FROM estilocerveza WHERE id_estilo=?");
+      $sentencia->execute([$id_estilo[0]]);
+      $estilo = $sentencia->fetch();
+      return $estilo;
+    }
+
     function getEstilos() {
       $sentencia = $this->db->prepare( "SELECT * FROM estilocerveza");
       $sentencia->execute();

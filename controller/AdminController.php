@@ -95,14 +95,17 @@
     public function mostrarUpdateCerveza($id_cerveza) {
       $id = $id_cerveza[0];
       $estilos = $this->styleModel->getEstilos();
+      $cerveza = $this->model->getCerveza($id_cerveza);
 
-      $this->view->mostrarUpdateCerveza($id, $estilos);
+      $this->view->mostrarUpdateCerveza($id, $estilos, $cerveza);
     }
 
 
     public function mostrarUpdateEstilo($id_estilo) {
       $id = $id_estilo[0];
-      $this->view->mostrarUpdateEstilos($id);
+      $estilo = $this->styleModel->getEstilo($id_estilo);
+
+      $this->view->mostrarUpdateEstilos($id, $estilo);
     }
 
 
