@@ -1,6 +1,6 @@
 
     <div class="alert alert-info" role="alert">
-      
+
       <form  method="post">
 
       <label for="estilo">¿Que estilo preferis?</label>
@@ -16,7 +16,7 @@
       <select class="seleccionCerveza btn btn-default btn-md" name="cervezas" id="cervezas">
         <option></option>
         {foreach from=$cervezas item=cerveza}
-          <option>{$cerveza['nombreCerveza']}</option>
+          <option value="{$cerveza['id_cerveza']}">{$cerveza['nombreCerveza']}</option>
         {/foreach}
 
       </select>

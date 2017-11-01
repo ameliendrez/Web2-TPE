@@ -24,7 +24,7 @@
             <select class="btn btn-default btn-md" name="estilo" id="estilo">
               <option></option>
               {foreach from=$estilos item=estilo}
-                <option>{$estilo['nombre']}</option>
+                <option value="{$estilo['id_estilo']}">{$estilo['nombre']}</option>
               {/foreach}
             </select>
           </div>

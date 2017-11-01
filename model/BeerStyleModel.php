@@ -30,7 +30,7 @@
 
     function Update($id_estilo, $nombre, $descripcion)
     {
-      $estilo = $this->getID($estilo);
+      //$estilo = $this->getID($estilo);
 
       $sentencia = $this->db->prepare("UPDATE `estilocerveza` SET `nombre` = ?, `descripcion` = ?  WHERE `estilocerveza`.id_estilo = ?");
       return $sentencia->execute([$nombre, $descripcion, $id_estilo]);

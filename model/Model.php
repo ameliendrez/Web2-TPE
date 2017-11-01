@@ -46,22 +46,6 @@ include_once 'config/db-config.php';
         buildDDBBfromFile(DB_NAME, DB_FILE);
       }
     }
-
-    function getID($estilo)
-    {
-      $getID = $this->db->prepare( "SELECT * FROM `estilocerveza` WHERE nombre = ?");
-      $getID->execute([$estilo]);
-      $arrayEstilo = $getID->fetchAll();
-      $idestilo = $arrayEstilo[0];
-      return $idestilo['id_estilo'];
-    }
-    function getNombreCerveza($cerveza)
-    {
-      $getNombre = $this->db->prepare( "SELECT * FROM `cervezavw` WHERE id_cerveza = ?");
-      $getNombre->execute([$cerveza[0]]);
-      $arrayCerveza = $getNombre->fetchAll();
-      $nombreCerveza = $arrayCerveza[0];
-      return $nombreCerveza['nombreCerveza'];
-    }
+    
   }
 ?>

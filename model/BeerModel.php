@@ -3,9 +3,10 @@
   {
     function getCerveza($getCerveza)
     {
-      $nombreCerveza = $this->getNombreCerveza($getCerveza);
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `nombreCerveza`=?");
-      $sentencia->execute([$nombreCerveza]);
+      //$nombreCerveza = $this->getNombreCerveza($getCerveza);
+      $getCerveza = $getCerveza[0];
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `id_cerveza`=?");
+      $sentencia->execute([$getCerveza]);
       $cerveza = $sentencia->fetch();
       return $cerveza;
     }
@@ -36,9 +37,9 @@
 
     function guardarCerveza($nombre, $estilo, $alc, $descripcion)
     {
-      $nroestilo = $this->getID($estilo);
+      //$nroestilo = $this->getID($estilo);
       $sentencia = $this->db->prepare("INSERT INTO `cerveza` (`id_estilo`, `nombre`, `%alc`, `descripcion`) VALUES (?, ?, ?, ?)");
-      $sentencia->execute([$nroestilo, $nombre, $alc, $descripcion]);
+      $sentencia->execute([$estilo, $nombre, $alc, $descripcion]);
     }
 
     function borrarCerveza($id_cerveza)
@@ -50,7 +51,7 @@
 
     function Update($id_cerveza, $nombre, $estilo, $alc, $descripcion)
     {
-      $estilo = $this->getID($estilo);
+      //$estilo = $this->getID($estilo);
       $sentencia = $this->db->prepare("UPDATE `cerveza` SET `id_estilo` = ?, `nombre` = ?, `%alc` = ?, `descripcion` = ?  WHERE `cerveza`.id_cerveza = ?");
       return $sentencia->execute([$estilo, $nombre, $alc, $descripcion, $id_cerveza]);
     }

@@ -59,14 +59,14 @@
       $nombre = $_POST['nombre'];
       $estilo = isset($_POST['estilo']) ? $_POST['estilo']: "";
       $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
-      $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
+      $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
 
-      if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+      if(isset($_POST['nombre']) && !empty($_POST['nombre'])) {
 
           $this->model->guardarCerveza($nombre, $estilo, $alc, $descripcion);
 
           header('Location: '. HOME . 'adminList');
-
+          
       }
       // else {
       //   $this->view->errorCrear("El campo nombre es requerido", $nombre, $estilo, $alc, $descripcion);

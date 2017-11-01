@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  "use strict"
+  "use strict";
 
   EjecutarInicio();
 
@@ -17,12 +17,12 @@ $(document).ready(function() {
       });
     });
     $(".filtrar").on("click", function () {
-      let dirNueva ;
+      let dirNueva;
       if($(".seleccionEstilo").val() != "") {
         dirNueva = "obtenerCervezasPorEstilo/"+$(".seleccionEstilo").val();
       }
       else if ($(".seleccionCerveza").val() != ""){
-          dirNueva = "obtenerCerveza/"+$(".seleccionCerveza").val();
+        dirNueva = "obtenerCerveza/"+$(".seleccionCerveza").val();
       }
       else{
         dirNueva = 'obtenerCervezas';
