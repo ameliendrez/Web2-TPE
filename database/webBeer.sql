@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2017 a las 16:10:52
+-- Tiempo de generación: 06-11-2017 a las 21:35:06
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -92,19 +92,18 @@ INSERT INTO `estilocerveza` (`id_estilo`, `nombre`, `descripcion`) VALUES
 
 CREATE TABLE `loginusuario` (
   `id_usuario` int(11) NOT NULL,
-  `usuario` varchar(30) NOT NULL,
-  `contraseña` varchar(250) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `apellido` varchar(30) NOT NULL
+  `usuario` varchar(50) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `esAdmin` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `loginusuario`
 --
 
-INSERT INTO `loginusuario` (`id_usuario`, `usuario`, `contraseña`, `nombre`, `apellido`) VALUES
-(1, 'ameliendrez', '$2y$10$khMVNrxI/4hXw/6SotjuUeMI9z6fhectVye2djPIWfEGQpw.nNPO2', 'Agustin', 'Meliendrez'),
-(3, 'santirampoldi', '$2y$10$t7LOzSkfb.hvUPvaVZYRruClD0m4xufe/rb2VNt56A1vd6TlI1/o2', 'santiago', 'rampoldi');
+INSERT INTO `loginusuario` (`id_usuario`, `usuario`, `password`, `esAdmin`) VALUES
+(1, 'ameliendrez', '$2y$10$khMVNrxI/4hXw/6SotjuUeMI9z6fhectVye2djPIWfEGQpw.nNPO2', 1),
+(3, 'santirampoldi', '$2y$10$t7LOzSkfb.hvUPvaVZYRruClD0m4xufe/rb2VNt56A1vd6TlI1/o2', 1);
 
 -- --------------------------------------------------------
 
@@ -146,12 +145,12 @@ ALTER TABLE `loginusuario`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `estilocerveza`
 --
 ALTER TABLE `estilocerveza`
-  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --

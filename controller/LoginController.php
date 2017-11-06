@@ -23,7 +23,7 @@ include_once 'model/LoginModel.php';
       $password = $_POST['password'];
       if(!empty($userName) && !empty($password)) {
         $user = $this->model->getUser($userName);
-        if(!empty($user) && password_verify($password, $user[0]['contraseña'])){
+        if(!empty($user) && password_verify($password, $user[0]['password'])){
           session_start();
           $_SESSION['usuario']=$userName;
           $_SESSION['LAST_ACTIVITY'] = time(); // Comienza el contador
