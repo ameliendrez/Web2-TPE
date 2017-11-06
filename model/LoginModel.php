@@ -8,10 +8,10 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function createUser($userName, $password)
+    function createUser($username, $password, $nombre, $apellido)
     {
-      $sentencia = $this->db->prepare("INSERT INTO loginusuario(usuario, password) VALUES (?, ?)");
-      $sentencia->execute([$userName, $password]);
+      $sentencia = $this->db->prepare("INSERT INTO loginusuario(usuario, password, nombre, apellido) VALUES (?, ?, ?, ?)");
+      $sentencia->execute([$username, $password, $nombre, $apellido]);
     }
   }
 ?>

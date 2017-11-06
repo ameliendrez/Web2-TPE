@@ -41,5 +41,25 @@ include_once 'model/LoginModel.php';
       session_destroy();
       header('Location: '. HOME);
     }
+
+    public function mostrarCreateUser()
+    {
+      $this->view->mostrarCreateUser();
+    }
+
+    public function createUser()
+    {
+      $username = isset($_POST['username']) ? $_POST['username'] : "";
+      $password = isset($_POST['password']) ? $_POST['password'] : "";
+      $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
+      $apellido = isset($_POST['apellido']) ? $_POST['apellido'] : "";
+
+      if(isset($_POST['nombre']) && !empty($_POST['nombre'])) { //necesario?
+          $this->model->createUser($username, $password, $nombre, $apellido);
+          //loguear este usuario y redirigir
+          //header('Location: '. HOME);
+      }
+
+    }
   }
 ?>

@@ -21,6 +21,7 @@
 
           <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
         </form>
+        <p>¿Aún no tienes una cuenta? Regístrate <a href="mostrarCreateUser">aquí</a>.</p>
       </div>
     </div>
 {include file="footer.tpl"}

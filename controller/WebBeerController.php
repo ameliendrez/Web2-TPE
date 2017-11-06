@@ -63,11 +63,5 @@
       $this->view->mostrarPedidos();
     }
 
-    public function createUsuario($value='')
-    {
-      
-    }
-
-
   }
 ?>

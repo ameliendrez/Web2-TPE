@@ -18,6 +18,8 @@ class ConfigApp {
       'login' =>  'LoginController#index',
       'logout' =>  'LoginController#destroy',
       'verificarUsuario' =>  'LoginController#verify',
+      'createUser' =>  'LoginController#createUser',
+      'mostrarCreateUser' =>  'LoginController#mostrarCreateUser',
 
       'adminList'=>  'AdminController#mostrarCervezas',
       'nuevaCerveza' =>  'AdminController#addCerveza',
