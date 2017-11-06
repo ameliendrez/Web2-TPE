@@ -6,7 +6,10 @@
 
   class AdminController extends SecuredController
   {
-    private $styleModel;
+    protected $view;
+    protected $model;
+    protected $styleModel;
+
     function __construct()
     {
       parent::__construct();
@@ -66,7 +69,7 @@
           $this->model->guardarCerveza($nombre, $estilo, $alc, $descripcion);
 
           header('Location: '. HOME . 'adminList');
-          
+
       }
       // else {
       //   $this->view->errorCrear("El campo nombre es requerido", $nombre, $estilo, $alc, $descripcion);
@@ -95,7 +98,7 @@
     public function mostrarUpdateCerveza($id_cerveza) {
       $id = $id_cerveza[0];
       $estilos = $this->styleModel->getEstilos();
-      $cerveza = $this->model->getCerveza($id_cerveza);
+      $cerveza = $this->model->getCerveza($id);
 
       $this->view->mostrarUpdateCerveza($id, $estilos, $cerveza);
     }
@@ -103,7 +106,7 @@
 
     public function mostrarUpdateEstilo($id_estilo) {
       $id = $id_estilo[0];
-      $estilo = $this->styleModel->getEstilo($id_estilo);
+      $estilo = $this->styleModel->getEstilo($id);
 
       $this->view->mostrarUpdateEstilos($id, $estilo);
     }

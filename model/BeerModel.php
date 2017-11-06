@@ -3,8 +3,6 @@
   {
     function getCerveza($getCerveza)
     {
-      //$nombreCerveza = $this->getNombreCerveza($getCerveza);
-      $getCerveza = $getCerveza[0];
       $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `id_cerveza`=?");
       $sentencia->execute([$getCerveza]);
       $cerveza = $sentencia->fetch();
