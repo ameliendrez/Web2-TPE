@@ -1,9 +1,11 @@
 <?php
   class BeerModel extends Model
   {
-    function getCerveza($getCerveza)
+    function getCerveza($id_cerveza)
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `id_cerveza` = ?");
+      $sentencia = $this->db->prepare(
+        "SELECT cerveza.nombre_cerveza, cerveza.alc, cerveza.descripcion, estilocerveza.nombre_estilo
+         FROM cerveza INNER JOIN estilocerveza ON cerveza.id_estilo = estilocerveza.id_estilo WHERE `id_cerveza` = ?");
       $sentencia->execute([$getCerveza]);
       $cerveza = $sentencia->fetch();
       return $cerveza;
@@ -11,7 +13,9 @@
 
     function getCervezas()
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw");
+      $sentencia = $this->db->prepare(
+        "SELECT cerveza.nombre_cerveza, cerveza.alc, cerveza.descripcion, estilocerveza.nombre_estilo
+       FROM cerveza INNER JOIN estilocerveza ON cerveza.id_estilo = estilocerveza.id_estilo");
       $sentencia->execute();
       $cervezas = $sentencia->fetchAll();
       return $cervezas;
@@ -19,7 +23,8 @@
 
     function getCervezasByEstilo($estilo)
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `estilo` = ?");
+      $sentencia = $this->db->prepare( "SELECT cerveza.nombre_cerveza, cerveza.alc, cerveza.descripcion, estilocerveza.nombre_estilo
+     FROM cerveza INNER JOIN estilocerveza ON cerveza.id_estilo = estilocerveza.id_estiloWHERE `estilocerveza.nombre_estilo` = ?");
       $sentencia->execute([$estilo]);
       $cervezas = $sentencia->fetchAll();
       return $cervezas;
@@ -27,7 +32,8 @@
 
     function getCervezasOrdenadas()
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw ORDER BY `estilo` ASC");
+      $sentencia = $this->db->prepare( "SELECT cerveza.nombre_cerveza, cerveza.alc, cerveza.descripcion, estilocerveza.nombre_estilo
+     FROM cerveza INNER JOIN estilocerveza ON cerveza.id_estilo = estilocerveza.id_estilo ORDER BY estilocerveza.nombre_estilo ASC");
       $sentencia->execute();
       $cervezasOrdenadas = $sentencia->fetchAll();
       return $cervezasOrdenadas;

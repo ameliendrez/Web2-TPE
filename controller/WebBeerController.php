@@ -26,7 +26,6 @@
     {
       $estilos = $this->styleModel->getEstilos();
       $cervezas = $this->model->getCervezas();
-
       $this->view->mostrarVariedadCervezas($estilos, $cervezas);
     }
     public function obtenerCerveza($cerveza)

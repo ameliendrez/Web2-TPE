@@ -5,4 +5,5 @@
   define('DB_HOST', 'localhost');
   define('DB_FILE', 'database/webBeer.sql');
 
+
  ?>

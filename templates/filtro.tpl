@@ -7,7 +7,7 @@
       <select class="seleccionEstilo btn btn-default btn-md" name="estilo" id="estilo">
         <option></option>
         {foreach from=$estilos item=estilo}
-          <option>{$estilo['nombre']}</option>
+          <option>{$estilo['nombre_estilo']}</option>
         {/foreach}
 
       </select>
@@ -16,7 +16,7 @@
       <select class="seleccionCerveza btn btn-default btn-md" name="cervezas" id="cervezas">
         <option></option>
         {foreach from=$cervezas item=cerveza}
-          <option value="{$cerveza['id_cerveza']}">{$cerveza['nombreCerveza']}</option>
+          <option value="{$cerveza['id_cerveza']}">{$cerveza['nombre_cerveza']}</option>
         {/foreach}
 
       </select>
