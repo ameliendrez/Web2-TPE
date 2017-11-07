@@ -9,9 +9,6 @@
 
     function mostrarIndex()
     {
-      // $password = password_hash('admin1605', PASSWORD_DEFAULT); // Esto sirve para guardar el hash de la contraseña
-      // echo ($password);
-
       return $this->smarty->display('templates/index.tpl');
     }
     function mostrarHome()
