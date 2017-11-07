@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2017 a las 21:35:06
+-- Tiempo de generación: 07-11-2017 a las 01:06:14
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -94,6 +94,8 @@ CREATE TABLE `loginusuario` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `password` varchar(250) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
   `esAdmin` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -101,9 +103,10 @@ CREATE TABLE `loginusuario` (
 -- Volcado de datos para la tabla `loginusuario`
 --
 
-INSERT INTO `loginusuario` (`id_usuario`, `usuario`, `password`, `esAdmin`) VALUES
-(1, 'ameliendrez', '$2y$10$khMVNrxI/4hXw/6SotjuUeMI9z6fhectVye2djPIWfEGQpw.nNPO2', 1),
-(3, 'santirampoldi', '$2y$10$t7LOzSkfb.hvUPvaVZYRruClD0m4xufe/rb2VNt56A1vd6TlI1/o2', 1);
+INSERT INTO `loginusuario` (`id_usuario`, `usuario`, `password`, `nombre`, `apellido`, `esAdmin`) VALUES
+(1, 'ameliendrez', '$2y$10$khMVNrxI/4hXw/6SotjuUeMI9z6fhectVye2djPIWfEGQpw.nNPO2', 'agustin', 'meliendrez', 1),
+(3, 'santirampoldi', '$2y$10$t7LOzSkfb.hvUPvaVZYRruClD0m4xufe/rb2VNt56A1vd6TlI1/o2', 'santiago', 'rampoldi', 1),
+(4, 'santirampoldi@hotmail.com', '$2y$10$8XpR2hf3zG24JF.3yIvsMeKy.sf5BJYC/judVUoxjh85FPFy4NCXS', 'probando', 'user', 0);
 
 -- --------------------------------------------------------
 
@@ -155,7 +158,7 @@ ALTER TABLE `estilocerveza`
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --
 ALTER TABLE `loginusuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --
