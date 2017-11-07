@@ -3,7 +3,7 @@
   {
     function getCerveza($getCerveza)
     {
-      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `id_cerveza`=?");
+      $sentencia = $this->db->prepare( "SELECT * FROM cervezavw WHERE `id_cerveza` = ?");
       $sentencia->execute([$getCerveza]);
       $cerveza = $sentencia->fetch();
       return $cerveza;
@@ -42,7 +42,7 @@
 
     function borrarCerveza($id_cerveza)
     {
-      $sentencia = $this->db->prepare("DELETE FROM cerveza WHERE id_cerveza=?");
+      $sentencia = $this->db->prepare("DELETE FROM cerveza WHERE id_cerveza = ?");
       return $sentencia->execute([$id_cerveza]);
     }
 

@@ -10,7 +10,7 @@
     }
 
     function getEstilos() {
-      $sentencia = $this->db->prepare( "SELECT * FROM estilocerveza order by nombre asc");
+      $sentencia = $this->db->prepare( "SELECT * FROM estilocerveza ORDER BY nombre ASC");
       $sentencia->execute();
       $estilos = $sentencia->fetchAll();
       return $estilos;

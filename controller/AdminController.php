@@ -2,6 +2,7 @@
   include_once 'view/AdminView.php';
   include_once 'model/BeerModel.php';
   include_once 'model/BeerStyleModel.php';
+  include_once 'model/LoginModel.php';
 
 
   class AdminController extends SecuredController
@@ -9,6 +10,7 @@
     protected $view;
     protected $model;
     protected $styleModel;
+    protected $userModel;
 
     function __construct()
     {
@@ -16,7 +18,7 @@
       $this->view = new AdminView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
-
+      $this->userModel = new LoginModel();
     }
 
     public function mostrarEstilos()
@@ -130,18 +132,41 @@
     }
 
 
-        public function modificarEstilo() {
-          $nombre = $_POST['nombre'];
-          $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
-          $id = isset($_POST['id']) ? $_POST['id']: -1;
+    public function modificarEstilo() {
+      $nombre = $_POST['nombre'];
+      $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
+      $id = isset($_POST['id']) ? $_POST['id']: -1;
 
-          if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+      if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
 
-              $this->styleModel->Update($id, $nombre, $descripcion);
+          $this->styleModel->Update($id, $nombre, $descripcion);
 
-              header('Location: '. HOME . 'mostrarEstilo');
-            }
+          header('Location: '. HOME . 'mostrarEstilo');
         }
+    }
+
+    public function mostrarUsuario() {
+      $usuarios = $this->userModel->getUsuarios();
+      $this->view->mostrarUsuario($usuarios);
+    }
+
+    public function eliminarUsuario($params) {
+      $id_usuario = $params[0];
+      $this->userModel->borrarUsuario($id_usuario);
+      header('Location: '. HOME .'mostrarUsuario');
+    }
+
+    public function cambiarPermiso($params) {
+      $id_usuario = $params[0];
+      if ($params[1] == 0) {
+        $set = 1;
+      }
+      else {
+        $set = 0;
+      }
+      $this->userModel->cambiarPermiso($set, $id_usuario);
+      header('Location: '. HOME .'mostrarUsuario');
+    }
 
   }
 ?>
