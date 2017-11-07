@@ -9,7 +9,7 @@
     <td>{$cerveza['nombre_cerveza']}</td>
     <td>{$cerveza['alc']}</td>
     <td>{$cerveza['descripcion']}</td>
-    <td><img class="img-responsive " src="images/{$cerveza['nombreCerveza']}.jpg" alt="{$cerveza['nombreCerveza']}"></td>
+    <td><img class="img-responsive " src="images/{$cerveza['nombre_cerveza']}.jpg" alt="{$cerveza['nombre_cerveza']}"></td>
 
   </tr>
 

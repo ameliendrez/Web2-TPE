@@ -1,5 +1,7 @@
 <?php
   include_once 'libs/Smarty.class.php';
+
+
   class View
   {
     protected $smarty;
@@ -8,6 +10,8 @@
     {
       $this->smarty = new smarty();
       $this->smarty->assign('titulo', 'WEB BEER');
+      $this->smarty->assign('base_sitio', HOME);
+
     }
   }
 ?>

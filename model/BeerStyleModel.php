@@ -5,15 +5,13 @@
     {
       $sentencia = $this->db->prepare( "SELECT * FROM estilocerveza WHERE id_estilo=?");
       $sentencia->execute([$id_estilo]);
-      $estilo = $sentencia->fetch();
-      return $estilo;
+      return $estilo = $sentencia->fetch();
     }
 
     function getEstilos() {
       $sentencia = $this->db->prepare( "SELECT * FROM estilocerveza ORDER BY nombre_estilo ASC");
       $sentencia->execute();
-      $estilos = $sentencia->fetchAll();
-      return $estilos;
+      return $estilos = $sentencia->fetchAll();
     }
 
     function guardarEstilo($nombre, $descripcion)
@@ -30,7 +28,6 @@
 
     function Update($id_estilo, $nombre, $descripcion)
     {
-
       $sentencia = $this->db->prepare("UPDATE `estilocerveza` SET `nombre_estilo` = ?, `descripcion` = ?  WHERE `estilocerveza`.id_estilo = ?");
       return $sentencia->execute([$nombre, $descripcion, $id_estilo]);
     }

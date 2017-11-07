@@ -2,8 +2,9 @@
 {include file="header.tpl"}
 </div>
   </div>
-    <a href="../adminList">Volver a lista de Cervezas</a> |
-    <a href="../mostrarEstilo">Ver Lista de Estilos</a>
+    <a href="adminList">Volver a lista de Cervezas</a> |
+    <a href="mostrarEstilo">Ver Lista de Estilos</a> |
+    <a href="mostrarUsuario">Ver lista de usuarios</a>
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -14,7 +15,7 @@
 
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="{$cerveza['nombreCerveza']}">
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{$cerveza['nombre_cerveza']}">
           </div>
 
           <div class="form-group">
@@ -22,20 +23,20 @@
             <label for="estilo">Estilo</label>
 
             <select class="btn btn-default btn-md" name="estilo" id="estilo">
-              <option></option>
+              <option>{$cerveza['nombre_estilo']}</option>
               {foreach from=$estilos item=estilo}
-                <option value="{$estilo['id_estilo']}">{$estilo['nombre']}</option>
+                <option value="{$estilo['id_estilo']}">{$estilo['nombre_estilo']}</option>
               {/foreach}
             </select>
           </div>
 
           <div class="form-group">
             <label for="alc">% alcohol</label>
-            <input type="number" class="form-control" id="alc" name="alc" value="{$cerveza['porcentajeALC']}">
+            <input type="number" class="form-control" id="alc" name="alc" value="{$cerveza['alc']}">
           </div>
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
-            <textarea id="descripcion" name="descripcion" rows="8" cols="92" value="{$cerveza['descripcion']}"></textarea>
+            <textarea id="descripcion" name="descripcion" rows="8" cols="92">{$cerveza['descripcion']}</textarea>
           </div>
           <button type="submit" name="id" value="{$id}" class="btn btn-primary">Modificar Cerveza</button>
         </form>

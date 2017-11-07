@@ -36,6 +36,19 @@ $(document).ready(function() {
       });
     });
 
+    $(".filtrarPorEstilo").on("click", function () {
+      let dirNueva = "getCervezasOrdenadas";
+
+      $.ajax({
+        "url" : dirNueva,
+        "method" : "GET",
+        "data-type" : "HTML",
+        "success" : filtrar,
+        "error": handleError
+      });
+    });
+
+
   }
 
   function handleError(xmlhr, r, error) {

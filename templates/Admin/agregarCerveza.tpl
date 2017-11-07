@@ -2,7 +2,8 @@
 </div>
   </div>
     <a href="adminList">Volver a lista de Cervezas</a> |
-    <a href="mostrarEstilo">Ver Lista de Estilos</a>
+    <a href="mostrarEstilo">Ver Lista de Estilos</a> |
+    <a href="mostrarUsuario">Ver lista de usuarios</a>
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -21,7 +22,7 @@
             <select class="btn btn-default btn-md" name="estilo" id="estilo">
               <option></option>
               {foreach from=$estilos item=estilo}
-                <option value="{$estilo['id_estilo']}">{$estilo['nombre']}</option>
+                <option value="{$estilo['id_estilo']}">{$estilo['nombre_estilo']}</option>
               {/foreach}
             </select>
 

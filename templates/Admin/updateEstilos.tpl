@@ -2,8 +2,9 @@
 {include file="header.tpl"}
 </div>
   </div>
-    <a href="../mostrarEstilo">Volver a lista de Estilos</a> |
-    <a href="../adminList">Ver lista de Cervezas</a>
+    <a href="mostrarEstilo">Volver a lista de Estilos</a> |
+    <a href="adminList">Ver lista de Cervezas</a> |
+    <a href="mostrarUsuario">Ver lista de usuarios</a>
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -14,12 +15,12 @@
 
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="{$estilo['nombre']}">
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{$estilo['nombre_estilo']}">
           </div>
 
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
-            <textarea id="descripcion" name="descripcion" rows="8" cols="92" value="{$estilo['descripcion']}"></textarea>
+            <textarea id="descripcion" name="descripcion" rows="8" cols="92">{$estilo['descripcion']}</textarea>
           </div>
           <button type="submit" name="id" value="{{$id}}" class="btn btn-primary">Modificar Estilo</button>
         </form>

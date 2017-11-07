@@ -18,7 +18,7 @@
         {foreach from=$estilos item=estilo}
 
         <tr>
-          <td>{$estilo['nombre']}</td>
+          <td>{$estilo['nombre_estilo']}</td>
           <td>{$estilo['descripcion']}</td>
           <td>
             <a href="eliminarEstilo/{$estilo['id_estilo']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
