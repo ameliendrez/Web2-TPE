@@ -23,6 +23,8 @@
 
       <button type="button" class="filtrar btn btn-default btn-md" name="button">Filtrar</button>
       <button type="button" class="filtrarPorEstilo btn btn-default btn-md" name="button">Ordenar Por Estilo</button>
+      <button type="button" class="obtenerSoloEstilos btn btn-default btn-md" name="button">Mostrar Estilos</button>
+
 
     </form>
 

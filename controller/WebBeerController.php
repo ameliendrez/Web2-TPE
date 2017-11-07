@@ -52,6 +52,12 @@
       $this->view->obtenerCervezas($cervezas);
     }
 
+    public function getEstilos()
+    {
+      $estilos = $this->styleModel->getEstilos();
+      $this->view->mostrarEstilos($estilos);
+    }
+
     public function mostrarProceso()
     {
       $this->view->mostrarProcesos();

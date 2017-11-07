@@ -42,10 +42,18 @@
       $this->smarty->assign('cervezas', $cervezas);
       return $this->smarty->display('templates/tablaCerveza.tpl');
     }
+
+    function mostrarEstilos($estilos)
+    {
+      $this->smarty->assign('estilos', $estilos);
+      $this->smarty->display('templates/mostrarEstilos.tpl');
+    }
+
     function mostrarProcesos()
     {
       return $this->smarty->display('templates/proceso.tpl');
     }
+
     function mostrarPedidos()
     {
       return $this->smarty->display('templates/pedidos.tpl');

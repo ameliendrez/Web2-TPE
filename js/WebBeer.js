@@ -48,6 +48,18 @@ $(document).ready(function() {
       });
     });
 
+    $(".obtenerSoloEstilos").on("click", function () {
+      let dirNueva = "getEstilos";
+
+      $.ajax({
+        "url" : dirNueva,
+        "method" : "GET",
+        "data-type" : "HTML",
+        "success" : filtrar,
+        "error": handleError
+      });
+    });
+
 
   }
 

@@ -14,6 +14,7 @@ class ConfigApp {
       'obtenerCervezas' => 'WebBeerController#obtenerCervezas',
       'obtenerCerveza' => 'WebBeerController#obtenerCerveza',
       'obtenerCervezasPorEstilo' => 'WebBeerController#obtenerCervezasPorEstilo',
+      'getEstilos' => 'WebBeerController#getEstilos',
 
       'login' =>  'LoginController#index',
       'logout' =>  'LoginController#destroy',
