@@ -22,9 +22,10 @@
       return $this->smarty->display('templates/estilos.tpl');
     }
 
-    function obtenerCerveza($cerveza)
+    function obtenerCerveza($cerveza, $imagenes)
     {
       $this->smarty->assign('cerveza', $cerveza);
+      $this->smarty->assign('imagenes', $imagenes);
       return $this->smarty->display('templates/datosCerveza.tpl');
     }
 

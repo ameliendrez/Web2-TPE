@@ -3,7 +3,7 @@
   include_once 'model/BeerModel.php';
   include_once 'model/BeerStyleModel.php';
   include_once 'model/LoginModel.php';
-
+  include_once 'model/ImageModel.php';
 
   class AdminController extends SecuredController
   {
@@ -11,6 +11,7 @@
     protected $model;
     protected $styleModel;
     protected $userModel;
+    protected $imageModel;
 
     function __construct()
     {
@@ -19,6 +20,7 @@
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
       $this->userModel = new LoginModel();
+      $this->imageModel = new ImageModel();
     }
 
     public function mostrarEstilos()
@@ -61,10 +63,11 @@
       $estilo = isset($_POST['estilo']) ? $_POST['estilo']: "";
       $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
+      $imagenes = $_FILES['imagenes'];
 
       if(isset($_POST['nombre']) && !empty($_POST['nombre'])) {
 
-          $this->model->guardarCerveza($nombre, $estilo, $alc, $descripcion);
+          $this->model->guardarCerveza($nombre, $estilo, $alc, $descripcion, $imagenes);
 
           header('Location: '. HOME . 'adminList');
       }

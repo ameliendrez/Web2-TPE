@@ -10,7 +10,7 @@
         {if isset($error)}
           <div class="alert alert-danger" role="alert">{$error}</div>
         {/if}
-        <form action="guardarCerveza" method="post">
+        <form action="guardarCerveza" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza">
@@ -34,6 +34,10 @@
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
             <textarea id="descripcion" name="descripcion" rows="8" cols="92" placeholder="Descripcion"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="imagenes">Subir una o varias imagenes</label>
+            <input type="file" name="imagenes[]" id="imagenes" multiple>
           </div>
           <button type="submit" class="btn btn-primary">Crear</button>
         </form>

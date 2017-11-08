@@ -2,14 +2,21 @@
   include_once 'view/WebBeerView.php';
   include_once 'model/BeerModel.php';
   include_once 'model/BeerStyleModel.php';
+  include_once 'model/ImageModel.php';
 
   class WebBeerController extends Controller
   {
+    protected $view;
+    protected $model;
+    protected $styleModel;
+    protected $imageModel;
+
     function __construct()
     {
       $this->view = new WebBeerView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
+      $this->imageModel = new ImageModel();
     }
 
     public function index()
@@ -30,9 +37,10 @@
     }
     public function obtenerCerveza($cerveza)
     {
-      $getCerveza = $cerveza[0];
-      $cerveza = $this->model->getCerveza($getCerveza);
-      $this->view->obtenerCerveza($cerveza);
+      $id_cerveza = $cerveza[0];
+      $cerveza = $this->model->getCerveza($id_cerveza);
+      $imagenes = $this->imageModel->getImagenes($id_cerveza);
+      $this->view->obtenerCerveza($cerveza, $imagenes);
     }
     public function obtenerCervezas()
     {

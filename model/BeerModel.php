@@ -37,10 +37,24 @@
       return $cervezasOrdenadas = $sentencia->fetchAll();
     }
 
-    function guardarCerveza($nombre, $estilo, $alc, $descripcion)
+    function guardarCerveza($nombre, $estilo, $alc, $descripcion, $imagenes)
     {
       $sentencia = $this->db->prepare("INSERT INTO `cerveza` (`id_estilo`, `nombre_cerveza`, `alc`, `descripcion`) VALUES (?, ?, ?, ?)");
       $sentencia->execute([$estilo, $nombre, $alc, $descripcion]);
+      $id_cerveza = $this->db->lastInsertId();
+      $this->guardarImagenes($imagenes, $id_cerveza);
+    }
+
+    function guardarImagenes($imagenes, $id_cerveza) {
+      $size = sizeOf($imagenes['name']);
+      $rutaImagen = "";
+      for ($i = 0; $i < $size; $i++) {
+        $rutaImagen = 'images/' . uniqid() . '.jpg';
+        $temp = $imagenes['tmp_name'][$i];
+        move_uploaded_file($temp, $rutaImagen);
+        $sentencia = $this->db->prepare("INSERT INTO imagen (id_cerveza, ruta) VALUES (?, ?)");
+        $sentencia->execute([$id_cerveza, $rutaImagen]);
+      }
     }
 
     function borrarCerveza($id_cerveza)
@@ -48,7 +62,6 @@
       $sentencia = $this->db->prepare("DELETE FROM cerveza WHERE id_cerveza = ?");
       return $sentencia->execute([$id_cerveza]);
     }
-
 
     function Update($id_cerveza, $nombre, $estilo, $alc, $descripcion)
     {

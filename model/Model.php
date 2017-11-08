@@ -43,9 +43,9 @@ include_once 'config/db-config.php';
       }
       catch (PDOException $e)
       {
-        buildDDBBfromFile(DB_NAME, DB_FILE);
+        buildDDBBfromFile();
       }
     }
-    
+
   }
 ?>
