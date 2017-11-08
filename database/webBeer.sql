@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2017 a las 17:50:48
+-- Tiempo de generación: 08-11-2017 a las 19:52:16
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -82,6 +82,19 @@ CREATE TABLE `imagen` (
   `ruta` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `imagen`
+--
+
+INSERT INTO `imagen` (`id_imagen`, `id_cerveza`, `ruta`) VALUES
+(14, 1, 'images/Sweet stout.jpg'),
+(15, 2, 'images/Brown Porter.jpg'),
+(16, 3, 'images/India Pale Ale.jpg'),
+(17, 4, 'images/Imperial Stout.jpg'),
+(18, 5, 'images/American Lite.jpg'),
+(19, 6, 'images/Scotch Ale.jpg'),
+(20, 7, 'images/Weizenbier.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -144,7 +157,7 @@ ALTER TABLE `loginusuario`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `estilocerveza`
 --
@@ -154,7 +167,7 @@ ALTER TABLE `estilocerveza`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --
