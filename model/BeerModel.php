@@ -49,7 +49,7 @@
       $size = sizeOf($imagenes['name']);
       $rutaImagen = "";
       for ($i = 0; $i < $size; $i++) {
-        $rutaImagen = 'images/' . uniqid() . '.jpg';
+        $rutaImagen = 'images/' . uniqid() . $imagenes['name'][0] . '.jpg';
         $temp = $imagenes['tmp_name'][$i];
         move_uploaded_file($temp, $rutaImagen);
         $sentencia = $this->db->prepare("INSERT INTO imagen (id_cerveza, ruta) VALUES (?, ?)");
@@ -59,13 +59,13 @@
 
     function borrarCerveza($id_cerveza)
     {
-      $sentencia = $this->db->prepare("DELETE FROM cerveza WHERE id_cerveza = ?");
+      $sentencia = $this->db->prepare("DELETE FROM `cerveza` WHERE `cerveza`.`id_cerveza` = ?");
       return $sentencia->execute([$id_cerveza]);
     }
 
     function Update($id_cerveza, $nombre, $estilo, $alc, $descripcion)
     {
-      $sentencia = $this->db->prepare("UPDATE `cerveza` SET `id_estilo` = ?, `nombre_cerveza` = ?, `alc` = ?, `descripcion` = ?  WHERE `cerveza`.id_cerveza = ?");
+      $sentencia = $this->db->prepare("UPDATE `cerveza` SET `id_estilo` = ?, `nombre_cerveza` = ?, alc = ?, `descripcion` = ?  WHERE `cerveza`.`id_cerveza` = ?");
       return $sentencia->execute([$estilo, $nombre, $alc, $descripcion, $id_cerveza]);
     }
   }

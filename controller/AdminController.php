@@ -110,7 +110,6 @@
 
 
     public function modificarCerveza() {
-      $id = $_POST['nombre'];
       $nombre = $_POST['nombre'];
       $estilo = isset($_POST['estilo']) ? $_POST['estilo']: "";
       $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
@@ -118,8 +117,9 @@
       $id = isset($_POST['id']) ? $_POST['id']: -1;
 
       if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
-          $this->model->Update($id, $nombre, $estilo, $alc, $descripcion);
-          header('Location: '. HOME . 'adminList');
+
+        $this->model->Update($id, $nombre, $estilo, $alc, $descripcion);
+        header('Location: '. HOME . 'adminList');
         }
     }
 
@@ -128,9 +128,9 @@
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
       $id = isset($_POST['id']) ? $_POST['id']: -1;
 
-      if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
-          $this->styleModel->Update($id, $nombre, $descripcion);
-          header('Location: '. HOME . 'mostrarEstilo');
+      if(isset($_POST['nombre']) && !empty($_POST['nombre'])) {
+        $this->styleModel->Update($id, $nombre, $descripcion);
+        header('Location: '. HOME . 'mostrarEstilo');
         }
     }
 

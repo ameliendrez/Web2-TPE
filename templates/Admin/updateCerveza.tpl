@@ -23,7 +23,7 @@
             <label for="estilo">Estilo</label>
 
             <select class="btn btn-default btn-md" name="estilo" id="estilo">
-              <option>{$cerveza['nombre_estilo']}</option>
+              <option value="{$estilos[0][0]}">{$cerveza['nombre_estilo']}</option>
               {foreach from=$estilos item=estilo}
                 <option value="{$estilo['id_estilo']}">{$estilo['nombre_estilo']}</option>
               {/foreach}

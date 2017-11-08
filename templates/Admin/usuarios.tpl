@@ -25,7 +25,7 @@
           <td>{$usuario['esAdmin']}</td>
           <td>
             <a href="eliminarUsuario/{$usuario['id_usuario']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-            <a href="cambiarPermiso/{$usuario['id_usuario']}/{$usuario['esAdmin']}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            <a href="cambiarPermiso/{$usuario['id_usuario']}/{$usuario['esAdmin']}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
           </td>
         </tr>
 

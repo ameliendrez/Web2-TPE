@@ -11,7 +11,7 @@
     function getEstilos() {
       $sentencia = $this->db->prepare( "SELECT * FROM estilocerveza ORDER BY nombre_estilo ASC");
       $sentencia->execute();
-      return $estilos = $sentencia->fetchAll();
+      return $sentencia->fetchAll();
     }
 
     function guardarEstilo($nombre, $descripcion)
