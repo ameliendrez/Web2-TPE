@@ -11,7 +11,7 @@
         {if isset($error)}
           <div class="alert alert-danger" role="alert">{$error}</div>
         {/if}
-        <form action="../modificarCerveza" method="post">
+        <form action="modificarCerveza" method="post">
 
           <div class="form-group">
             <label for="nombre">Nombre</label>
