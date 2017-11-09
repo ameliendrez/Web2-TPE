@@ -115,10 +115,11 @@
       $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
       $id = isset($_POST['id']) ? $_POST['id']: -1;
+      $imagenes = $_FILES['imagenes'];
 
       if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
 
-        $this->model->Update($id, $nombre, $estilo, $alc, $descripcion);
+        $this->model->Update($id, $nombre, $estilo, $alc, $descripcion, $imagenes);
         header('Location: '. HOME . 'adminList');
         }
     }

@@ -63,8 +63,9 @@
       return $sentencia->execute([$id_cerveza]);
     }
 
-    function Update($id_cerveza, $nombre, $estilo, $alc, $descripcion)
+    function Update($id_cerveza, $nombre, $estilo, $alc, $descripcion, $imagenes)
     {
+      $this->guardarImagenes($imagenes, $id_cerveza);
       $sentencia = $this->db->prepare("UPDATE `cerveza` SET `id_estilo` = ?, `nombre_cerveza` = ?, alc = ?, `descripcion` = ?  WHERE `cerveza`.`id_cerveza` = ?");
       return $sentencia->execute([$estilo, $nombre, $alc, $descripcion, $id_cerveza]);
     }
