@@ -49,7 +49,7 @@
       $size = sizeOf($imagenes['name']);
       $rutaImagen = "";
       for ($i = 0; $i < $size; $i++) {
-        $rutaImagen = 'images/' . uniqid() . $imagenes['name'][0] . '.jpg';
+        $rutaImagen = 'images/' . uniqid() . $imagenes['name'][$i];
         $temp = $imagenes['tmp_name'][$i];
         move_uploaded_file($temp, $rutaImagen);
         $sentencia = $this->db->prepare("INSERT INTO imagen (id_cerveza, ruta) VALUES (?, ?)");

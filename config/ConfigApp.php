@@ -31,6 +31,8 @@ class ConfigApp {
       'mostrarUsuario'=> 'AdminController#mostrarUsuario',
       'eliminarUsuario'=> 'AdminController#eliminarUsuario',
       'cambiarPermiso'=> 'AdminController#cambiarPermiso',
+      'imagenesCerveza'=> 'AdminController#mostrarImagenes',
+      'eliminarImagen'=> 'AdminController#eliminarImagen',
 
       'nuevoEstilo'  =>  'AdminController#addEstilo',
       'guardarEstilo' =>  'AdminController#createEstilo',

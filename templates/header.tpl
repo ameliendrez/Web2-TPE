@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="col-md-12">
-        <h1>WEEB BEER -
+        <h1><a href="">WEEB BEER</a> -
           <small>LA MEJOR CERVEZA ARTEZANAL DE TANDIL
             <a href="log{{$session}}"><span class="glyphicon glyphicon-log-{{$session}}" aria-hidden="true"></span></a>
           </small>

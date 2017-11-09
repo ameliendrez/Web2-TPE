@@ -10,7 +10,7 @@
     protected $view;
     protected $model;
     protected $styleModel;
-    protected $userModel;
+    protected $loginModel;
     protected $imageModel;
 
     function __construct()
@@ -19,7 +19,7 @@
       $this->view = new AdminView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
-      $this->userModel = new LoginModel();
+      $this->loginModel = new LoginModel();
       $this->imageModel = new ImageModel();
     }
 
@@ -135,26 +135,40 @@
     }
 
     public function mostrarUsuario() {
-      $usuarios = $this->userModel->getUsuarios();
+      $usuarios = $this->loginModel->getUsuarios();
       $this->view->mostrarUsuario($usuarios);
     }
 
     public function eliminarUsuario($params) {
       $id_usuario = $params[0];
-      $this->userModel->borrarUsuario($id_usuario);
+      $this->loginModel->borrarUsuario($id_usuario);
       header('Location: '. HOME .'mostrarUsuario');
     }
 
     public function cambiarPermiso($params) {
       $id_usuario = $params[0];
-      if ($params[1] == 0) {
-        $set = 1;
+      if ($params[1] == 0) {$set = 1;}
+      else {$set = 0;}
+      $this->loginModel->cambiarPermiso($set, $id_usuario);
+      header('Location: '. HOME .'mostrarUsuario');
+    }
+
+    public function mostrarImagenes($params) {
+      $id_cerveza = $params[0];
+      $imagenes = $this->imageModel->getImagenes($id_cerveza);
+      $cerveza = $this->model->getCerveza($id_cerveza);
+      if (empty($imagenes)) {
+        $this->view->mostrarError('No hay imagenes disponibles para esta cerveza', $cerveza);
       }
       else {
-        $set = 0;
+        $this->view->mostrarImagenes($imagenes, $cerveza);
       }
-      $this->userModel->cambiarPermiso($set, $id_usuario);
-      header('Location: '. HOME .'mostrarUsuario');
+    }
+
+    public function eliminarImagen($params) {
+      $id_imagen = $params[0];
+      $this->loginModel->borrarImagen($id_imagen);
+      header('Location: '. HOME .'adminList'. '/');
     }
 
   }

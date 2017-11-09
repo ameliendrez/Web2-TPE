@@ -22,6 +22,7 @@
           <td>
             <a href="eliminarCerveza/{$cerveza['id_cerveza']}"><span name="id" value="{$cerveza['id_cerveza']}" class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             <a href="updateCerveza/{$cerveza['id_cerveza']}"><span name="id" value="{$cerveza['id_cerveza']}" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            <a href="imagenesCerveza/{$cerveza['id_cerveza']}"><span name="id" value="{$cerveza['id_cerveza']}" class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
           </td>
 
         </form>

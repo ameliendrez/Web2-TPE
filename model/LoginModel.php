@@ -20,8 +20,7 @@
       return $sentencia->fetchAll();
     }
 
-    function borrarUsuario($id_usuario)
-    {
+    function borrarUsuario($id_usuario) {
       $sentencia = $this->db->prepare("DELETE FROM loginusuario WHERE id_usuario = ?");
       return $sentencia->execute([$id_usuario]);
     }
@@ -29,6 +28,11 @@
     function cambiarPermiso($set, $id_usuario) {
       $sentencia = $this->db->prepare("UPDATE loginusuario SET esAdmin = ? WHERE id_usuario = ?");
       return $sentencia->execute([$set, $id_usuario]);
+    }
+
+    function borrarImagen($id_imagen) {
+      $sentencia = $this->db->prepare("DELETE FROM imagen WHERE id_imagen = ?");
+      return $sentencia->execute([$id_imagen]);
     }
   }
 ?>

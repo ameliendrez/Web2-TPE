@@ -49,6 +49,19 @@
       $this->smarty->assign('usuarios', $usuarios);
       $this->smarty->display('templates/Admin/usuarios.tpl');
     }
+
+    public function mostrarImagenes($imagenes, $cerveza) {
+      $this->smarty->assign('imagenes', $imagenes);
+      $this->smarty->assign('cerveza', $cerveza);
+      $this->smarty->display('templates/Admin/imagenesCerveza.tpl');
+    }
+
+    function mostrarError($error='', $cerveza)
+    {
+      $this->smarty->assign('error', $error);
+      $this->smarty->assign('cerveza', $cerveza);
+      return $this->smarty->display('templates/Admin/imagenesCerveza.tpl');
+    }
   }
 
  ?>
