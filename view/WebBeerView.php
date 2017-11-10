@@ -1,24 +1,31 @@
 <?php
   class WebBeerView extends View
   {
-    protected $estadoSession;
+    protected $estadoSession= 'in';
 
     function __construct()
     {
       parent::__construct();
-      if ($this->estadoSession == '') {
-        $this->estadoSession = $this->SetSession('in');
-      }
+      // if (isset($_SESSION['usuario'])){
+      //   $this->estadoSession='out';
+      // }
+      // else{
+      //   $this->estadoSession='in';
+      // }
+      // $this->smarty->assign('session', $this->estadoSession);
     }
 
-    public function SetSession($session)
-    {
-        $this->estadoSession = $session;
-        $this->smarty->assign('session', $this->estadoSession);
-    }
+    // public function setSession($session)
+    // {
+    //   // print_r($session);
+    //   // die();
+    //   $this->estadoSession = $session;
+    //   $this->smarty->assign('session', $this->estadoSession);
+    // }
 
-    function mostrarIndex()
+    function mostrarIndex($session)
     {
+      $this->smarty->assign('session', $session);
       return $this->smarty->display('templates/index.tpl');
     }
     function mostrarHome()

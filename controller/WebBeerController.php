@@ -4,13 +4,14 @@
   include_once 'model/BeerStyleModel.php';
   include_once 'model/ImageModel.php';
 
-  class WebBeerController extends Controller
+  class WebBeerController extends SecuredController
   {
     protected $styleModel;
     protected $imageModel;
 
     function __construct()
     {
+      $this->connect();
       $this->view = new WebBeerView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
@@ -19,7 +20,9 @@
 
     public function index()
     {
-      $this->view->mostrarIndex();
+      $session = $this->setSession();
+
+      $this->view->mostrarIndex($session);
     }
 
     public function home()
