@@ -23,6 +23,16 @@
       }
     }
 
+    public function estaLogueado()
+    {
+      if(!isset($_SESSION['usuario'])) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
     public function esAdministrador()
     {
       if ($_SESSION['permisos'] == 1) {

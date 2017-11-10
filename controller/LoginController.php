@@ -38,8 +38,8 @@ include_once 'model/LoginModel.php';
         else {
           $this->view->mostrarError('Usuario o Passwords incorrectos');
         }
+      }
     }
-  }
 
     public function destroy()
     {
@@ -66,7 +66,6 @@ include_once 'model/LoginModel.php';
           $this->iniciarSesion($userName, $password);
           header('Location: '. HOME);
       }
-
     }
   }
 ?>

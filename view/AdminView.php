@@ -1,10 +1,26 @@
 <?php
   class AdminView extends View
   {
+
+    protected $estadoSession;
+
     function __construct()
     {
       parent::__construct();
-      $this->smarty->assign('session', 'out');
+      if ($this->estadoSession == '') {
+        $this->estadoSession = $this->SetSession();
+      }
+    }
+
+    public function SetSession()
+    {
+      if(isset($_SESSION['usuario'])) {
+        $this->estadoSession = 'out';
+      }
+      else {
+        $this->estadoSession = 'in';
+      }
+      $this->smarty->assign('session', $this->estadoSession);
     }
 
     function mostrarCervezas($cervezas)

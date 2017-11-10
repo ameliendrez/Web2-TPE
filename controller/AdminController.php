@@ -1,4 +1,5 @@
 <?php
+  //include_once 'view/WebBeerView.php';
   include_once 'view/AdminView.php';
   include_once 'model/BeerModel.php';
   include_once 'model/BeerStyleModel.php';
@@ -7,8 +8,7 @@
 
   class AdminController extends SecuredController
   {
-    protected $view;
-    protected $model;
+    protected $beerView;
     protected $styleModel;
     protected $loginModel;
     protected $imageModel;
@@ -16,14 +16,21 @@
     function __construct()
     {
       parent::__construct();
+      // $session = ($this->estaLogueado()) ? "out":"in";
+      // $this->view->setSession($session); Se puede agregar la vista del webberr???
       if ($this->esAdministrador()){
         $this->view = new AdminView();
+        $this->beerView = new WebBeerView();
         $this->model = new BeerModel();
         $this->styleModel = new BeerStyleModel();
         $this->loginModel = new LoginModel();
         $this->imageModel = new ImageModel();
+        $this->view->setSession($this->estaLogueado() ? "out":"in");
+        $this->beerView->setSession($this->estaLogueado() ? "out":"in");
       }
       else{
+        $this->beerView = new WebBeerView();
+        $this->beerView->setSession($this->estaLogueado() ? "out":"in");
         header('Location: '. HOME);
       }
     }
@@ -184,6 +191,5 @@
       $this->loginModel->borrarImagen($id_imagen);
       header('Location: '. HOME .'adminList'. '/');
     }
-
   }
 ?>

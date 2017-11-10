@@ -1,10 +1,20 @@
 <?php
   class WebBeerView extends View
   {
+    protected $estadoSession;
+
     function __construct()
     {
       parent::__construct();
-      $this->smarty->assign('session', 'in');
+      if ($this->estadoSession == '') {
+        $this->estadoSession = $this->SetSession('in');
+      }
+    }
+
+    public function SetSession($session)
+    {
+        $this->estadoSession = $session;
+        $this->smarty->assign('session', $this->estadoSession);
     }
 
     function mostrarIndex()

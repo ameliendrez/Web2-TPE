@@ -6,8 +6,6 @@
 
   class WebBeerController extends Controller
   {
-    protected $view;
-    protected $model;
     protected $styleModel;
     protected $imageModel;
 
@@ -18,7 +16,6 @@
       $this->styleModel = new BeerStyleModel();
       $this->imageModel = new ImageModel();
     }
-
 
     public function index()
     {
