@@ -16,11 +16,16 @@
     function __construct()
     {
       parent::__construct();
-      $this->view = new AdminView();
-      $this->model = new BeerModel();
-      $this->styleModel = new BeerStyleModel();
-      $this->loginModel = new LoginModel();
-      $this->imageModel = new ImageModel();
+      if ($this->esAdministrador()){
+        $this->view = new AdminView();
+        $this->model = new BeerModel();
+        $this->styleModel = new BeerStyleModel();
+        $this->loginModel = new LoginModel();
+        $this->imageModel = new ImageModel();
+      }
+      else{
+        header('Location: '. HOME);
+      }
     }
 
     public function mostrarEstilos()
@@ -142,8 +147,20 @@
 
     public function eliminarUsuario($params) {
       $id_usuario = $params[0];
-      $this->loginModel->borrarUsuario($id_usuario);
-      header('Location: '. HOME .'mostrarUsuario');
+
+      //($this->esAdministrador()); // Aca hay un error... deberia conseguir al usuario y consultarle si es esAdministrador
+        // me da siempre true;
+
+       $user = $this->loginModel->getUserById($id_usuario);
+
+      if ($user[0]['esAdmin'] == 0){
+        $this->loginModel->borrarUsuario($id_usuario);
+        header('Location: '. HOME .'mostrarUsuario');
+      }
+      else{
+      
+        header('Location: '. HOME .'mostrarUsuario');
+      }
     }
 
     public function cambiarPermiso($params) {

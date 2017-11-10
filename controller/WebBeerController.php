@@ -19,6 +19,7 @@
       $this->imageModel = new ImageModel();
     }
 
+
     public function index()
     {
       $this->view->mostrarIndex();

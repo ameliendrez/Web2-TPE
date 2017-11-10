@@ -30,18 +30,14 @@ include_once 'model/LoginModel.php';
         if(!empty($user) && password_verify($password, $user[0]['password'])){
           session_start();
           $_SESSION['usuario'] = $userName;
+          $_SESSION['permisos'] = $user[0]['esAdmin'];
           $_SESSION['LAST_ACTIVITY'] = time(); // Comienza el contador
-          if ($user[0]['esAdmin'] == 1) {
-            header('Location: '. HOME .'adminList');
-          }
-          else {
-            header('Location: '. HOME);
-          }
+          header('Location: '. HOME.'adminList');
+
         }
         else {
           $this->view->mostrarError('Usuario o Passwords incorrectos');
         }
-
     }
   }
 

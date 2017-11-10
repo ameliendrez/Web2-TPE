@@ -8,6 +8,13 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function getUserById($id)
+    {
+      $sentencia = $this->db->prepare("SELECT * FROM loginusuario WHERE id_usuario = ?");
+      $sentencia->execute([$id]);
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function createUser($username, $password, $nombre, $apellido)
     {
       $sentencia = $this->db->prepare("INSERT INTO loginusuario(usuario, password, nombre, apellido) VALUES (?, ?, ?, ?)");
