@@ -51,7 +51,7 @@
 
     public function destroyEstilo($params)
     {
-      $id_estilo = $params[0];
+      $id_estilo = $params[':id'];
       $this->styleModel->borrarEstilo($id_estilo);
       header('Location: '. HOME .'mostrarEstilo');
     }
@@ -83,7 +83,7 @@
 
     public function eliminarCerveza($params)
     {
-      $id_cerveza = $params[0];
+      $id_cerveza = $params[':id'];
       $this->model->borrarCerveza($id_cerveza);
       header('Location: '. HOME .'adminList');
     }
@@ -100,7 +100,7 @@
     }
 
     public function mostrarUpdateCerveza($id_cerveza) {
-      $id = $id_cerveza[0];
+      $id = $id_cerveza[':id'];
       $estilos = $this->styleModel->getEstilos();
       $cerveza = $this->model->getCerveza($id);
       $this->view->mostrarUpdateCerveza($id, $estilos, $cerveza);
@@ -108,7 +108,8 @@
 
 
     public function mostrarUpdateEstilo($id_estilo) {
-      $id = $id_estilo[0];
+
+      $id = $id_estilo[':id'];
       $estilo = $this->styleModel->getEstilo($id);
       $this->view->mostrarUpdateEstilos($id, $estilo);
     }
@@ -123,7 +124,6 @@
       $imagenes = $_FILES['imagenes'];
 
       if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
-
         $this->model->Update($id, $nombre, $estilo, $alc, $descripcion, $imagenes);
         header('Location: '. HOME . 'adminList');
         }
@@ -146,33 +146,29 @@
     }
 
     public function eliminarUsuario($params) {
-      $id_usuario = $params[0];
-
-      //($this->esAdministrador()); // Aca hay un error... deberia conseguir al usuario y consultarle si es esAdministrador
-        // me da siempre true;
-
-       $user = $this->loginModel->getUserById($id_usuario);
-
+      $id_usuario = $params[':id'];
+      $user = $this->loginModel->getUserById($id_usuario);
       if ($user[0]['esAdmin'] == 0){
         $this->loginModel->borrarUsuario($id_usuario);
         header('Location: '. HOME .'mostrarUsuario');
       }
       else{
-      
         header('Location: '. HOME .'mostrarUsuario');
       }
     }
 
     public function cambiarPermiso($params) {
-      $id_usuario = $params[0];
-      if ($params[1] == 0) {$set = 1;}
+
+      $id_usuario = $params[':id'];
+      if ($params[':permiso'] == 0) {$set = 1;}
       else {$set = 0;}
       $this->loginModel->cambiarPermiso($set, $id_usuario);
       header('Location: '. HOME .'mostrarUsuario');
     }
 
     public function mostrarImagenes($params) {
-      $id_cerveza = $params[0];
+
+      $id_cerveza = $params[':id'];
       $imagenes = $this->imageModel->getImagenes($id_cerveza);
       $cerveza = $this->model->getCerveza($id_cerveza);
       if (empty($imagenes)) {
@@ -184,7 +180,7 @@
     }
 
     public function eliminarImagen($params) {
-      $id_imagen = $params[0];
+      $id_imagen = $params[':id'];
       $this->loginModel->borrarImagen($id_imagen);
       header('Location: '. HOME .'adminList'. '/');
     }

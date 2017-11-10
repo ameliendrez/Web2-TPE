@@ -38,7 +38,8 @@
     }
     public function obtenerCerveza($cerveza)
     {
-      $id_cerveza = $cerveza[0];
+
+      $id_cerveza = $cerveza[':id'];
       $cerveza = $this->model->getCerveza($id_cerveza);
       $imagenes = $this->imageModel->getImagenes($id_cerveza);
       $this->view->obtenerCerveza($cerveza, $imagenes);
@@ -56,7 +57,7 @@
 
     public function obtenerCervezasPorEstilo($estilo)
     {
-      $getEstilo = $estilo[0];
+      $getEstilo = $estilo[':estilo'];
       $cervezas = $this->model->getCervezasByEstilo($getEstilo);
       $this->view->obtenerCervezas($cervezas);
     }
