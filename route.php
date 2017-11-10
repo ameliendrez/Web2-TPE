@@ -27,7 +27,7 @@
   $router->AddRoute("login", "GET", "LoginController", "index");
   $router->AddRoute("logout", "GET", "LoginController", "destroy");
   $router->AddRoute("verificarUsuario", "POST", "LoginController", "verify");
-  $router->AddRoute("createUser", "GET", "LoginController", "createUser");
+  $router->AddRoute("createUser", "POST", "LoginController", "createUser");
   $router->AddRoute("mostrarCreateUser", "GET", "LoginController", "mostrarCreateUser");
 
   $router->AddRoute("adminList", "GET", "AdminController", "mostrarCervezas");
@@ -40,7 +40,7 @@
   $router->AddRoute("eliminarUsuario/:id", "GET", "AdminController", "eliminarUsuario");
   $router->AddRoute("cambiarPermiso/:id/:permiso", "GET", "AdminController", "cambiarPermiso");
   $router->AddRoute("imagenesCerveza/:id", "GET", "AdminController", "mostrarImagenes");
-  $router->AddRoute("eliminarImagen/:id", "GET", "AdminController", "eliminarImagen");
+  $router->AddRoute("eliminarImagen/:id/:idcerveza", "GET", "AdminController", "eliminarImagen");
   $router->AddRoute("nuevoEstilo", "GET", "AdminController", "addEstilo");
   $router->AddRoute("guardarEstilo", "POST", "AdminController", "createEstilo");
   $router->AddRoute("eliminarEstilo/:id", "GET", "AdminController", "destroyEstilo");

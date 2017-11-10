@@ -188,8 +188,9 @@
 
     public function eliminarImagen($params) {
       $id_imagen = $params[':id'];
+      $id_cerveza = $params[':idcerveza'];
       $this->loginModel->borrarImagen($id_imagen);
-      header('Location: '. HOME .'adminList'. '/');
+      header('Location: '. HOME .'imagenesCerveza'. '/' . $id_cerveza);
     }
   }
 ?>

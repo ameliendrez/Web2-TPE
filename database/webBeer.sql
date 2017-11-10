@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2017 a las 19:52:16
+-- Tiempo de generación: 10-11-2017 a las 19:37:47
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -45,7 +45,7 @@ INSERT INTO `cerveza` (`id_cerveza`, `id_estilo`, `nombre_cerveza`, `alc`, `desc
 (4, 4, 'Imperial Stout', 9, 'Es una variante del estilo Stout que se caracteriza por tener una mayor cantidad de alcohol por volumen y una mayor concentración de lúpulo y/o malta.'),
 (5, 2, 'American Lite', 9, 'Es una cerveza muy refrescante y con una caracteristicas diferenciadora de saciadora de la sed, careciendo de sabores fuertes.'),
 (6, 1, 'Scotch Ale', 8, 'Sabrosa, maltosa y usualmente dulce, lo cual puede sugerir un postre. Los sabores complejos secundarios previenen una impresion unidimensional. La fuerza y la maltosidad pueden variar.'),
-(7, 3, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
+(7, 1, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE `estilocerveza` (
 --
 
 INSERT INTO `estilocerveza` (`id_estilo`, `nombre_estilo`, `descripcion`) VALUES
-(1, 'Ale', 'cervezas de fermentación alta, y por ello el proceso de fermentación ocurre en la superficie del líquido. Las cervezas Ales tienen mayor graduación alcohólica y un sabor más complejo que otras. '),
+(1, 'Ale', 'Cervezas de fermentación alta, y por ello el proceso de fermentación ocurre en la superficie del líquido. Las cervezas Ales tienen mayor graduación alcohólica y un sabor más complejo que otras. '),
 (2, 'Lager', 'Es un tipo de cerveza con sabor acentuado que se sirve fría, caracterizada por fermentar en condiciones lentas, empleando levaduras especiales, conocidas como levaduras de fermentación baja.'),
 (3, 'Trigo', 'Las cervezas de trigo también se conocen como cervezas blancas por su aspecto, cuando no están filtradas. La mayor parte del tiempo son de alta fermentación.'),
 (4, 'Stout', 'Stout es el nombre de un estilo de cerveza, tipo ale, muy oscura, originario de las islas británicas. Era el nombre utilizado para la cerveza más fuerte(7 u 8 %alc) producido por cada cervecería.'),
@@ -93,7 +93,8 @@ INSERT INTO `imagen` (`id_imagen`, `id_cerveza`, `ruta`) VALUES
 (17, 4, 'images/Imperial Stout.jpg'),
 (18, 5, 'images/American Lite.jpg'),
 (19, 6, 'images/Scotch Ale.jpg'),
-(20, 7, 'images/Weizenbier.jpg');
+(20, 7, 'images/Weizenbier.jpg'),
+(21, 2, 'images/Sweet stout.jpg');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,7 @@ ALTER TABLE `loginusuario`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `estilocerveza`
 --
@@ -167,7 +168,7 @@ ALTER TABLE `estilocerveza`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --
@@ -187,7 +188,7 @@ ALTER TABLE `cerveza`
 -- Filtros para la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  ADD CONSTRAINT `imagen_ibfk_1` FOREIGN KEY (`id_cerveza`) REFERENCES `cerveza` (`id_cerveza`);
+  ADD CONSTRAINT `imagen_ibfk_1` FOREIGN KEY (`id_cerveza`) REFERENCES `cerveza` (`id_cerveza`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
