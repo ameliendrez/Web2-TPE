@@ -1,30 +1,17 @@
 <?php
   class AdminView extends View
   {
-
-    protected $estadoSession;
+    protected $estadoSession = 'out';
 
     function __construct()
     {
       parent::__construct();
-      if ($this->estadoSession == '') {
-        $this->estadoSession = $this->SetSession();
-      }
-    }
-
-    public function SetSession()
-    {
-      if(isset($_SESSION['usuario'])) {
-        $this->estadoSession = 'out';
-      }
-      else {
-        $this->estadoSession = 'in';
-      }
       $this->smarty->assign('session', $this->estadoSession);
     }
 
     function mostrarCervezas($cervezas)
     {
+
       $this->smarty->assign('cervezas', $cervezas);
       $this->smarty->display('templates/Admin/index.tpl');
     }
@@ -38,45 +25,25 @@
     public function mostrarAddCerveza($estilos)
     {
       $this->smarty->assign('estilos', $estilos);
-      $this->smarty->display('templates/Admin/agregarCerveza.tpl');
+      $this->smarty->display('templates/admin/agregarCerveza.tpl');
     }
 
-    public function mostrarUpdateCerveza($id, $estilos, $cerveza)
+    public function mostrarUpdateCerveza($id, $estilos)
     {
       $this->smarty->assign('estilos', $estilos);
       $this->smarty->assign('id', $id);
-      $this->smarty->assign('cerveza', $cerveza);
-      $this->smarty->display('templates/Admin/updateCerveza.tpl');
+      $this->smarty->display('templates/admin/updateCerveza.tpl');
     }
 
-    public function mostrarUpdateEstilos($id, $estilo)
+    public function mostrarUpdateEstilos($id)
     {
       $this->smarty->assign('id', $id);
-      $this->smarty->assign('estilo', $estilo);
-      $this->smarty->display('templates/Admin/updateEstilos.tpl');
+      $this->smarty->display('templates/admin/updateEstilos.tpl');
     }
 
     public function mostrarAddEstilo()
     {
-      $this->smarty->display('templates/Admin/agregarEstilo.tpl');
-    }
-
-    public function mostrarUsuario($usuarios) {
-      $this->smarty->assign('usuarios', $usuarios);
-      $this->smarty->display('templates/Admin/usuarios.tpl');
-    }
-
-    public function mostrarImagenes($imagenes, $cerveza) {
-      $this->smarty->assign('imagenes', $imagenes);
-      $this->smarty->assign('cerveza', $cerveza);
-      $this->smarty->display('templates/Admin/imagenesCerveza.tpl');
-    }
-
-    function mostrarError($error='', $cerveza)
-    {
-      $this->smarty->assign('error', $error);
-      $this->smarty->assign('cerveza', $cerveza);
-      return $this->smarty->display('templates/Admin/imagenesCerveza.tpl');
+      $this->smarty->display('templates/admin/agregarEstilo.tpl');
     }
   }
 
