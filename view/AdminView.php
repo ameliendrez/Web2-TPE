@@ -45,6 +45,12 @@
     {
       $this->smarty->display('templates/admin/agregarEstilo.tpl');
     }
+
+    public function mostrarUsuario($usuarios)
+    {
+      $this->smarty->assign('usuarios', $usuarios);
+      $this->smarty->display('templates/admin/usuarios.tpl');
+    }
   }
 
  ?>
