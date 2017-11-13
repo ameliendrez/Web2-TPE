@@ -1,15 +1,13 @@
 <?php
-  include_once 'view/AdminView.php';
-  include_once 'model/BeerModel.php';
-  include_once 'model/BeerStyleModel.php';
-  include_once 'model/LoginModel.php';
-  include_once 'model/ImageModel.php';
+  require_once 'view/AdminView.php';
+  require_once 'model/BeerModel.php';
+  require_once 'model/BeerStyleModel.php';
+  require_once 'model/LoginModel.php';
 
   class AdminController extends SecuredController
   {
     protected $styleModel;
     protected $loginModel;
-    protected $imageModel;
 
     function __construct()
     {
@@ -20,7 +18,6 @@
         $this->model = new BeerModel();
         $this->styleModel = new BeerStyleModel();
         $this->loginModel = new LoginModel();
-        $this->imageModel = new ImageModel();
       }
       else{
         header('Location: '. HOME);
@@ -168,7 +165,7 @@
     public function mostrarImagenes($params) {
 
       $id_cerveza = $params[':id'];
-      $imagenes = $this->imageModel->getImagenes($id_cerveza);
+      $imagenes = $this->model->getImagenes($id_cerveza);
       $cerveza = $this->model->getCerveza($id_cerveza);
       if (empty($imagenes)) {
         $this->view->mostrarError('No hay imagenes disponibles para esta cerveza', $cerveza);

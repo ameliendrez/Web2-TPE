@@ -69,6 +69,47 @@
       $sentencia = $this->db->prepare("UPDATE `cerveza` SET `id_estilo` = ?, `nombre_cerveza` = ?, alc = ?, `descripcion` = ?  WHERE `cerveza`.`id_cerveza` = ?");
       return $sentencia->execute([$estilo, $nombre, $alc, $descripcion, $id_cerveza]);
     }
+
+    function getComentariosCerveza($id_cerveza)
+    {
+      $sentencia = $this->db->prepare(
+        "SELECT comentarioscerveza.id_comentario, comentarioscerveza.comentario, cerveza.nombre_cerveza, loginusuario.nombre, loginusuario.apellido
+         FROM comentarioscerveza INNER JOIN cerveza ON comentarioscerveza.id_cerveza = cerveza.id_cerveza  INNER JOIN loginusuario ON comentarioscerveza.id_usuario = loginusuario.id_usuario
+         WHERE comentarioscerveza.id_cerveza = ?");
+      $sentencia->execute([$id_cerveza]);
+      return $sentencia->fetchAll();
+    }
+
+    function getComentario($id_comentario)
+    {
+      $sentencia = $this->db->prepare("SELECT * FROM `comentarioscerveza` WHERE `comentarioscerveza`.`id_comentario` = ?");
+       $sentencia->execute([$id_comentario]);
+       return $sentencia->fetch();
+    }
+
+    function borrarComentario($id_comentario)
+    {
+      $sentencia = $this->db->prepare("DELETE FROM `comentarioscerveza` WHERE `comentarioscerveza`.`id_comentario` = ?");
+      return $sentencia->execute([$id_comentario]);
+    }
+
+    function crearComentario($comentario, $id_cerveza, $id_usuario){
+      $sentencia = $this->db->prepare('INSERT INTO comentarioscerveza(comentario, id_cerveza, id_usuario) VALUES(?, ?, ?)');
+      $sentencia->execute([$comentario, $id_cerveza, $id_usuario]);
+      $id = $this->db->lastInsertId();
+      return $this->getComentariosCerveza($id);
+    }
+
+    function getImagenes($id_cerveza) {
+      $sentencia = $this->db->prepare("SELECT * FROM imagen WHERE id_cerveza = ? ");
+      $sentencia->execute([$id_cerveza]);
+      return $sentencia->fetchAll();
+    }
+
+    function borrarImagen($id_imagen) {
+      $sentencia = $this->db->prepare("DELETE * FROM imagen WHERE id_imagen = ? ");
+      $sentencia = $this->db->execute([$id_imagen]);
+    }
   }
 
 ?>

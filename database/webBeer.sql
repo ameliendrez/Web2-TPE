@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2017 a las 19:37:47
+-- Tiempo de generación: 13-11-2017 a las 22:40:22
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -46,6 +46,27 @@ INSERT INTO `cerveza` (`id_cerveza`, `id_estilo`, `nombre_cerveza`, `alc`, `desc
 (5, 2, 'American Lite', 9, 'Es una cerveza muy refrescante y con una caracteristicas diferenciadora de saciadora de la sed, careciendo de sabores fuertes.'),
 (6, 1, 'Scotch Ale', 8, 'Sabrosa, maltosa y usualmente dulce, lo cual puede sugerir un postre. Los sabores complejos secundarios previenen una impresion unidimensional. La fuerza y la maltosidad pueden variar.'),
 (7, 1, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarioscerveza`
+--
+
+CREATE TABLE `comentarioscerveza` (
+  `id_comentario` int(11) NOT NULL,
+  `comentario` varchar(200) NOT NULL,
+  `id_cerveza` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentarioscerveza`
+--
+
+INSERT INTO `comentarioscerveza` (`id_comentario`, `comentario`, `id_cerveza`, `id_usuario`) VALUES
+(2, 'Comentario prueba.', 2, 1),
+(3, 'Probando POST', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -132,6 +153,14 @@ ALTER TABLE `cerveza`
   ADD KEY `id_estilo` (`id_estilo`);
 
 --
+-- Indices de la tabla `comentarioscerveza`
+--
+ALTER TABLE `comentarioscerveza`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_cerveza` (`id_cerveza`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
 -- Indices de la tabla `estilocerveza`
 --
 ALTER TABLE `estilocerveza`
@@ -158,17 +187,22 @@ ALTER TABLE `loginusuario`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT de la tabla `comentarioscerveza`
+--
+ALTER TABLE `comentarioscerveza`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `estilocerveza`
 --
 ALTER TABLE `estilocerveza`
-  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_estilo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1994;
 --
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --
@@ -183,6 +217,13 @@ ALTER TABLE `loginusuario`
 --
 ALTER TABLE `cerveza`
   ADD CONSTRAINT `cerveza_ibfk_1` FOREIGN KEY (`id_estilo`) REFERENCES `estilocerveza` (`id_estilo`);
+
+--
+-- Filtros para la tabla `comentarioscerveza`
+--
+ALTER TABLE `comentarioscerveza`
+  ADD CONSTRAINT `comentarioscerveza_ibfk_1` FOREIGN KEY (`id_cerveza`) REFERENCES `cerveza` (`id_cerveza`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comentarioscerveza_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `loginusuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `imagen`

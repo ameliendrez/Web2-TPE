@@ -2,6 +2,10 @@ $(document).ready(function() {
   "use strict";
 
   EjecutarInicio();
+  let id_cerveza;
+  let templateComentario;
+  $.ajax({ url: 'js/templates/comentarios.mst'})
+    .done( template => templateComentario = template);
 
   function mostrarContenido(data, textStatus, jqXHR) {
     $(".contenedor").html(data);
@@ -16,13 +20,15 @@ $(document).ready(function() {
         "error": handleError
       });
     });
+
     $(".filtrar").on("click", function () {
       let dirNueva;
       if($(".seleccionEstilo").val() != "") {
-        dirNueva = "obtenerCervezasPorEstilo/"+$(".seleccionEstilo").val();
+        dirNueva = "obtenerCervezasPorEstilo/" + $(".seleccionEstilo").val();
       }
-      else if ($(".seleccionCerveza").val() != ""){
-        dirNueva = "obtenerCerveza/"+$(".seleccionCerveza").val();
+      else if ($(".seleccionCerveza").val() != "") {
+        id_cerveza = $(".seleccionCerveza").val();
+        dirNueva = "obtenerCerveza/" + id_cerveza;
       }
       else{
         dirNueva = 'obtenerCervezas';
@@ -68,7 +74,22 @@ $(document).ready(function() {
   }
 
   function filtrar(data, textStatus, jqXHR) {
-      $(".table-responsive").html(data);
+    $(".table-responsive").html(data);
+    cargarComentarios();
+    $('#crearComentario').click(function(event) {
+       event.preventDefault();
+       crearComentario();
+       setTimeout(function() {
+         cargarComentarios();
+       }, 2000);
+   });
+   $('body').on('click', 'a.borrar', function() {
+    event.preventDefault();
+    let idComentario = $(this).data('idcomentario');
+    borrarComentario(idComentario);
+    cargarComentarios();
+  });
+
   }
 
 
@@ -86,11 +107,58 @@ $(document).ready(function() {
 
   function EjecutarInicio() {
     $.ajax({
-      "url" : document.location.href+"/home",
+      "url" : document.location.href + "/home",
       "method" : "GET",
       "data-type" : "HTML",
       "success" : mostrarContenido,
       "error": handleError
     });
   }
+
+    function cargarComentarios() {
+      $.ajax("api/cervezas/" + id_cerveza)
+        .done(function(comentarios) {
+          $('#comentarios tr').remove();
+          let rendered = Mustache.render(templateComentario, comentarios);
+          $('#comentarios').append(rendered);
+        })
+         .fail(function() {
+           $('#comentarios').append('<li>No hay comentarios disponibles para esta cerveza</li>');
+         });
+     }
+
+     function crearComentario() {
+      let comentario = {
+        "comentario": $('#comentario').val(),
+        "id_cerveza": "2",
+        "id_usuario": "1"
+      };
+
+      $.ajax({
+            method: "POST",
+            url: "api/cervezas",
+            data: JSON.stringify(comentario)
+          })
+         .done(function(data) {
+          let rendered = Mustache.render(templateComentario, data);
+          $('#comentarios').append(rendered);
+         })
+        .fail(function(data) {
+             alert('Imposible crear el comentario');
+        });
+     }
+
+     function borrarComentario(idComentario) {
+       $.ajax({
+          method: "DELETE",
+          url: "api/cervezas/" + idComentario
+          })
+          .done(function() {
+             $('#comentario'+idComentario).remove();
+          })
+          .fail(function() {
+              alert('Error al borrar el comentario');
+          });
+        }
+
 });

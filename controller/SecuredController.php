@@ -1,8 +1,8 @@
 <?php
-  include_once 'view/LoginView.php';
-  include_once 'view/WebBeerView.php';
-  include_once 'view/AdminView.php';
-  include_once 'model/LoginModel.php';
+  require_once 'view/LoginView.php';
+  require_once 'view/WebBeerView.php';
+  require_once 'view/AdminView.php';
+  require_once 'model/LoginModel.php';
 
   class SecuredController extends Controller
   {

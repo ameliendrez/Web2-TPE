@@ -1,13 +1,11 @@
 <?php
-  include_once 'view/WebBeerView.php';
-  include_once 'model/BeerModel.php';
-  include_once 'model/BeerStyleModel.php';
-  include_once 'model/ImageModel.php';
+  require_once 'view/WebBeerView.php';
+  require_once 'model/BeerModel.php';
+  require_once 'model/BeerStyleModel.php';
 
   class WebBeerController extends SecuredController
   {
     protected $styleModel;
-    protected $imageModel;
 
     function __construct()
     {
@@ -15,7 +13,6 @@
       $this->view = new WebBeerView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
-      $this->imageModel = new ImageModel();
     }
 
     public function index()
@@ -36,12 +33,13 @@
       $cervezas = $this->model->getCervezas();
       $this->view->mostrarVariedadCervezas($estilos, $cervezas);
     }
+
     public function obtenerCerveza($cerveza)
     {
 
       $id_cerveza = $cerveza[':id'];
       $cerveza = $this->model->getCerveza($id_cerveza);
-      $imagenes = $this->imageModel->getImagenes($id_cerveza);
+      $imagenes = $this->model->getImagenes($id_cerveza);
       $this->view->obtenerCerveza($cerveza, $imagenes);
     }
     public function obtenerCervezas()

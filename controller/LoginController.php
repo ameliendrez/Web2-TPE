@@ -1,7 +1,7 @@
 <?php
 
-include_once 'view/LoginView.php';
-include_once 'model/LoginModel.php';
+require_once 'view/LoginView.php';
+require_once 'model/LoginModel.php';
 
   class LoginController extends Controller
   {
