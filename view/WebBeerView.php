@@ -9,9 +9,10 @@
 
     }
 
-    function mostrarIndex($session)
+    function mostrarIndex($session, $userAdmin)
     {
       $this->smarty->assign('session', $session);
+      $this->smarty->assign('userAdmin', $userAdmin);
       return $this->smarty->display('templates/index.tpl');
     }
 

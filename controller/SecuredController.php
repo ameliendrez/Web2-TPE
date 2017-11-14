@@ -67,12 +67,17 @@
 
     public function esAdministrador()
     {
-      if ($_SESSION['permisos'] == 1) {
+      if ($this->estaLogueado() && $_SESSION['permisos'] == 1) {
       return true;
       }
       else{
         return false;
       }
+    }
+
+    public function getNombreUsuario()
+    {
+        return $_SESSION['usuario'];
     }
   }
 ?>

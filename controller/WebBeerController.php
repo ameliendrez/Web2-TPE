@@ -18,7 +18,8 @@
     public function index()
     {
       $session = $this->setSession();
-      $this->view->mostrarIndex($session);
+      $userAdmin = ($this->esAdministrador()) ? 'esAdmin':'esUser';
+      $this->view->mostrarIndex($session, $userAdmin);
     }
 
     public function home()
@@ -42,11 +43,13 @@
       $session = $this->setSession();
       $this->view->obtenerCerveza($cerveza, $imagenes, $session);
     }
+
     public function obtenerCervezas()
     {
       $cervezas = $this->model->getCervezas();
       $this->view->obtenerCervezas($cervezas);
     }
+
     public function obtenerCervezasOrdenadas()
     {
       $cervezasOrdenadas = $this->model->getCervezasOrdenadas();

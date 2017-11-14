@@ -1,8 +1,14 @@
-{{#comentarios}}
-<tr id="comentario{{id_comentario}}">
-    <td>{{usuario}}</td>
-    <td>{{nombre_cerveza}}</td>
-    <td>{{comentario}}</td>
-    <td><a class="borrar" data-idcomentario="{{id_comentario}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
-</tr>
-{{/comentarios}}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">
+    <h4><strong>Comentarios de la cerveza</strong></h4>
+    {{#comentarios}}
+      <p><strong>{{usuario}}</strong></p>
+
+           <ul>
+             <li class="list-group-item list-group-item-info">{{comentario}}</li>
+           </ul>
+
+    {{/comentarios}}
+
+  </li>
+</ul>

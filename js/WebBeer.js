@@ -3,6 +3,7 @@ $(document).ready(function() {
 
   EjecutarInicio();
   let id_cerveza;
+  let id_usuario;
   let templateComentario;
   $.ajax({ url: 'js/templates/comentarios.mst'})
     .done( template => templateComentario = template);
@@ -30,6 +31,7 @@ $(document).ready(function() {
 
       else if ($(".seleccionCerveza").val() != "") {
         id_cerveza = $(".seleccionCerveza").val();
+        id_usuario = 1;
         dirNueva = "obtenerCerveza/" + id_cerveza;
 
       }
@@ -141,7 +143,7 @@ $(document).ready(function() {
       let comentario = {
         "comentario": $('#comentario').val(),
         "id_cerveza": id_cerveza,
-        "id_usuario": "1"
+        "id_usuario": id_usuario
       };
 
       $.ajax({
