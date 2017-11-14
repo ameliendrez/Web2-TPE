@@ -124,29 +124,23 @@ $(document).ready(function() {
     function cargarComentarios() {
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
-
-          console.log(id_cerveza);
-          console.log(comentarios);
-
           $('#comentarios tr').remove();
-
           for (var key in comentarios) {
             let rendered = Mustache.render(templateComentario, comentarios);
             $('#comentarios').append(rendered);
           }
-
           })
          .fail(function() {
-           console.log("Error al cargar");
-
+           $('#comentarios li').remove();
            $('#comentarios').append('<li>No hay comentarios disponibles para esta cerveza</li>');
          });
      }
 
      function crearComentario() {
+
       let comentario = {
         "comentario": $('#comentario').val(),
-        "id_cerveza": "2",
+        "id_cerveza": id_cerveza,
         "id_usuario": "1"
       };
 
@@ -158,9 +152,11 @@ $(document).ready(function() {
          .done(function(data) {
           let rendered = Mustache.render(templateComentario, data);
           $('#comentarios').append(rendered);
+          limpiarFormulario();
          })
         .fail(function(data) {
              alert('Imposible crear el comentario');
+             limpiarFormulario();
         });
      }
 
@@ -175,6 +171,10 @@ $(document).ready(function() {
           .fail(function() {
               alert('Error al borrar el comentario');
           });
+        }
+
+        function limpiarFormulario() {
+          $('textarea').val('')
         }
 
 });
