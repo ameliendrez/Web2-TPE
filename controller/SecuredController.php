@@ -75,9 +75,9 @@
       }
     }
 
-    public function getNombreUsuario()
+    public function getIdUsuario()
     {
-        return $_SESSION['usuario'];
+        return $_SESSION['idUsuario'];
     }
   }
 ?>

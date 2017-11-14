@@ -32,11 +32,13 @@
       return $this->smarty->display('templates/estilos.tpl');
     }
 
-    function obtenerCerveza($cerveza, $imagenes, $session)
+    function obtenerCerveza($cerveza, $imagenes, $session, $id_user)
     {
       $this->smarty->assign('cerveza', $cerveza);
       $this->smarty->assign('imagenes', $imagenes);
       $this->smarty->assign('session', $session);
+      $this->smarty->assign('usuario', $id_user);
+
       return $this->smarty->display('templates/datosCerveza.tpl');
     }
 

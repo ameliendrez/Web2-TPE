@@ -31,9 +31,7 @@ $(document).ready(function() {
 
       else if ($(".seleccionCerveza").val() != "") {
         id_cerveza = $(".seleccionCerveza").val();
-        id_usuario = 1;
         dirNueva = "obtenerCerveza/" + id_cerveza;
-
       }
 
       else{
@@ -96,7 +94,6 @@ $(document).ready(function() {
     console.log(idComentario);
 
     borrarComentario(idComentario);
-    cargarComentarios();
   });
   }
 
@@ -126,24 +123,25 @@ $(document).ready(function() {
     function cargarComentarios() {
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
-          $('#comentarios tr').remove();
+          $('li').remove();
           for (var key in comentarios) {
             let rendered = Mustache.render(templateComentario, comentarios);
             $('#comentarios').append(rendered);
           }
           })
          .fail(function() {
-           $('#comentarios li').remove();
+           $('li').remove();
            $('#comentarios').append('<li>No hay comentarios disponibles para esta cerveza</li>');
          });
      }
 
      function crearComentario() {
-
+      id_usuario = $("#formularioComentar").data('idusuario');
       let comentario = {
         "comentario": $('#comentario').val(),
         "id_cerveza": id_cerveza,
         "id_usuario": id_usuario
+
       };
 
       $.ajax({
@@ -168,7 +166,7 @@ $(document).ready(function() {
           url: "api/cervezas/" + idComentario
           })
           .done(function() {
-             $('#comentario'+idComentario).remove();
+             cargarComentarios();
           })
           .fail(function() {
               alert('Error al borrar el comentario');

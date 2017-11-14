@@ -1,12 +1,18 @@
 <ul class="list-group">
-  <li class="list-group-item list-group-item-success">
+  <li class="list-group-item list-group-item-info">
     <h4><strong>Comentarios de la cerveza</strong></h4>
+
     {{#comentarios}}
-      <p><strong>{{usuario}}</strong></p>
+
+        <p><strong>{{usuario}}</strong></p>
 
            <ul>
-             <li class="list-group-item list-group-item-info">{{comentario}}</li>
+             <li class="list-group-item list-group-item-success">{{comentario}}
+               <a class="borrar" data-idcomentario="{{id_comentario}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+
+             </li>
            </ul>
+
 
     {{/comentarios}}
 

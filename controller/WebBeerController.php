@@ -41,7 +41,8 @@
       $cerveza = $this->model->getCerveza($id_cerveza);
       $imagenes = $this->model->getImagenes($id_cerveza);
       $session = $this->setSession();
-      $this->view->obtenerCerveza($cerveza, $imagenes, $session);
+      $id_user = $this->getIdUsuario();
+      $this->view->obtenerCerveza($cerveza, $imagenes, $session, $id_user);
     }
 
     public function obtenerCervezas()

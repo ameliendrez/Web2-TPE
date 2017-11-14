@@ -30,6 +30,7 @@ require_once 'model/LoginModel.php';
         if(!empty($user) && password_verify($password, $user[0]['password'])){
           session_start();
           $_SESSION['usuario'] = $userName;
+          $_SESSION['idUsuario'] = $user[0]['id_usuario'];
           $_SESSION['permisos'] = $user[0]['esAdmin'];
           $_SESSION['LAST_ACTIVITY'] = time(); // Comienza el contador
           header('Location: '. HOME.'adminList');
