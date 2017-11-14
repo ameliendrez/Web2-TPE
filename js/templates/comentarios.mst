@@ -1,7 +1,7 @@
 {{#comentarios}}
 <tr id="comentario{{id_comentario}}">
-    <td>{{nombre}}</td>
-    <td>{{apellido}}</td>
+    <td>{{usuario}}</td>
+    <td>{{nombre_cerveza}}</td>
     <td>{{comentario}}</td>
     <td><a class="borrar" data-idcomentario="{{id_comentario}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
 </tr>

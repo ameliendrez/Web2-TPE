@@ -31,26 +31,13 @@ $(document).ready(function() {
       else if ($(".seleccionCerveza").val() != "") {
         id_cerveza = $(".seleccionCerveza").val();
         dirNueva = "obtenerCerveza/" + id_cerveza;
-        cargarComentarios();
-        $('#crearComentario').click(function(event) {
-           event.preventDefault();
-           crearComentario();
-           setTimeout(function() {
-             cargarComentarios();
-           }, 2000);
-       });
-       $('body').on('click', 'a.borrar', function() {
-        event.preventDefault();
-        let idComentario = $(this).data('idcomentario');
-        borrarComentario(idComentario);
-        cargarComentarios();
-      });
+
       }
 
       else{
         dirNueva = 'obtenerCervezas';
       }
-      
+
       $.ajax({
         "url" : dirNueva,
         "method" : "GET",
@@ -93,6 +80,22 @@ $(document).ready(function() {
 
   function filtrar(data, textStatus, jqXHR) {
     $(".table-responsive").html(data);
+    cargarComentarios();
+    $('#crearComentario').click(function(event) {
+       event.preventDefault();
+       crearComentario();
+       setTimeout(function() {
+         cargarComentarios();
+       }, 2000);
+   });
+   $('body').on('click', 'a.borrar', function() {
+    event.preventDefault();
+    let idComentario = $(this).data('idcomentario');
+    console.log(idComentario);
+
+    borrarComentario(idComentario);
+    cargarComentarios();
+  });
   }
 
 
@@ -119,14 +122,23 @@ $(document).ready(function() {
   }
 
     function cargarComentarios() {
-      console.log("El id de cerveza es: "+id_cerveza);
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
+
+          console.log(id_cerveza);
+          console.log(comentarios);
+
           $('#comentarios tr').remove();
-          let rendered = Mustache.render(templateComentario, comentarios);
-          $('#comentarios').append(rendered);
-        })
+
+          for (var key in comentarios) {
+            let rendered = Mustache.render(templateComentario, comentarios);
+            $('#comentarios').append(rendered);
+          }
+
+          })
          .fail(function() {
+           console.log("Error al cargar");
+
            $('#comentarios').append('<li>No hay comentarios disponibles para esta cerveza</li>');
          });
      }

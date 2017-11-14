@@ -25,7 +25,10 @@
    {
      $nombre_cerveza = $url_params[':idCerveza'];
      $comentarios = $this->model->getComentarios($nombre_cerveza);
-     return $this->json_response($comentarios, 200);
+     $response = new stdClass();
+     $response->comentarios = $comentarios;
+     $response->status = 200;
+     return $this->json_response($response, 200);
    }
 
    public function getComentario($url_params = [])
