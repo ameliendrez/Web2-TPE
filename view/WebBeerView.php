@@ -6,28 +6,20 @@
     function __construct()
     {
       parent::__construct();
-      // if (isset($_SESSION['usuario'])){
-      //   $this->estadoSession='out';
-      // }
-      // else{
-      //   $this->estadoSession='in';
-      // }
-      // $this->smarty->assign('session', $this->estadoSession);
-    }
 
-    // public function setSession($session)
-    // {
-    //   // print_r($session);
-    //   // die();
-    //   $this->estadoSession = $session;
-    //   $this->smarty->assign('session', $this->estadoSession);
-    // }
+    }
 
     function mostrarIndex($session)
     {
       $this->smarty->assign('session', $session);
       return $this->smarty->display('templates/index.tpl');
     }
+
+    public function setComentario()
+    {
+      return $this->smarty->display('templates/crearComentario.tpl');
+    }
+
     function mostrarHome()
     {
       return $this->smarty->display('templates/home.tpl');
@@ -39,10 +31,11 @@
       return $this->smarty->display('templates/estilos.tpl');
     }
 
-    function obtenerCerveza($cerveza, $imagenes)
+    function obtenerCerveza($cerveza, $imagenes, $session)
     {
       $this->smarty->assign('cerveza', $cerveza);
       $this->smarty->assign('imagenes', $imagenes);
+      $this->smarty->assign('session', $session);
       return $this->smarty->display('templates/datosCerveza.tpl');
     }
 

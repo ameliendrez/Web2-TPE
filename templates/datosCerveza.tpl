@@ -21,4 +21,6 @@
 <table class="table" id="comentarios">
 </table>
 
-  {include file="crearComentario.tpl"}
+{if {$session} eq 'out'}
+  {{include file="crearComentario.tpl"}}
+{/if}

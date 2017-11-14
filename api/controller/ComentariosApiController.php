@@ -17,7 +17,14 @@
    public function getAllComentarios($url_params = [])  //Recibo los parametros de la url y si el endpoint esta escrito
    {
      $comentarios = $this->model->getAllComentarios();
-     return $this->json_response($comentarios, 200);
+     if($comentarios) {
+       $response = new stdClass();
+       $response->comentarios = $comentarios;
+       return $this->json_response($response, 200);
+     }
+     else{
+       return $this->json_response(false, 404);
+     }
    }
 
 
@@ -25,20 +32,27 @@
    {
      $nombre_cerveza = $url_params[':idCerveza'];
      $comentarios = $this->model->getComentarios($nombre_cerveza);
-     $response = new stdClass();
-     $response->comentarios = $comentarios;
-     $response->status = 200;
-     return $this->json_response($response, 200);
+     if($comentarios) {
+       $response = new stdClass();
+       $response->comentarios = $comentarios;
+       return $this->json_response($response, 200);
+     }
+     else{
+       return $this->json_response(false, 404);
+     }
+
    }
 
    public function getComentario($url_params = [])
    {
      $id_comentario = $url_params[":idComentario"];
      $comentario = $this->model->getComentario($id_comentario);
-     if ($comentario) {
-       return $this->json_response($comentario, 200);
+     if($comentario) {
+       $response = new stdClass();
+       $response->comentario = $comentario;
+       return $this->json_response($response, 200);
      }
-     else {
+     else{
        return $this->json_response(false, 404);
      }
    }

@@ -18,7 +18,6 @@
     public function index()
     {
       $session = $this->setSession();
-
       $this->view->mostrarIndex($session);
     }
 
@@ -40,7 +39,8 @@
       $id_cerveza = $cerveza[':id'];
       $cerveza = $this->model->getCerveza($id_cerveza);
       $imagenes = $this->model->getImagenes($id_cerveza);
-      $this->view->obtenerCerveza($cerveza, $imagenes);
+      $session = $this->setSession();
+      $this->view->obtenerCerveza($cerveza, $imagenes, $session);
     }
     public function obtenerCervezas()
     {
