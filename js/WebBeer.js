@@ -23,16 +23,34 @@ $(document).ready(function() {
 
     $(".filtrar").on("click", function () {
       let dirNueva;
+
       if($(".seleccionEstilo").val() != "") {
         dirNueva = "obtenerCervezasPorEstilo/" + $(".seleccionEstilo").val();
       }
+
       else if ($(".seleccionCerveza").val() != "") {
         id_cerveza = $(".seleccionCerveza").val();
         dirNueva = "obtenerCerveza/" + id_cerveza;
+        cargarComentarios();
+        $('#crearComentario').click(function(event) {
+           event.preventDefault();
+           crearComentario();
+           setTimeout(function() {
+             cargarComentarios();
+           }, 2000);
+       });
+       $('body').on('click', 'a.borrar', function() {
+        event.preventDefault();
+        let idComentario = $(this).data('idcomentario');
+        borrarComentario(idComentario);
+        cargarComentarios();
+      });
       }
+
       else{
         dirNueva = 'obtenerCervezas';
       }
+      
       $.ajax({
         "url" : dirNueva,
         "method" : "GET",
@@ -75,21 +93,6 @@ $(document).ready(function() {
 
   function filtrar(data, textStatus, jqXHR) {
     $(".table-responsive").html(data);
-    cargarComentarios();
-    $('#crearComentario').click(function(event) {
-       event.preventDefault();
-       crearComentario();
-       setTimeout(function() {
-         cargarComentarios();
-       }, 2000);
-   });
-   $('body').on('click', 'a.borrar', function() {
-    event.preventDefault();
-    let idComentario = $(this).data('idcomentario');
-    borrarComentario(idComentario);
-    cargarComentarios();
-  });
-
   }
 
 
@@ -107,7 +110,7 @@ $(document).ready(function() {
 
   function EjecutarInicio() {
     $.ajax({
-      "url" : document.location.href + "/home",
+      "url" : "home",
       "method" : "GET",
       "data-type" : "HTML",
       "success" : mostrarContenido,
@@ -116,6 +119,7 @@ $(document).ready(function() {
   }
 
     function cargarComentarios() {
+      console.log("El id de cerveza es: "+id_cerveza);
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
           $('#comentarios tr').remove();
