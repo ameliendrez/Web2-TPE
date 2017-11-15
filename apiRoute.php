@@ -17,7 +17,7 @@
 
  //Se carga la accion que viene por url y se llama a la funcion url para que genere el array
  //con el controlador, el metodo y los parametros por url
- $route = $_GET['resource']; // En la api esto va a ser 'resources'
+ $route = $_GET['resource'];
  $array = $router->Route($route);
 
  if(sizeof($array) == 0) {

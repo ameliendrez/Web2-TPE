@@ -91,7 +91,6 @@ $(document).ready(function() {
    $('body').on('click', 'a.borrar', function() {
     event.preventDefault();
     let idComentario = $(this).data('idcomentario');
-    console.log(idComentario);
 
     borrarComentario(idComentario);
   });

@@ -77,7 +77,12 @@
 
     public function getIdUsuario()
     {
+      if ($this->estaLogueado()) {
         return $_SESSION['idUsuario'];
+      }
+      else {
+        return -1;
+      }
     }
   }
 ?>
