@@ -5,6 +5,7 @@ $(document).ready(function() {
   let id_cerveza;
   let id_usuario;
   let templateComentario;
+  let puntaje;
   $.ajax({ url: 'js/templates/comentarios.mst'})
     .done( template => templateComentario = template);
 
@@ -82,24 +83,12 @@ $(document).ready(function() {
     $(".table-responsive").html(data);
     cargarComentarios();
 
-    $("#rateYo").rateYo({
-      maxValue: 5,
-      numStars: 5,
-      //rating: 3, Aca debo insertar la valoracion que se genera
-      starWidth: "40px"
+    $('.ratings').rating(function(vote , evento) {
+      puntaje = vote;
     });
-
-    let $rateYo = $("#rateYo").rateYo();
-
-
 
     $('#crearComentario').click(function(event) {
        event.preventDefault();
-
-       // let rating = $rateYo.rateYo("rating");
-       // console.log("El puntaje es " + rating);
-       //En estas lineas obtengo el puntaje actual
-
 
        crearComentario();
        setTimeout(function() {
@@ -140,7 +129,9 @@ $(document).ready(function() {
     function cargarComentarios() {
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
+          console.log(comentarios);
           $('#comentarios li').remove();
+
           let rendered = Mustache.render(templateComentario, comentarios);  //El foreach no es necesario ya que comentarios es un arreglo
           $('#comentarios').append(rendered);
           })
@@ -152,11 +143,12 @@ $(document).ready(function() {
 
      function crearComentario() {
       id_usuario = $("#formularioComentar").data('idusuario');
+
       let comentario = {
         "comentario": $('#comentario').val(),
         "id_cerveza": id_cerveza,
-        "id_usuario": id_usuario
-
+        "id_usuario": id_usuario,
+        "puntaje": puntaje
       };
 
       $.ajax({
@@ -165,6 +157,7 @@ $(document).ready(function() {
             data: JSON.stringify(comentario)
           })
          .done(function(data) {
+
           let rendered = Mustache.render(templateComentario, data);
           $('#comentarios').append(rendered);
           limpiarFormulario();

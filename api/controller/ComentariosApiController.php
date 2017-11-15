@@ -1,17 +1,20 @@
 <?php
 
  require_once('model/ComentariosModel.php');
+ require_once('model/PuntuacionCervezaModel.php');
  require_once('Api.php');
 
 
  class ComentariosApiController extends Api
  {
-   protected $model;
+   protected $modelPuntuacion;
+
 
    function __construct()
    {
      parent::__construct();
      $this->model = new ComentariosModel();
+     $this->modelPuntuacion = new PuntuacionCervezaModel();
    }
 
    public function getAllComentarios($url_params = [])  //Recibo los parametros de la url y si el endpoint esta escrito
@@ -30,11 +33,19 @@
 
    public function getComentariosByCerveza($url_params = [])  //Recibo los parametros de la url y si el endpoint esta escrito
    {
-     $nombre_cerveza = $url_params[':idCerveza'];
-     $comentarios = $this->model->getComentarios($nombre_cerveza);
+     $id_cerveza = $url_params[':idCerveza'];
+     $comentarios = $this->model->getComentarios($id_cerveza);
+
+     //ACA HAY QUE CONTROLAR QUE LO HAGA CORRECTAMENTE
+     $puntaje = $this->modelPuntuacion->getPromedio($id_cerveza);
+
      if($comentarios) {
        $response = new stdClass();
        $response->comentarios = $comentarios;
+
+       //ACA HAY QUE CONTROLAR QUE LO HAGA CORRECTAMENTE
+       $response->puntaje = $puntaje;
+
        return $this->json_response($response, 200);
      }
      else{
@@ -76,6 +87,8 @@
        $comentario = $body->comentario;
        $id_cerveza = $body->id_cerveza;
        $id_usuario = $body->id_usuario;
+       $puntaje = $body->puntaje;
+       $puntuacion = $this->modelPuntuacion->setPuntuacion($id_cerveza,$puntaje);
        $data = $this->model->crearComentario($comentario, $id_cerveza, $id_usuario);
        return $this->json_response($data, 200);
      }

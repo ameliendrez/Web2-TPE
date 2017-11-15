@@ -18,8 +18,9 @@
 
 </table>
 
-<table class="table" id="comentarios">
-</table>
+    <div class="table" id="comentarios">
+    </div>
+
 
 {if {$session} eq 'out'}
   {{include file="crearComentario.tpl"}}

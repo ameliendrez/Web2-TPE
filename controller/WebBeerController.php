@@ -2,10 +2,15 @@
   require_once 'view/WebBeerView.php';
   require_once 'model/BeerModel.php';
   require_once 'model/BeerStyleModel.php';
+  require_once 'model/BeerStyleModel.php';
+  require_once 'model/PuntuacionCervezaModel.php';
+
 
   class WebBeerController extends SecuredController
   {
     protected $styleModel;
+    protected $puntajeModel;
+
 
     function __construct()
     {
@@ -13,6 +18,7 @@
       $this->view = new WebBeerView();
       $this->model = new BeerModel();
       $this->styleModel = new BeerStyleModel();
+      $this->puntajeModel = new PuntuacionCervezaModel();
     }
 
     public function index()
@@ -40,9 +46,10 @@
       $id_cerveza = $cerveza[':id'];
       $cerveza = $this->model->getCerveza($id_cerveza);
       $imagenes = $this->model->getImagenes($id_cerveza);
+      $puntaje = $this->puntajeModel->getPromedio($id_cerveza);
       $session = $this->setSession();
       $id_user = $this->getIdUsuario();
-      $this->view->obtenerCerveza($cerveza, $imagenes, $session, $id_user);
+      $this->view->obtenerCerveza($cerveza, $imagenes, $session, $id_user, $puntaje);
     }
 
     public function obtenerCervezas()
