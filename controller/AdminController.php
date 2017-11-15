@@ -181,5 +181,6 @@
       $this->loginModel->borrarImagen($id_imagen);
       header('Location: '. HOME .'imagenesCerveza'. '/' . $id_cerveza);
     }
+
   }
 ?>

@@ -17,7 +17,7 @@
       <div class="col-md-12">
         <h1>WEB BEER -
           <small>LA MEJOR CERVEZA ARTEZANAL DE TANDIL
-            <a href="log{{$session}}"><span class="glyphicon glyphicon-log-{{$session}}" aria-hidden="true"></span></a>
+            <a href="log{{$session}}"><span class="glyphicon glyphicon-log-{{$session}}" id="session" val="{{$session}}" aria-hidden="true"></span></a>
             {if {$userAdmin} eq 'esAdmin'}
             <a href="adminList">Admin</a>
             {/if}

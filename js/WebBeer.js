@@ -6,11 +6,14 @@ $(document).ready(function() {
   let id_usuario;
   let templateComentario;
   let templateSinComentario;
+  let templateComentarioAdmin;
   let puntaje;
   $.ajax({ url: 'js/templates/comentarios.mst'})
     .done( template => templateComentario = template);
   $.ajax({ url: 'js/templates/sinComentarios.mst'})
     .done( template => templateSinComentario = template);
+  $.ajax({ url: 'js/templates/ComentariosAdmin.mst'})
+    .done( template => templateComentarioAdmin = template);
 
 
   function mostrarContenido(data, textStatus, jqXHR) {
@@ -85,8 +88,9 @@ $(document).ready(function() {
 
   function filtrar(data, textStatus, jqXHR) {
     $(".table-responsive").html(data);
+    let session = $("#session").attr("val");
     setInterval(function() {
-      cargarComentarios();
+      cargarComentarios(session);
     }, 2000);
 
     $('.ratings').rating(function(vote , evento) {
@@ -130,11 +134,18 @@ $(document).ready(function() {
     });
   }
 
-    function cargarComentarios() {
+    function cargarComentarios(session) {
+
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
           $('#comentarios li').remove();
-          let rendered = Mustache.render(templateComentario, comentarios);  //El foreach no es necesario ya que comentarios es un arreglo
+          let rendered;
+          if(session === "out") {
+            rendered = Mustache.render(templateComentarioAdmin, comentarios);
+          }
+          else{
+            rendered = Mustache.render(templateComentario, comentarios); 
+          }
           $('#comentarios').append(rendered);
           })
         .fail(function() {
@@ -177,7 +188,6 @@ $(document).ready(function() {
           })
           .done(function(data) {
             console.log(data);
-             cargarComentarios();
           })
           .fail(function() {
               console.log('Error al borrar el comentario');
