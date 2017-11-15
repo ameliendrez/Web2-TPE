@@ -15,7 +15,7 @@
         <form action="guardarEstilo" method="post">
           <div class="form-group">
             <label for="nombre">Nombre del Estilo</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del estilo" required>
           </div>
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
