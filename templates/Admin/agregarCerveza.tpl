@@ -15,13 +15,13 @@
         <form action="guardarCerveza" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza" required>
           </div>
           <div class="form-group">
 
             <label for="estilo">Estilo</label>
 
-            <select class="btn btn-default btn-md" name="estilo" id="estilo">
+            <select class="btn btn-default btn-md" name="estilo" id="estilo" required>
               <option></option>
               {foreach from=$estilos item=estilo}
                 <option value="{$estilo['id_estilo']}">{$estilo['nombre_estilo']}</option>
@@ -31,11 +31,11 @@
           </div>
           <div class="form-group">
             <label for="alc">% alcohol</label>
-            <input type="number" class="form-control" id="alc" name="alc" placeholder="Porcentaje de alcohol">
+            <input type="number" class="form-control" id="alc" name="alc" placeholder="Porcentaje de alcohol" required>
           </div>
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
-            <textarea id="descripcion" name="descripcion" rows="8" cols="92" placeholder="Descripcion"></textarea>
+            <textarea id="descripcion" name="descripcion" rows="8" cols="92" placeholder="Descripcion" required></textarea>
           </div>
           <div class="form-group">
             <label for="imagenes">Subir una o varias imagenes</label>

@@ -140,15 +140,13 @@ $(document).ready(function() {
     function cargarComentarios() {
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
-          $('li').remove();
-          for (var key in comentarios) {
-            let rendered = Mustache.render(templateComentario, comentarios);
-            $('#comentarios').append(rendered);
-          }
+          $('#comentarios li').remove();
+          let rendered = Mustache.render(templateComentario, comentarios);  //El foreach no es necesario ya que comentarios es un arreglo
+          $('#comentarios').append(rendered);
           })
-         .fail(function() {
-           $('li').remove();
-           $('#comentarios').append('<li>No hay comentarios disponibles para esta cerveza</li>');
+        .fail(function() {
+         $('#comentarios li').remove();
+         $('#comentarios').append('<li>No hay comentarios disponibles para esta cerveza</li>');
          });
      }
 

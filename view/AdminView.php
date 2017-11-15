@@ -65,6 +65,24 @@
     {
       $this->smarty->assign('error', $error);
       $this->smarty->assign('cerveza', $cerveza);
+      $this->smarty->display('templates/admin/imagenesCerveza.tpl');
+    }
+
+    function mostrarErrorCerveza($error='', $nombre, $descripcion)
+    {
+      $this->smarty->assign('error', $error);
+      $this->smarty->assign('nombre', $nombre);
+      $this->smarty->assign('descripcion', $descripcion);
+      $this->smarty->display('templates/admin/agregarCerveza.tpl');
+    }
+
+    function mostrarErrorEstilo($error='', $nombre, $estilo, $alc, $descripcion)
+    {
+      $this->smarty->assign('error', $error);
+      $this->smarty->assign('nombre', $nombre);
+      $this->smarty->assign('estilo', $estilo);
+      $this->smarty->assign('alc', $alc);
+      $this->smarty->assign('descripcion', $descripcion);
       $this->smarty->display('templates/admin/agregarEstilo.tpl');
     }
   }

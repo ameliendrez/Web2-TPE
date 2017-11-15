@@ -32,17 +32,17 @@
 
     public function createEstilo()
     {
-      $nombre = $_POST['nombre'];
-      $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
+      $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "" ;
+      $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
 
-      if(isset($_POST['nombre']) && !empty($_POST['nombre'])){
+      if(!empty($_POST['nombre']) && !empty($_POST['descripcion'])) {
 
           $this->styleModel->guardarEstilo($nombre, $descripcion);
           header('Location: '. HOME . 'mostrarEstilo');
       }
-      // else {
-      //   $this->view->errorCrearEstilo("El campo nombre es requerido", $nombre, $descripcion);
-      // }
+       else {
+         $this->view->mostrarErrorEstilo("Todos los campos deben estar completos", $nombre, $descripcion);
+       }
     }
 
     public function destroyEstilo($params)
@@ -60,21 +60,21 @@
 
     public function createCerveza()
     {
-      $nombre = $_POST['nombre'];
+      $nombre = isset($_POST['nombre']) ? $_POST['nombre']: "";
       $estilo = isset($_POST['estilo']) ? $_POST['estilo']: "";
-      $alc = isset($_POST['alc']) ? $_POST['alc']: 1;
+      $alc = isset($_POST['alc']) ? $_POST['alc']: "";
       $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
       $imagenes = $_FILES['imagenes'];
 
-      if(isset($_POST['nombre']) && !empty($_POST['nombre'])) {
+      if (!empty($_POST['nombre']) && !empty($_POST['estilo']) && !empty($_POST['alc']) && !empty($_POST['descripcion'])) {
 
           $this->model->guardarCerveza($nombre, $estilo, $alc, $descripcion, $imagenes);
 
           header('Location: '. HOME . 'adminList');
       }
-      // else {
-      //   $this->view->errorCrear("El campo nombre es requerido", $nombre, $estilo, $alc, $descripcion);
-      // }
+       else {
+         $this->view->mostrarErrorCerveza("Todos los campos deben estar completos", $nombre, $estilo, $alc, $descripcion);
+       }
     }
 
     public function eliminarCerveza($params)

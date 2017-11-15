@@ -15,11 +15,11 @@
         <form action="guardarEstilo" method="post">
           <div class="form-group">
             <label for="nombre">Nombre del Estilo</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la cerveza" required>
           </div>
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
-            <textarea id="descripcion" name="descripcion" rows="8" cols="92" placeholder="Descripcion"></textarea>
+            <textarea id="descripcion" name="descripcion" rows="8" cols="92" placeholder="Descripcion" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Crear</button>
         </form>
