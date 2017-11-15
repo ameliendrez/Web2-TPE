@@ -46,10 +46,9 @@
       $id_cerveza = $cerveza[':id'];
       $cerveza = $this->model->getCerveza($id_cerveza);
       $imagenes = $this->model->getImagenes($id_cerveza);
-      $puntaje = $this->puntajeModel->getPromedio($id_cerveza);
       $session = $this->setSession();
       $id_user = $this->getIdUsuario();
-      $this->view->obtenerCerveza($cerveza, $imagenes, $session, $id_user, $puntaje);
+      $this->view->obtenerCerveza($cerveza, $imagenes, $session, $id_user);
     }
 
     public function obtenerCervezas()

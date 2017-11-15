@@ -5,9 +5,13 @@ $(document).ready(function() {
   let id_cerveza;
   let id_usuario;
   let templateComentario;
+  let templateSinComentario;
   let puntaje;
   $.ajax({ url: 'js/templates/comentarios.mst'})
     .done( template => templateComentario = template);
+  $.ajax({ url: 'js/templates/sinComentarios.mst'})
+    .done( template => templateSinComentario = template);
+
 
   function mostrarContenido(data, textStatus, jqXHR) {
     $(".contenedor").html(data);
@@ -129,15 +133,14 @@ $(document).ready(function() {
     function cargarComentarios() {
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
-          console.log(comentarios);
           $('#comentarios li').remove();
-
           let rendered = Mustache.render(templateComentario, comentarios);  //El foreach no es necesario ya que comentarios es un arreglo
           $('#comentarios').append(rendered);
           })
         .fail(function() {
          $('#comentarios li').remove();
-         $('#comentarios').append('<li>No hay comentarios disponibles para esta cerveza</li>');
+         console.log(templateSinComentario);
+         $('#comentarios').append(templateSinComentario);
          });
      }
 

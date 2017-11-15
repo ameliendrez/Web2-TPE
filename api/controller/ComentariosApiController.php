@@ -38,6 +38,7 @@
 
      //ACA HAY QUE CONTROLAR QUE LO HAGA CORRECTAMENTE
      $puntaje = $this->modelPuntuacion->getPromedio($id_cerveza);
+     $puntaje = round($puntaje, 1);
 
      if($comentarios) {
        $response = new stdClass();
