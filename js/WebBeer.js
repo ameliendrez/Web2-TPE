@@ -81,8 +81,26 @@ $(document).ready(function() {
   function filtrar(data, textStatus, jqXHR) {
     $(".table-responsive").html(data);
     cargarComentarios();
+
+    $("#rateYo").rateYo({
+      maxValue: 5,
+      numStars: 5,
+      //rating: 3, Aca debo insertar la valoracion que se genera
+      starWidth: "40px"
+    });
+
+    let $rateYo = $("#rateYo").rateYo();
+
+
+
     $('#crearComentario').click(function(event) {
        event.preventDefault();
+
+       // let rating = $rateYo.rateYo("rating");
+       // console.log("El puntaje es " + rating);
+       //En estas lineas obtengo el puntaje actual
+
+
        crearComentario();
        setTimeout(function() {
          cargarComentarios();
@@ -176,5 +194,4 @@ $(document).ready(function() {
         function limpiarFormulario() {
           $('textarea').val('')
         }
-
 });
