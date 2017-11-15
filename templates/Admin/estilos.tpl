@@ -6,7 +6,7 @@
   <a href="nuevoEstilo">Agregar Estilo</a> |
   <a href="adminList">Ver Lista de Cervezas</a> |
   <a href="mostrarUsuario">Ver lista de usuarios</a> |
-  <a href="">Volver a vista de Usuario</a>
+  <a href="">Volver a pagina de inicio</a>
 
 
   {include file="obtenerEstilosHeader.tpl"}

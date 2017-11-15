@@ -5,7 +5,7 @@
 
   <a href="mostrarEstilo">Ver Lista de Estilos</a> |
   <a href="adminList">Ver Lista de Cervezas</a> |
-  <a href="">Volver a vista de Usuario</a>
+  <a href="">Volver a pagina de inicio</a>
 
 
   <div class="table-responsive">

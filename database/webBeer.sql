@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2017 a las 19:43:47
+-- Tiempo de generación: 15-11-2017 a las 20:47:57
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -45,7 +45,7 @@ INSERT INTO `cerveza` (`id_cerveza`, `id_estilo`, `nombre_cerveza`, `alc`, `desc
 (4, 4, 'Imperial Stout', 9, 'Es una variante del estilo Stout que se caracteriza por tener una mayor cantidad de alcohol por volumen y una mayor concentración de lúpulo y/o malta.'),
 (5, 2, 'American Lite', 9, 'Es una cerveza muy refrescante y con una caracteristicas diferenciadora de saciadora de la sed, careciendo de sabores fuertes.'),
 (6, 1, 'Scotch Ale', 8, 'Sabrosa, maltosa y usualmente dulce, lo cual puede sugerir un postre. Los sabores complejos secundarios previenen una impresion unidimensional. La fuerza y la maltosidad pueden variar.'),
-(7, 1, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
+(7, 3, 'Weizenbier', 7, 'Aroma afrutado, a plátano, con acabado a levadura. Poco amarga, ligeramente ácida y muy refrescante. ');
 
 -- --------------------------------------------------------
 
@@ -59,18 +59,6 @@ CREATE TABLE `comentarioscerveza` (
   `id_cerveza` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `comentarioscerveza`
---
-
-INSERT INTO `comentarioscerveza` (`id_comentario`, `comentario`, `id_cerveza`, `id_usuario`) VALUES
-(34, 'buena cerveza', 3, 1),
-(46, 'Excelente birra', 5, 1),
-(48, 'Excelente cerveza\n', 4, 1),
-(61, 'La mejor birra del mundo!!!', 4, 1),
-(62, 'Excelente Birra!!! La mejor!!!', 7, 1),
-(65, 'Ahora si!! la mejor birra!!!!!', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -142,11 +130,7 @@ CREATE TABLE `loginusuario` (
 
 INSERT INTO `loginusuario` (`id_usuario`, `usuario`, `password`, `nombre`, `apellido`, `esAdmin`) VALUES
 (1, 'ameliendrez', '$2y$10$khMVNrxI/4hXw/6SotjuUeMI9z6fhectVye2djPIWfEGQpw.nNPO2', 'agustin', 'meliendrez', 1),
-(3, 'santirampoldi', '$2y$10$t7LOzSkfb.hvUPvaVZYRruClD0m4xufe/rb2VNt56A1vd6TlI1/o2', 'santiago', 'rampoldi', 1),
-(4, 'santirampoldi@hotmail.com', '$2y$10$8XpR2hf3zG24JF.3yIvsMeKy.sf5BJYC/judVUoxjh85FPFy4NCXS', 'probando', 'user', 0),
-(5, 'gg@gg.com', '$2y$10$Ob1OsC0m1nfrKcym.eDPRu64X52BbBE861Lt21IquWQ2.B2Mxjmzm', 'gg', 'gg', 0),
-(6, 'ga@js.com', '$2y$10$bX1GXX4PaX2v/vphLQ5yj.IIyXN871kkBszbo8oTGzqnTQfg9/0Ui', 'aaa', 'aaaa', 0),
-(7, 'aaa@aa.com', '$2y$10$xSxOEsORz0lxMqLBNuh1COC1AbYS56A9rga/dIyOxCsuEiqB.uwE.', 'aaa', 'aa', 0);
+(3, 'santirampoldi', '$2y$10$t7LOzSkfb.hvUPvaVZYRruClD0m4xufe/rb2VNt56A1vd6TlI1/o2', 'santiago', 'rampoldi', 1);
 
 -- --------------------------------------------------------
 
@@ -159,23 +143,6 @@ CREATE TABLE `puntajecerveza` (
   `id_cerveza` int(11) NOT NULL,
   `puntaje` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `puntajecerveza`
---
-
-INSERT INTO `puntajecerveza` (`id_puntaje`, `id_cerveza`, `puntaje`) VALUES
-(1, 4, 5),
-(2, 3, 4),
-(3, 4, 5),
-(4, 4, 2),
-(5, 3, 2),
-(6, 5, 5),
-(7, 4, 1),
-(8, 7, 3),
-(9, 7, 4),
-(10, 7, 2),
-(11, 3, 2);
 
 --
 -- Índices para tablas volcadas
@@ -230,7 +197,7 @@ ALTER TABLE `puntajecerveza`
 -- AUTO_INCREMENT de la tabla `cerveza`
 --
 ALTER TABLE `cerveza`
-  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cerveza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `comentarioscerveza`
 --
@@ -245,12 +212,12 @@ ALTER TABLE `estilocerveza`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `loginusuario`
 --
 ALTER TABLE `loginusuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `puntajecerveza`
 --

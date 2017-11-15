@@ -1,5 +1,10 @@
 {include file="header.tpl"}
 
+<a href="adminList">Volver a Lista de Cervezas</a> |
+<a href="mostrarEstilo">Ver Lista de Estilos</a> |
+<a href="mostrarUsuario">Ver lista de usuarios</a> |
+<a href="">Volver a pagina de inicio</a>
+
 <table class="table">
   <tr>
     <td>Nombre de estilo</td>
@@ -19,7 +24,7 @@
     {if isset($error)}
       <div class="alert alert-danger" role="alert">{$error}</div>
     {else}
-    
+
       {foreach from = $imagenes item = imagen}
 
       <tr>
