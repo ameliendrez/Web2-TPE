@@ -1,13 +1,15 @@
 <?php
 
- require_once('model/ComentariosModel.php');
- require_once('model/PuntuacionCervezaModel.php');
- require_once('Api.php');
+ require_once 'model/ComentariosModel.php';
+ require_once 'model/PuntuacionCervezaModel.php';
+ require_once 'Api.php';
+ //require_once 'libs/recaptchalib.php';
 
 
  class ComentariosApiController extends Api
  {
    protected $modelPuntuacion;
+   // private $secret = "6Ley3TgUAAAAALPxyDyCgYihMJXoQ0r_zNou7F2h";
 
 
    function __construct()
@@ -88,7 +90,31 @@
        $comentario = $body->comentario;
        $id_cerveza = $body->id_cerveza;
        $id_usuario = $body->id_usuario;
-       $puntaje = $body->puntaje;
+       // $captcha = $body->capcha;
+       //
+       // $capcha = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . RECAPTCHA_SECRET . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']));
+       // if($captcha->success == false)
+       // {
+       //     print_r(json_encode(array('status' => 'error', 'message' => 'No valid Captcha')));
+       // }
+       // else{
+       //
+       // }     $capcha = $body->capcha;
+
+       // $response = null;
+       // $reCaptcha = new ReCaptcha($secret);
+       // if ($_POST["g-recaptcha-response"]) {
+       //      $response = $reCaptcha->verifyResponse(
+       //          $_SERVER["REMOTE_ADDR"],
+       //          $_POST["g-recaptcha-response"]
+       //      );
+       // //  }
+       // if ($response != null && $response->success) {
+       //    echo "Hi " . $_POST["name"] . " (" . $_POST["email"] . "), thanks for submitting the form!";
+       //  } else {
+
+
+
        $puntuacion = $this->modelPuntuacion->setPuntuacion($id_cerveza,$puntaje);
        $data = $this->model->crearComentario($comentario, $id_cerveza, $id_usuario);
        return $this->json_response($data, 200);

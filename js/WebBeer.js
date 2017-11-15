@@ -133,6 +133,7 @@ $(document).ready(function() {
     function cargarComentarios() {
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
+          console.log(comentarios);
           $('#comentarios li').remove();
           let rendered = Mustache.render(templateComentario, comentarios);  //El foreach no es necesario ya que comentarios es un arreglo
           $('#comentarios').append(rendered);
@@ -151,6 +152,7 @@ $(document).ready(function() {
         "id_cerveza": id_cerveza,
         "id_usuario": id_usuario,
         "puntaje": puntaje
+        // "capcha":grecaptcha.getResponse()
       };
 
       $.ajax({
