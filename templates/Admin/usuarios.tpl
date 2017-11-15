@@ -4,7 +4,9 @@
   </div>
 
   <a href="mostrarEstilo">Ver Lista de Estilos</a> |
-  <a href="adminList">Ver Lista de Cervezas</a>
+  <a href="adminList">Ver Lista de Cervezas</a> |
+  <a href="">Volver a vista de Usuario</a>
+
 
   <div class="table-responsive">
     <table class="table">

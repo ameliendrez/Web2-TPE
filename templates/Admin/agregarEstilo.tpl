@@ -3,7 +3,9 @@
   </div>
     <a href="mostrarEstilo">Volver a Lista de Estilos</a> |
     <a href="adminList">Ver Lista de Cervezas</a> |
-    <a href="mostrarUsuario">Ver lista de usuarios</a>
+    <a href="mostrarUsuario">Ver lista de usuarios</a> |
+    <a href="">Volver a vista de Usuario</a>
+
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">

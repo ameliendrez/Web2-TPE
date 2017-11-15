@@ -5,7 +5,9 @@
 
   <a href="nuevaCerveza">Agregar Cerveza</a> |
   <a href="mostrarEstilo">Ver Lista de Estilos</a> |
-  <a href="mostrarUsuario">Ver lista de usuarios</a>
+  <a href="mostrarUsuario">Ver lista de usuarios</a> |
+  <a href="">Volver a vista de Usuario</a>
+
 
   <div class="table-responsive">
     <table class="table">

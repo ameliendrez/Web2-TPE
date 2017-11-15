@@ -16,5 +16,11 @@
     {
     return $this->smarty->display('templates/Login/logincrear.tpl');
     }
+
+    function mostrarErrorCrear($error='')
+    {
+      $this->smarty->assign('error', $error);
+      return $this->smarty->display('templates/Login/logincrear.tpl');
+    }
   }
 ?>

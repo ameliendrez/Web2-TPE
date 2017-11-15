@@ -65,7 +65,6 @@
     {
       $this->smarty->assign('error', $error);
       $this->smarty->assign('cerveza', $cerveza);
-      return $this->smarty->display('templates/Admin/imagenesCerveza.tpl');
       $this->smarty->display('templates/admin/agregarEstilo.tpl');
     }
   }

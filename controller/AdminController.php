@@ -41,7 +41,7 @@
           header('Location: '. HOME . 'mostrarEstilo');
       }
       // else {
-      //   $this->view->errorCrear("El campo nombre es requerido", $nombre, $descripcion);
+      //   $this->view->errorCrearEstilo("El campo nombre es requerido", $nombre, $descripcion);
       // }
     }
 
