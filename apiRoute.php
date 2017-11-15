@@ -10,7 +10,6 @@
  $router = new Router();
  //(url, verb, controller, method)
 
- $router->AddRoute("cervezas", "GET", "ComentariosApiController", "getAllComentarios");
  $router->AddRoute("cervezas/:idCerveza", "GET", "ComentariosApiController", "getComentariosByCerveza");
  $router->AddRoute("cervezas/:idComentario", "DELETE", "ComentariosApiController", "borrarComentario");
  $router->AddRoute("cervezas", "POST", "ComentariosApiController", "crearComentario");

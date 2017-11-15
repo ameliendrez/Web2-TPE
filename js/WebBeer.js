@@ -133,7 +133,6 @@ $(document).ready(function() {
     function cargarComentarios() {
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
-          console.log(comentarios);
           $('#comentarios li').remove();
           let rendered = Mustache.render(templateComentario, comentarios);  //El foreach no es necesario ya que comentarios es un arreglo
           $('#comentarios').append(rendered);
@@ -163,11 +162,10 @@ $(document).ready(function() {
          .done(function(data) {
 
           let rendered = Mustache.render(templateComentario, data);
-          $('#comentarios').append(rendered);
           limpiarFormulario();
          })
         .fail(function(data) {
-             alert('Imposible crear el comentario');
+             console.log('Imposible crear el comentario');
              limpiarFormulario();
         });
      }
@@ -175,13 +173,14 @@ $(document).ready(function() {
      function borrarComentario(idComentario) {
        $.ajax({
           method: "DELETE",
-          url: "api/cervezas/" + idComentario
+          url: "api/cervezas/"+idComentario
           })
-          .done(function() {
+          .done(function(data) {
+            console.log(data);
              cargarComentarios();
           })
           .fail(function() {
-              alert('Error al borrar el comentario');
+              console.log('Error al borrar el comentario');
           });
         }
 

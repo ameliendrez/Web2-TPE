@@ -4,6 +4,5 @@
   RewriteCond %{REQUEST_FILENAME} -l
   RewriteRule ^[css|img|js].*$ - [L]
 	RewriteRule ^api(.*)$ apiRoute.php?resource=$1 [QSA,L]
-	RewriteRule ^api/(.*)$ route.php?resource=$1 [QSA,L]
   RewriteRule ^(.*)$ route.php?action=$1 [QSA,L]
 </IfModule>

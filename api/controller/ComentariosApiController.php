@@ -90,6 +90,7 @@
        $comentario = $body->comentario;
        $id_cerveza = $body->id_cerveza;
        $id_usuario = $body->id_usuario;
+       $puntaje = $body->puntaje;
        // $captcha = $body->capcha;
        //
        // $capcha = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . RECAPTCHA_SECRET . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']));
