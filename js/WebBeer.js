@@ -85,7 +85,9 @@ $(document).ready(function() {
 
   function filtrar(data, textStatus, jqXHR) {
     $(".table-responsive").html(data);
-    cargarComentarios();
+    setInterval(function() {
+      cargarComentarios();
+    }, 2000);
 
     $('.ratings').rating(function(vote , evento) {
       puntaje = vote;
@@ -95,9 +97,7 @@ $(document).ready(function() {
        event.preventDefault();
 
        crearComentario();
-       setTimeout(function() {
-         cargarComentarios();
-       }, 2000);
+
    });
    $('body').on('click', 'a.borrar', function() {
     event.preventDefault();
@@ -139,7 +139,6 @@ $(document).ready(function() {
           })
         .fail(function() {
          $('#comentarios li').remove();
-         console.log(templateSinComentario);
          $('#comentarios').append(templateSinComentario);
          });
      }
