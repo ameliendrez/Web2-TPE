@@ -89,8 +89,9 @@ $(document).ready(function() {
   function filtrar(data, textStatus, jqXHR) {
     $(".table-responsive").html(data);
     let session = $("#session").attr("val");
+    let admin = $("#admin").attr("val");
     setInterval(function() {
-      cargarComentarios(session);
+      cargarComentarios(session, admin);
     }, 2000);
 
     $('.ratings').rating(function(vote , evento) {
@@ -134,17 +135,17 @@ $(document).ready(function() {
     });
   }
 
-    function cargarComentarios(session) {
+    function cargarComentarios(session, admin) {
 
       $.ajax("api/cervezas/" + id_cerveza)
         .done(function(comentarios) {
           $('#comentarios li').remove();
           let rendered;
-          if(session === "out") {
+          if((session === "out") && (admin === "esAdmin")) {
             rendered = Mustache.render(templateComentarioAdmin, comentarios);
           }
           else{
-            rendered = Mustache.render(templateComentario, comentarios); 
+            rendered = Mustache.render(templateComentario, comentarios);
           }
           $('#comentarios').append(rendered);
           })

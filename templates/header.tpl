@@ -19,7 +19,7 @@
           <small>LA MEJOR CERVEZA ARTEZANAL DE TANDIL
             <a href="log{{$session}}"><span class="glyphicon glyphicon-log-{{$session}}" id="session" val="{{$session}}" aria-hidden="true"></span></a>
             {if {$userAdmin} eq 'esAdmin'}
-            <a href="adminList">Admin</a>
+            <a id="admin" val="{$userAdmin}" href="adminList">Admin</a>
             {/if}
           </small>
         </h1>
